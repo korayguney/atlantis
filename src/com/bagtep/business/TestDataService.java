@@ -1,4 +1,4 @@
-package com.bagtep.domain;
+package com.bagtep.business;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,6 +8,11 @@ import java.io.InputStreamReader;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import com.bagtep.domain.Ders;
+import com.bagtep.domain.GenelAmac;
+import com.bagtep.domain.Kazanim;
+import com.bagtep.domain.OzelAmac;
 
 @Stateless
 public class TestDataService {

@@ -4,8 +4,8 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 
+import com.bagtep.business.TestDataService;
 import com.bagtep.domain.GenelAmac;
-import com.bagtep.domain.TestDataService;
 
 @ManagedBean
 public class TestBean {

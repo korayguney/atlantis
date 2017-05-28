@@ -5,7 +5,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
-import com.bagtep.domain.TestDataService;
+import com.bagtep.business.TestDataService;
 
 /**
  * Application Lifecycle Listener implementation class AtlantisListener
