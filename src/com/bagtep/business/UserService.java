@@ -93,18 +93,20 @@ public class UserService {
 
 	public User getUser(int userId) {
 		User user = entityManager.find(User.class, userId);
-		for(Course c : user.getCourses())
+	/*	for(Course c : user.getCourses())
 		{
 			
 		}
-		return user;
+		*/
+		return user; 
 	}
 
 	public void updateUserWithEdit(User user) {
 		entityManager.merge(user);
 		
 	}
-
+   
+	/*
 	public void addCourseToUser(int selectedStuId, int selectedCourseId) {
 		User selectedUser = entityManager.find(User.class, selectedStuId);
 		Course selectedCourse = entityManager.find(Course.class, selectedCourseId);
@@ -115,6 +117,7 @@ public class UserService {
 		entityManager.merge(selectedCourse);
 		
 	}
+	*/
 
 	@SuppressWarnings("null")
 	public User getUserInSession() {

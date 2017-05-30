@@ -5,14 +5,14 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
-<head>
+<h:head>
 <title>BAGTEP || Bireysel Akademik Gelişimi Takip Etme Programı</title>
 <meta charset="utf-8"></meta>
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
 		<link href="layout/styles/layout.css" rel="stylesheet" type="text/css"
 			media="all" ></link>
-</head>
+</h:head>
 <body id="top">
 	
 	<div class="wrapper row0">
@@ -46,10 +46,10 @@
 			
 			<footer>
 			<ul class="nospace inline pushright">
-			<h:form>
-			<li><input class="btmspace-15" type="text" value="#{loginBean.username}" placeholder="kullanıcı adı" /></li><br/>
-            <li><input class="btmspace-15" type="password" value="#{loginBean.password}" placeholder="şifre" /></li><br/>
-				<li><h:button class="btn inverse" action="#{loginBean.login()}" value="GİRİŞ"  ajax="false"/></li>
+				<h:form>
+		            <li><p:inputText value="#{loginBean.username}" placeholder="kullanıcı adı"/></li><br/><br/>
+		            <li><p:password value="#{loginBean.password}" placeholder="şifre"/></li><br/><br/>
+		        	<li><h:button class="btn inverse" action="#{loginBean.login()}" value="GİRİŞ"  ajax="false"/></li>
 				</h:form>
 			</ul>
 			</footer> </article>
@@ -62,7 +62,7 @@
 			
 			<p class="fl_left">Copyright &copy; 2017 - Tüm Hakları Saklıdır.</p>
 			<p class="fl_right">
-				Program coded by<b><a class="btn inverse" href="atlantis.xhtml">AtLAnTiS TeaM</a></b>
+				Program coded by <b><a class="btn inverse" href="atlantis.xhtml">AtLAnTiS TeaM</a></b>
 			</p>
 			
 		</div>
