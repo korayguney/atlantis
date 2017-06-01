@@ -68,7 +68,7 @@ public class UserListBean {
 	 	 
 	 public void onRowEdit(RowEditEvent event) {
          User user = (User) event.getObject();
-         userService.updateUserWithEdit(user);
+        // userService.updateUserWithEdit(user);
          FacesContext.getCurrentInstance().addMessage(null, 
         		 new FacesMessage(user.getFirstname()+" düzenlendi"));
     }

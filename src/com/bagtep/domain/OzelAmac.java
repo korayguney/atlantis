@@ -52,6 +52,11 @@ public class OzelAmac {
 	public void setIcerik(String icerik) {
 		this.icerik = icerik;
 	}
+	@Override
+	public String toString() {
+		return "OzelAmac [id=" + id + ", kazanimlar=" + kazanimlar + ", genelAmac=" + genelAmac + ", icerik=" + icerik
+				+ "]";
+	}
 	
 	
 	

@@ -5,12 +5,6 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
-import org.apache.taglibs.standard.lang.jstl.BooleanLiteral;
-import org.primefaces.component.password.Password;
-
-import com.bagtep.utils.Utilities;
 
 import com.bagtep.domain.User;
 import com.bagtep.exceptions.UsernameExistsException;
@@ -18,6 +12,7 @@ import com.bagtep.exceptions.UsernameExistsException;
 import com.bagtep.mbeans.MySessionScopedBean;
 
 @Stateless
+
 public class UserService {
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -28,16 +23,17 @@ public class UserService {
 		if (users != null && users.size() > 0){
 			throw new UsernameExistsException();
 		}	
-		newUser.hashPassword();
+		//newUser.hashPassword();
 		entityManager.persist(newUser);
 	}
 	
 	public boolean checkUser(String username, String password){
-		
+
 		List<User> users = entityManager.createQuery("select u from User u where u.username=:username",User.class).setParameter("username", username).getResultList();
 		if(users != null && users.size() == 1){
 			String passw = users.get(0).getPassword();
-			password = Utilities.hashPassword(password);
+			System.out.println(password+"password from user");
+			//password = Utilities.hashPassword(password);
 			if(passw.equals(password)){
 				return true;
 			}		
@@ -90,21 +86,21 @@ public class UserService {
 		
 		return entityManager.createQuery("select u from User u where role = 'Student' or role = 'Instructor' ",User.class).getResultList();
 	}
-
+/*
 	public User getUser(int userId) {
 		User user = entityManager.find(User.class, userId);
-	/*	for(Course c : user.getCourses())
+		for(Course c : user.getCourses())
 		{
 			
 		}
-		*/
+		
 		return user; 
 	}
-
 	public void updateUserWithEdit(User user) {
 		entityManager.merge(user);
 		
 	}
+/*
    
 	/*
 	public void addCourseToUser(int selectedStuId, int selectedCourseId) {
@@ -116,8 +112,8 @@ public class UserService {
 		entityManager.merge(selectedUser);
 		entityManager.merge(selectedCourse);
 		
-	}
-	*/
+	}*/
+	
 
 	@SuppressWarnings("null")
 	public User getUserInSession() {

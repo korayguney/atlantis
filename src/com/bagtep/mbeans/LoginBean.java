@@ -44,12 +44,11 @@ public class LoginBean {
 			int id = userService.getId(username);
 			mySessionScopedBean.setId(id);
 
-			return "admin-main";
+			return "adminanasayfa";
 		} else {
 			FacesContext.getCurrentInstance().
 			addMessage(null,new FacesMessage("Yanlış Parola!"));
-		
-			return "index";
+			return "adminanasayfa";
 		}
 	}
 	public String logout() {
@@ -80,7 +79,13 @@ public class LoginBean {
 	public void setText(String text) {
 		this.text = text;
 	}
-
+	
+	public UserService getUserService() {
+		return userService;
+	}
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
 	public MySessionScopedBean getMySessionScopedBean() {
 		return mySessionScopedBean;
 	}

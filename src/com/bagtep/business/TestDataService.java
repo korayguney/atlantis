@@ -1,7 +1,6 @@
 package com.bagtep.business;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -13,6 +12,8 @@ import com.bagtep.domain.Ders;
 import com.bagtep.domain.GenelAmac;
 import com.bagtep.domain.Kazanim;
 import com.bagtep.domain.OzelAmac;
+import com.bagtep.domain.User;
+import com.bagtep.utils.Utilities;
 
 @Stateless
 public class TestDataService {
@@ -27,11 +28,14 @@ public class TestDataService {
 			GenelAmac genelAmac = null;
 			OzelAmac ozelAmac = null;
 			Kazanim kazanim = null;
+			User u = new User("aaa", "aaa", "aaa", "aaa", "Admin");
+			u.setPassword(Utilities.hashPassword(u.getPassword()));
 			try {
 				InputStream in = getClass().getResourceAsStream("/com/bagtep/domain/testdata/matematik.txt");
 				BufferedReader rd = new BufferedReader(new InputStreamReader(in, "utf-8"));
 				Ders matematik = new Ders("Matematik");
 				entityManager.persist(matematik);
+				entityManager.persist(u);
 				while (true) {
 					String line = rd.readLine();
 					if (line == null)
