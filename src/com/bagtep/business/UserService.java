@@ -10,6 +10,7 @@ import com.bagtep.domain.User;
 import com.bagtep.exceptions.UsernameExistsException;
 
 import com.bagtep.mbeans.MySessionScopedBean;
+import com.bagtep.utils.Utilities;
 
 @Stateless
 
@@ -32,12 +33,14 @@ public class UserService {
 		List<User> users = entityManager.createQuery("select u from User u where u.username=:username",User.class).setParameter("username", username).getResultList();
 		if(users != null && users.size() == 1){
 			String passw = users.get(0).getPassword();
-			System.out.println(password+"password from user");
-			//password = Utilities.hashPassword(password);
+			
+			password = Utilities.hashPassword(password);
 			if(passw.equals(password)){
+				System.out.println("SERVICE KULLANILDI !!!");
 				return true;
 			}		
 		}
+		System.out.println("SERVICE KULLANILMADI !!!");
 		return false;
 	}
 

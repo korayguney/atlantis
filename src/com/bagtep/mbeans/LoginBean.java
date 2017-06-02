@@ -43,12 +43,14 @@ public class LoginBean {
 			
 			int id = userService.getId(username);
 			mySessionScopedBean.setId(id);
-
-			return "adminanasayfa";
+			
+			System.out.println("BEAN'DEN GEÇTİ !!!");
+			return "users/admin/adminanasayfa";
 		} else {
 			FacesContext.getCurrentInstance().
 			addMessage(null,new FacesMessage("Yanlış Parola!"));
-			return "adminanasayfa";
+			System.out.println("BEAN'DE TAKILDI !!!");
+			return "index";
 		}
 	}
 	public String logout() {

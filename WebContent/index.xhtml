@@ -50,7 +50,8 @@
 				<h:form>
 		            <li><p:inputText value="#{loginBean.username}" placeholder="kullanıcı adı"/></li><br/><br/>
 		            <li><p:password value="#{loginBean.password}" placeholder="şifre"/></li><br/><br/>
-		        	<li><h:button class="btn inverse" action="#{loginBean.login()}" value="GİRİŞ"  ajax="false"/></li>
+		            <li><p:commandButton action="#{loginBean.login()}" value="GİRİŞ" styleClass="btn inverse" ajax="false"/></li>
+		        	   	<p:growl></p:growl>
 				</h:form>
 			</ul>
 			</footer> </article>
