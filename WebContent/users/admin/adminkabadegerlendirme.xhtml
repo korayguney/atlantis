@@ -13,6 +13,29 @@
             <h:panelGrid cellpadding="10">
                
                <p:dataList value="#{testBean.genelAmac.ozelAmaclar}" var="ozelAmac">
+					Özel #{ozelAmac.icerik}
+					<p:dataList value="#{ozelAmac.kazanimlar}" var="kaz">
+						Kazanım #{kaz.icerik}	
+						 <p:selectOneRadio>
+				        <f:selectItem itemLabel="Evet" itemValue="1" />&nbsp;
+				        <f:selectItem itemLabel="Hayır
+				        
+				        " itemValue="2" />
+				        
+				    </p:selectOneRadio>
+					</p:dataList>
+				
+				</p:dataList>
+				
+            </h:panelGrid>
+        </p:tab>
+    </p:accordionPanel>
+    
+    <p:accordionPanel>
+        <p:tab title="Genel amaç : #{testBean.genelAmac2.icerik}">
+            <h:panelGrid cellpadding="10">
+               
+               <p:dataList value="#{testBean.genelAmac2.ozelAmaclar}" var="ozelAmac">
 					#{ozelAmac.icerik}
 					<p:dataList value="#{ozelAmac.kazanimlar}" var="kaz">
 						#{kaz.icerik}	
@@ -31,6 +54,28 @@
         </p:tab>
     </p:accordionPanel>
 
+ 	<p:accordionPanel>
+        <p:tab title="Genel amaç : #{testBean.genelAmac3.icerik}">
+            <h:panelGrid cellpadding="10">
+               
+               <p:dataList value="#{testBean.genelAmac3.ozelAmaclar}" var="ozelAmac">
+					#{ozelAmac.icerik}
+					<p:dataList value="#{ozelAmac.kazanimlar}" var="kaz">
+						#{kaz.icerik}	
+						 <p:selectOneRadio>
+				        <f:selectItem itemLabel="1" itemValue="1" />&nbsp;
+				        <f:selectItem itemLabel="2" itemValue="2" />&nbsp;
+				        <f:selectItem itemLabel="3" itemValue="3" />&nbsp;
+				        <f:selectItem itemLabel="4" itemValue="4" />&nbsp;
+				        <f:selectItem itemLabel="5" itemValue="5" />
+				    </p:selectOneRadio>
+					</p:dataList>
+				
+				</p:dataList>
+				
+            </h:panelGrid>
+        </p:tab>
+    </p:accordionPanel>
 				
 	</ui:define>
 </ui:composition>

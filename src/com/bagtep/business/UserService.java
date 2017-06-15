@@ -24,7 +24,7 @@ public class UserService {
 		if (users != null && users.size() > 0){
 			throw new UsernameExistsException();
 		}	
-		//newUser.hashPassword();
+		newUser.hashPassword();
 		entityManager.persist(newUser);
 	}
 	

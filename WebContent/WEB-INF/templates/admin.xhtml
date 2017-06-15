@@ -97,7 +97,7 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Ayarlar</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i>Çıkış</a>
+                    <li><a href="#{request.contextPath}/index.xhtml?#{mySessionScopedBean.username}=='' "><i class="fa fa-sign-out fa-fw"></i>Çıkış</a>
                     </li>
                 </ul>
             </li>
@@ -128,7 +128,7 @@
                                 <a href="#"><i class="fa fa-group fa-fw"></i> Kullanıcı İşlemleri <span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="adminkullaniciekle.xhtml"><i class="fa fa-plus fa-fw"></i> Kullanıcı Ekle</a>
+                                        <a href="#{request.contextPath}/users/admin/adminkullaniciekle.xhtml"><i class="fa fa-plus fa-fw"></i> Kullanıcı Ekle</a>
                                     </li>
                                      <li>
                                         <a href="#"><i class="fa fa-refresh fa-fw"></i> Kullanıcı Düzenle</a>
@@ -139,7 +139,7 @@
                                 <a href="#"><i class="fa fa-mortar-board fa-fw"></i> Öğrenci İşlemleri <span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#"><i class="fa fa-plus fa-fw"></i> Öğrenci Ekle</a>
+                                        <a href="#{request.contextPath}/users/admin/adminogrenciekle.xhtml"><i class="fa fa-plus fa-fw"></i> Öğrenci Ekle</a>
                                     </li>
                                      <li>
                                         <a href="#"><i class="fa fa-refresh fa-fw"></i> Öğrenci Düzenle</a>
@@ -150,7 +150,7 @@
                                 <a href="#"><i class="fa fa-book fa-fw"></i> Ders İşlemleri <span class="fa arrow"></span></a>
                                 <ul class="nav nav-third-level">
                                     <li>
-                                        <a href="#"><i class="fa fa-plus fa-fw"></i> Ders Ekle</a>
+                                        <a href="#{request.contextPath}/users/admin/admindersekle.xhtml"><i class="fa fa-plus fa-fw"></i> Ders Ekle</a>
                                     </li>
                                      <li>
                                         <a href="#"><i class="fa fa-refresh fa-fw"></i> Ders Düzenle</a>
@@ -176,11 +176,11 @@
                         <a href="#"><i class="fa fa-sliders fa-fw"></i> Değerlendirme İşlemleri<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="kabadegerlendirme.xhtml"><i class="fa fa-list-ol fa-fw"></i> Kaba Değerlendirme<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-list-ol fa-fw"></i> Kaba Değerlendirme<span class="fa arrow"></span></a>
                                 
                                  <ul class="nav nav-third-level">
 		                            <li>
-		                                <a href="#"><i class="fa fa-calendar-check-o fa-fw"></i> Değerlendirme Yap</a>
+		                                <a href="#{request.contextPath}/users/admin/adminkabadegerlendirme.xhtml"><i class="fa fa-calendar-check-o fa-fw"></i> Değerlendirme Yap</a>
 		                            </li>
 		                             <li>
 		                                <a href="#"><i class="fa fa-eye fa-fw"></i> Değerlendirme Görüntüle</a>
