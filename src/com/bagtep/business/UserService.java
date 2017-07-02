@@ -124,5 +124,9 @@ public class UserService {
 		return  entityManager.find(User.class, mysess.getId());
 	}
 
+	public void updateUser(User user) {
+		entityManager.merge(user);		
+	}
+
 
 }

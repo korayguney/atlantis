@@ -11,6 +11,8 @@ public class MySessionScopedBean {
 	private String role="";
 	private String firstname="";
 	private String lastname="";
+	private String sinif="";
+
 	
 	private int id;
 
@@ -63,6 +65,16 @@ public class MySessionScopedBean {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+
+	public String getSinif() {
+		return sinif;
+	}
+
+
+	public void setSinif(String sinif) {
+		this.sinif = sinif;
 	}
 
 	

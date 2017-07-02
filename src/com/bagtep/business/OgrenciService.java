@@ -3,6 +3,7 @@ package com.bagtep.business;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.faces.bean.ManagedProperty;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -92,6 +93,24 @@ public class OgrenciService {
 	public User getUserInSession() {
 		MySessionScopedBean mysess = null;
 		return  entityManager.find(User.class, mysess.getId());
+	}
+
+
+	public List<Ogrenci> getSelectedOgrenciForClass(String sinif) {
+		System.out.println("getSelectedOgrenciForClass  SERVICE METODUNA GİRDİ !!!");
+		String ogrencisinif = sinif;
+		List<Ogrenci> ogrenciler = entityManager.createQuery("select o from Ogrenci o where o.sinif.sinifAd=:sinif",Ogrenci.class).setParameter("sinif", sinif).getResultList();		
+		return ogrenciler;
+	}
+
+
+	public void updateOgrenci(Ogrenci ogrenci) {
+		entityManager.merge(ogrenci);
+	}
+
+
+	public void addNewOgrenci(Ogrenci newOgrenci) {
+		entityManager.persist(newOgrenci);		
 	}
 
 

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	
+<ui:composition template="/WEB-INF/templates/admin.xhtml">
+	<ui:define name="pageContent">
+
+	<h2 align="center">Öğrenci Düzenleme Sayfası</h2>
+		
+	<h:form id="tableForm">
+		<p:dataTable id="dtable" value="#{ogrenciDuzenleBean.ogrenciler}" var="ogrenci"
+			editable="true">
+			  <p:ajax event="rowEdit" listener="#{ogrenciDuzenleBean.onRowEdit}"
+			   update="dtable :growl" />
+			
+			<p:column headerText="Öğrenci adı">
+				<p:cellEditor>
+					<f:facet name="output">
+						#{ogrenci.ad}
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{ogrenci.ad}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Öğrenci Soyadı">
+				<p:cellEditor>
+					<f:facet name="output">
+						#{ogrenci.soyad}
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{ogrenci.soyad}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Veli Adı">
+				<p:cellEditor>
+					<f:facet name="output">
+						#{ogrenci.veliad}
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{ogrenci.veliad}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Veli Soyadı">
+				<p:cellEditor>
+					<f:facet name="output">
+						#{ogrenci.velisoyad}
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{ogrenci.velisoyad}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Düzenle">
+				<p:rowEditor />
+			</p:column>
+			
+			<p:column headerText="Sil">
+				<p:commandButton value="Sil" action="#{ogrenciDuzenleBean.deleteOgrenci(ogrenci.id)}"
+				update="dtable"/>
+			</p:column>
+		</p:dataTable>
+
+	</h:form>
+	<p:growl id="growl"></p:growl>
+
+	</ui:define>
+</ui:composition>
+
+</html>

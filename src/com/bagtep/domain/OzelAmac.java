@@ -17,9 +17,11 @@ public class OzelAmac {
 	
 	@OneToMany(mappedBy="ozelAmac")
 	private List<Kazanim> kazanimlar;
+	
 	@ManyToOne
 	private GenelAmac genelAmac;
 	private String icerik;
+	
 	public OzelAmac(GenelAmac genelAmac, String icerik) {
 		super();
 		this.genelAmac = genelAmac;

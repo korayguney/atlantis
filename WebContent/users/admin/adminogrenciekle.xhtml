@@ -39,16 +39,18 @@
 				</tr>
 				<tr>
 					<td>Sınıfı :</td>
-					<td><p:inputText id="sınıf"
-							value="#{ogrenciEkleBean.newOgrenci.sınıf}" required="true"
-							requiredMessage="Sınıf boş geçilemez!" /></td>
-					<td><p:message for="sınıf" /></td>
+					<td><p:selectOneMenu id="sinif"
+							value="#{ogrenciEkleBean.newOgrenci.sinif}" style="width:204px">
+							<f:selectItem itemLabel="Sınıf Seçiniz" itemValue="" noSelectionOption="true"/>
+							<f:selectItems value="#{ogrenciSecBean.tumsiniflar}" />
+						</p:selectOneMenu></td>
+					<td><p:message for="sinif" /></td>
 				</tr>
 				<tr>
 					<td>Cinsiyet :</td>
 					<td><p:selectOneMenu id="cinsiyet"
 							value="#{ogrenciEkleBean.newOgrenci.cinsiyet}" style="width:204px">
-							<f:selectItem itemLabel="Cinsiyet Seçiniz" itemValue="" />
+							<f:selectItem itemLabel="Cinsiyet Seçiniz" itemValue="" noSelectionOption="true"/>
 							<f:selectItems value="Erkek" />
 							<f:selectItems value="Kız" />
 						</p:selectOneMenu></td>

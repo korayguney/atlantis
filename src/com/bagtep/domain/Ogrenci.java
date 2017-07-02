@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -20,25 +22,33 @@ public class Ogrenci {
 	private int ogrencino;
 	private String cinsiyet;
 	private Date dogumTarih;
-	private String sınıf;
 	private String veliad;
 	private String velisoyad;
-	private int telefon;
+	private long telefon;
 	private String evadres;
+	
+	@ManyToOne
+	private Sinif sinif;
+	
+	@ManyToMany(mappedBy="ogrenciler")
+	private List<Ders> dersler;
+	
+	@OneToMany(mappedBy="ogrenci")
+	private List<KabaDegerlendirme> kabadegerlendirmeler;
 	
 	public Ogrenci() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Ogrenci(String ad, String soyad, int ogrencino, String cinsiyet, Date dogumTarih, String sınıf,
-			String veliad, String velisoyad, int telefon, String evadres) {
+	public Ogrenci(String ad, String soyad, int ogrencino, String cinsiyet, Date dogumTarih, Sinif sinif,
+			String veliad, String velisoyad, long telefon, String evadres) {
 		super();
 		this.ad = ad;
 		this.soyad = soyad;
 		this.ogrencino = ogrencino;
 		this.cinsiyet = cinsiyet;
 		this.dogumTarih = dogumTarih;
-		this.sınıf = sınıf;
+		this.sinif = sinif;
 		this.veliad = veliad;
 		this.velisoyad = velisoyad;
 		this.telefon = telefon;
@@ -81,12 +91,15 @@ public class Ogrenci {
 	public void setDogumTarih(Date dogumTarih) {
 		this.dogumTarih = dogumTarih;
 	}
-	public String getSınıf() {
-		return sınıf;
+	
+	public Sinif getSinif() {
+		return sinif;
 	}
-	public void setSınıf(String sınıf) {
-		this.sınıf = sınıf;
+
+	public void setSinif(Sinif sinif) {
+		this.sinif = sinif;
 	}
+
 	public String getVeliad() {
 		return veliad;
 	}
@@ -99,10 +112,10 @@ public class Ogrenci {
 	public void setVelisoyad(String velisoyad) {
 		this.velisoyad = velisoyad;
 	}
-	public int getTelefon() {
+	public long getTelefon() {
 		return telefon;
 	}
-	public void setTelefon(int telefon) {
+	public void setTelefon(long telefon) {
 		this.telefon = telefon;
 	}
 	public String getEvadres() {
@@ -111,9 +124,30 @@ public class Ogrenci {
 	public void setEvadres(String evadres) {
 		this.evadres = evadres;
 	}
-	
-	
 
+	public List<Ders> getDersler() {
+		return dersler;
+	}
+
+	public void setDersler(List<Ders> dersler) {
+		this.dersler = dersler;
+	}
+	
+	public List<KabaDegerlendirme> getKabadegerlendirmeler() {
+		return kabadegerlendirmeler;
+	}
+
+	public void setKabadegerlendirmeler(List<KabaDegerlendirme> kabadegerlendirmeler) {
+		this.kabadegerlendirmeler = kabadegerlendirmeler;
+	}
+
+	@Override
+	public String toString() {
+		return ad + " " + soyad ;
+	}
+	
+	
+	
 	
 
 }

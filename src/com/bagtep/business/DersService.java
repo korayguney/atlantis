@@ -85,4 +85,9 @@ public class DersService {
 	}
 
 
+	public void updateDers(Ders ders) {
+		entityManager.merge(ders);
+	}
+
+
 }

@@ -17,7 +17,9 @@ import org.primefaces.event.UnselectEvent;
 
 import com.bagtep.exceptions.UsernameExistsException;
 import com.bagtep.business.OgrenciService;
+import com.bagtep.business.SinifService;
 import com.bagtep.domain.Ogrenci;
+import com.bagtep.domain.Sinif;
 
 @ManagedBean
 public class OgrenciEkleBean {
@@ -25,9 +27,12 @@ public class OgrenciEkleBean {
 	private Ogrenci newOgrenci = new Ogrenci();
 		
 	private List<Ogrenci> ogrenciler ;
+	private List<Sinif> siniflar;
 	
 	@EJB
 	private OgrenciService ogrenciService ;
+	@EJB
+	private SinifService sinifService ;
 	
 	public OgrenciEkleBean() {
 		// TODO Auto-generated constructor stub
@@ -37,6 +42,8 @@ public class OgrenciEkleBean {
 	public void init()
 	{
 		this.ogrenciler = ogrenciService.getAllOgrenci();
+		this.siniflar = sinifService.getAllSinif();
+		
 	}
 	
 	
@@ -79,6 +86,16 @@ public class OgrenciEkleBean {
 	public void setOgrenciler(List<Ogrenci> ogrenciler) {
 		this.ogrenciler = ogrenciler;
 	}
+
+	public List<Sinif> getSiniflar() {
+		return siniflar;
+	}
+
+	public void setSiniflar(List<Sinif> siniflar) {
+		this.siniflar = siniflar;
+	}
+	
+	
 	 		
 	
 

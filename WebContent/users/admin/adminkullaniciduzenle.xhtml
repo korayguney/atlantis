@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	
+<ui:composition template="/WEB-INF/templates/admin.xhtml">
+	<ui:define name="pageContent">
+
+	<h2 align="center">Kullanıcı Düzenleme Sayfası</h2>
+		
+	<h:form id="tableForm">
+		<p:dataTable id="dtable" value="#{kullaniciDuzenleBean.users}" var="user"
+			editable="true">
+			  <p:ajax event="rowEdit" listener="#{kullaniciDuzenleBean.onRowEdit}"
+			   update="dtable :growl" />
+			
+			<p:column headerText="Adı">
+				<p:cellEditor>
+					<f:facet name="output">
+						#{user.firstname}
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{user.firstname}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Soyadı">
+				<p:cellEditor>
+					<f:facet name="output">
+						#{user.lastname}
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{user.lastname}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Kullanıcı Adı">
+				<p:cellEditor>
+					<f:facet name="output">
+						#{user.username}
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{user.username}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Parola">
+				<p:cellEditor>
+					<f:facet name="output">
+						#{user.password}
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{user.password}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Rol / Yetki">
+				<p:cellEditor>
+					<f:facet name="output">
+						#{user.role}
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{user.role}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Düzenle">
+				<p:rowEditor />
+			</p:column>
+			
+			<p:column headerText="Sil">
+				<p:commandButton value="Sil" action="#{kullaniciDuzenleBean.deleteUser(user.id)}"
+				update="dtable"/>
+			</p:column>
+		</p:dataTable>
+
+	</h:form>
+	<p:growl id="growl"></p:growl>
+
+	</ui:define>
+</ui:composition>
+
+</html>

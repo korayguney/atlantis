@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -17,6 +18,18 @@ public class Ders {
 	@OneToMany(mappedBy="ders")
 	private List<GenelAmac> genelAmaclar;
 	
+	@ManyToMany
+	private List<Ogrenci> ogrenciler;	
+	
+	@ManyToMany(mappedBy="dersler")
+	private List<SinifOgretmeni> sinifOgretmenleri;
+	
+	@ManyToMany(mappedBy="dersler")
+	private List<BransOgretmeni> bransOgrentmenleri;
+	
+	@OneToMany(mappedBy="ders")
+	private List<KabaDegerlendirme> kabadegerlendirmeler;
+		
 	private String dersAd;
 
 	public Ders(String dersAd) {
@@ -51,5 +64,44 @@ public class Ders {
 	public void setDersAd(String dersAd) {
 		this.dersAd = dersAd;
 	}
+
+	public List<Ogrenci> getOgrenciler() {
+		return ogrenciler;
+	}
+
+	public void setOgrenciler(List<Ogrenci> ogrenciler) {
+		this.ogrenciler = ogrenciler;
+	}
+	
+	public List<SinifOgretmeni> getSinifOgretmenleri() {
+		return sinifOgretmenleri;
+	}
+
+	public void setSinifOgretmenleri(List<SinifOgretmeni> sinifOgretmenleri) {
+		this.sinifOgretmenleri = sinifOgretmenleri;
+	}
+	
+	public List<BransOgretmeni> getBransOgrentmenleri() {
+		return bransOgrentmenleri;
+	}
+
+	public void setBransOgrentmenleri(List<BransOgretmeni> bransOgrentmenleri) {
+		this.bransOgrentmenleri = bransOgrentmenleri;
+	}	
+	
+	public List<KabaDegerlendirme> getKabadegerlendirmeler() {
+		return kabadegerlendirmeler;
+	}
+
+	public void setKabadegerlendirmeler(List<KabaDegerlendirme> kabadegerlendirmeler) {
+		this.kabadegerlendirmeler = kabadegerlendirmeler;
+	}
+
+	@Override
+	public String toString() {
+		return dersAd;
+	}
+	
+	
 
 }

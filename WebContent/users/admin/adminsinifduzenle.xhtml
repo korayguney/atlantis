@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	
+<ui:composition template="/WEB-INF/templates/admin.xhtml">
+	<ui:define name="pageContent">
+
+	<h2 align="center">Sınıf Düzenleme Sayfası</h2>
+		
+	<h:form id="tableForm">
+		<p:dataTable id="dtable" value="#{sinifDuzenleBean.siniflar}" var="sinif"
+			editable="true">
+			  <p:ajax event="rowEdit" listener="#{sinifDuzenleBean.onRowEdit}"
+			   update="dtable :growl" />
+			
+			<p:column headerText="Sınıf adı">
+				<p:cellEditor>
+					<f:facet name="output">
+						#{sinif.sinifAd}
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{sinif.sinifAd}" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Düzenle">
+				<p:rowEditor />
+			</p:column>
+			
+			<p:column headerText="Sil">
+				<p:commandButton value="Sil" action="#{sinifDuzenleBean.deleteSinif(sinif.id)}"
+				update="dtable"/>
+			</p:column>
+		</p:dataTable>
+
+	</h:form>
+	<p:growl id="growl"></p:growl>
+
+	</ui:define>
+</ui:composition>
+
+</html>
