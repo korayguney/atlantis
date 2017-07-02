@@ -12,7 +12,7 @@
 			<p:tab title="Genel amaç : #{testBean.genelAmac.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{testBean.genelAmac.ozelAmaclar} "
+					<p:dataTable value="#{testBean.genelAmac.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600">
@@ -20,7 +20,7 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-							<p:selectOneButton>
+							<p:selectOneButton value="">
 								<f:selectItem itemLabel="Evet" itemValue="Evet" />
 								<f:selectItem itemLabel="Hayır" itemValue="Hayır" />
 							</p:selectOneButton>
@@ -34,14 +34,11 @@
 					</p:dataTable>
 
 				</h:panelGrid>
+				<p:commandButton actionListener="#{kabaDegerlendirmeBean.degerlendirmeKaydet()}" value="Değerlendirme Kaydet" ajax="false" />
 			</p:tab>
+			
 		</p:accordionPanel>
-		
-		<p:commandButton actionListener="#{kabaDegerlendirmeBean.degerlendirmeKaydet()}" value="Değerlendirme Kaydet" ajax="false" />
-		
 	</h:form>
-	
-	
 	
 		<p:accordionPanel>
 			<p:tab title="Genel amaç : #{testBean.genelAmac2.icerik}">
@@ -95,6 +92,8 @@
 </ui:composition>
 
 </html>
+
+
 
 
 
