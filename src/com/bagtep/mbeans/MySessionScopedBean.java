@@ -7,16 +7,24 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class MySessionScopedBean {
 	
+	// User entity session değerleri...
 	private String username="";
 	private String role="";
 	private String firstname="";
 	private String lastname="";
-	private String sinif="";
-
-	
 	private int id;
-
 	
+	// Sınıf entity session değerleri...
+	private String sinif="";
+	
+	// Öğrenci entity session değerleri...
+	private int ogrenciId;
+	private String ad = "";
+	private String soyad = "";
+	private int ogrencino;
+	
+	// Ders entity session değerleri...
+	private String dersAd;
 
 	public String getUsername() {
 		return username;
@@ -77,6 +85,58 @@ public class MySessionScopedBean {
 		this.sinif = sinif;
 	}
 
+
+	public int getOgrenciId() {
+		return ogrenciId;
+	}
+
+
+	public void setOgrenciId(int ogrenciId) {
+		this.ogrenciId = ogrenciId;
+	}
+
+
+	public String getAd() {
+		return ad;
+	}
+
+
+	public void setAd(String ad) {
+		this.ad = ad;
+	}
+
+
+	public String getSoyad() {
+		return soyad;
+	}
+
+
+	public void setSoyad(String soyad) {
+		this.soyad = soyad;
+	}
+
+
+	public int getOgrencino() {
+		return ogrencino;
+	}
+
+
+	public void setOgrencino(int ogrencino) {
+		this.ogrencino = ogrencino;
+	}
+
+
+	public String getDersAd() {
+		return dersAd;
+	}
+
+
+	public void setDersAd(String dersAd) {
+		this.dersAd = dersAd;
+	}
+
+	
+	
 	
 	
 }

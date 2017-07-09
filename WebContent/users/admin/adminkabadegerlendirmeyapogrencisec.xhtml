@@ -33,11 +33,11 @@
 		        
 		        <p:separator />
 		 
-		        <p:commandButton value="Öğrencileri Listele" update="msgs" actionListener="#{ogrenciSecBean.ogrencilistele()}" icon="ui-icon-circle-arrow-s" />
+		        <p:commandButton value="Öğrencileri Listele" update="dtable" action="#{ogrenciSecBean.ogrencilistele()}" icon="ui-icon-circle-arrow-s" />
 		 
 		        <p:separator />
-		        
-		  		<p:dataTable var="ogrenci" value="#{ogrenciSecBean.ogrencilistele()}">
+		        		        
+		  		<p:dataTable id="dtable" var="ogrenci" value="#{ogrenciSecBean.ogrenciler}">
 					    <p:column headerText="Öğrenci No">
 					        <h:outputText value="#{ogrenci.ogrencino}" />
 					    </p:column>
@@ -51,7 +51,8 @@
 					    </p:column>
 					 
 					    <p:column headerText="">
-					        <p:commandButton value="Değerlendir" update="msgs" actionListener="#{ogrenciSecBean.onay()}" icon="ui-icon-star" />
+					       
+					        <a href="adminkabadegerlendirme.xhtml?oid=#{ogrenci.id}&amp;did=#{ogrenciSecBean.ders}&amp;classId=#{ogrenciSecBean.sinif}">Değerlendir</a>
 					    </p:column>
 				</p:dataTable> 
 				

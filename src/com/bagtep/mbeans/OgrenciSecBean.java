@@ -176,7 +176,7 @@ public class OgrenciSecBean implements Serializable {
         	ogrenciler2 = new HashMap<String, String>();
     }
 	
-	public List<Ogrenci> ogrencilistele() {
+	public void ogrencilistele() {
         System.out.println("ogrencilistele METODUNA GİRDİ");
         mySessionScopedBean.setSinif(sinif);
         System.out.println("SINIF1 :::::::::: " + sinif);
@@ -184,7 +184,15 @@ public class OgrenciSecBean implements Serializable {
         System.out.println("SINIF :::::::::: " + mySessionScopedBean.getSinif());
         ogrenciler = ogrenciService.getSelectedOgrenciForClass(sinif);
         System.out.println("SONUÇ : "+ ogrenciler.isEmpty());
-        return ogrenciler;
+        
+        // doluluk kontrolüm...
+        if (ogrenciler.isEmpty() != true){      
+        	System.out.println("ÖĞRENCİ : "+ ogrenciler.get(0).getAd() + " "+ogrenciler.get(0).getSoyad());
+        }else{
+        	System.out.println("Öğrenci listesi boş döndü...");
+        }
+        
+
 	}
 	
 	public void degerlendirmegoruntule() {
@@ -199,9 +207,19 @@ public class OgrenciSecBean implements Serializable {
         // öğrencinin ilgili ders için service ten degerlendirmesini alarak UI a döndürecek...
 	}
 	
-    public String onay() {
-    
+    public String onay(Ogrenci ogrenci) {
+    	
         System.out.println("ONAY METODA GİRDİ");
+        
+        mySessionScopedBean.setAd(ogrenci.getAd());
+        mySessionScopedBean.setSoyad(ogrenci.getSoyad());
+        mySessionScopedBean.setOgrenciId(ogrenci.getId());
+        mySessionScopedBean.setSinif(ogrenci.getSinif().toString());
+        mySessionScopedBean.setOgrencino(ogrenci.getOgrencino());
+
+        kabaDegerlendirmeService.degerlendirmeKaydet();
+        
+        
         return "users/admin/adminkabadegerlendirme";
 //        return "users/admin/adminkabadegerlendirme";
         

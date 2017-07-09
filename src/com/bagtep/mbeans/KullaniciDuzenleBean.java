@@ -22,7 +22,8 @@ import com.bagtep.domain.User;
 public class KullaniciDuzenleBean {
 	
 	private List<User> users;
-	
+	private int userId;
+
 	@EJB
 	private UserService userService;
 	
@@ -41,12 +42,27 @@ public class KullaniciDuzenleBean {
 	        		 new FacesMessage(user.getUsername()+" güncellendi."));
 	    }
 	  
-	  public void deleteUser(int userId)
+	  public void selecttoDeleteKullanici(int kullaniciId)
 	  {
-		  System.out.println("Bu kullanıcı silinecek --> "+userId);
+		  System.out.println("Bu kullanıcı silinecek --> "+kullaniciId);
+		  this.userId = kullaniciId;
+	  }
+	  
+	  
+	  public void deleteUser()
+	  {
+
 		  userService.deleteUser(userId);
 		  this.users=userService.getAllUsers();
+		  
+		  FacesContext.getCurrentInstance().addMessage(null, 
+	        		 new FacesMessage("Sonuç : "));
+	      FacesContext.getCurrentInstance().addMessage(null, 
+	        		 new FacesMessage("Kullanıcı başarıyla silindi."));
+		  
+		  
 	  }
+	  
 
 	public List<User> getUsers() {
 		return users;

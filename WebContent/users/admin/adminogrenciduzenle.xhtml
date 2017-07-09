@@ -16,7 +16,7 @@
 			  <p:ajax event="rowEdit" listener="#{ogrenciDuzenleBean.onRowEdit}"
 			   update="dtable :growl" />
 			
-			<p:column headerText="Öğrenci adı">
+			<p:column headerText="Öğrenci adı" sortBy="#{ogrenci.ad}" >
 				<p:cellEditor>
 					<f:facet name="output">
 						#{ogrenci.ad}
@@ -27,7 +27,7 @@
 				</p:cellEditor>
 			</p:column>
 			
-			<p:column headerText="Öğrenci Soyadı">
+			<p:column headerText="Öğrenci Soyadı" sortBy="#{ogrenci.soyad}" >
 				<p:cellEditor>
 					<f:facet name="output">
 						#{ogrenci.soyad}
@@ -35,6 +35,20 @@
 					<f:facet name="input">
 						<p:inputText value="#{ogrenci.soyad}" />
 					</f:facet>
+				</p:cellEditor>
+			</p:column>
+			
+			<p:column headerText="Sınıfı" >
+				<p:cellEditor>
+					<f:facet name="output">
+						#{ogrenci.sinif.sinifAd}
+					</f:facet>
+					<f:facet name="input">
+						 <h:selectOneMenu value="#{ogrenci.sinif.id}" >
+	                       	<f:selectItems value="#{sinifEkleBean.siniflar}" var="sinif" itemLabel="#{sinif.sinifAd}" itemValue="#{sinif.id}" />
+	                 	 </h:selectOneMenu>
+					</f:facet>
+					
 				</p:cellEditor>
 			</p:column>
 			
@@ -65,15 +79,45 @@
 			</p:column>
 			
 			<p:column headerText="Sil">
-				<p:commandButton value="Sil" action="#{ogrenciDuzenleBean.deleteOgrenci(ogrenci.id)}"
-				update="dtable"/>
+				<p:commandButton value="Sil" action="#{ogrenciDuzenleBean.selecttoDeleteOgrenci(ogrenci.id)}"
+				update="dtable" oncomplete="$('#myModal').modal();" />
 			</p:column>
+			
 		</p:dataTable>
-
+		
+		
+		
+				
 	</h:form>
+
 	<p:growl id="growl"></p:growl>
 
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Sayın #{mySessionScopedBean.firstname}  #{mySessionScopedBean.lastname}</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Seçtiğiniz Öğrenci Silinecek. Emin misiniz?</p>
+	      </div>
+	      <div class="modal-footer">
+	      <p:commandButton styleClass="btn btn-default" value="Sil" action="#{ogrenciDuzenleBean.deleteOgrenci()}" oncomplete="$('#myModal').modal();location.reload();"/>
+	     
+	        <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+	      </div>
+	    </div>
+	
+	  </div>
+	</div>
+			    
 	</ui:define>
+	
 </ui:composition>
 
 </html>

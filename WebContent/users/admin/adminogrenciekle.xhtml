@@ -39,21 +39,21 @@
 				</tr>
 				<tr>
 					<td>Sınıfı :</td>
-					<td><h:selectOneMenu id="sinif"
+					<td><p:selectOneMenu id="sinif"
 							value="#{ogrenciEkleBean.newOgrenci.sinif}" style="width:204px">
 							<f:selectItem itemLabel="Sınıf Seçiniz" itemValue="" noSelectionOption="true"/>
 							<f:selectItems value="#{ogrenciSecBean.tumsiniflar}" />
-						</h:selectOneMenu></td>
+						</p:selectOneMenu></td>
 					<td><p:message for="sinif" /></td>
 				</tr>
 				<tr>
 					<td>Cinsiyet :</td>
-					<td><h:selectOneMenu id="cinsiyet"
+					<td><p:selectOneMenu id="cinsiyet"
 							value="#{ogrenciEkleBean.newOgrenci.cinsiyet}" style="width:204px">
 							<f:selectItem itemLabel="Cinsiyet Seçiniz" itemValue="" noSelectionOption="true"/>
 							<f:selectItems value="Erkek" />
 							<f:selectItems value="Kız" />
-						</h:selectOneMenu></td>
+						</p:selectOneMenu></td>
 					<td></td>
 				</tr>
 				<tr>
@@ -94,7 +94,6 @@
 			<p:messages id="messages" showDetail="true" autoUpdate="true"
 				closable="true" />
 		</h:form>
-
 
 	</ui:define>
 </ui:composition>

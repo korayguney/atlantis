@@ -22,7 +22,8 @@ import com.bagtep.domain.Sinif;
 public class SinifDuzenleBean {
 	
 	private List<Sinif> siniflar;
-	
+	private int sinifId;
+
 	@EJB
 	private SinifService sinifService;
 	private Sinif newSinif = new Sinif();
@@ -42,6 +43,21 @@ public class SinifDuzenleBean {
 	        		 new FacesMessage(sinif.getSinifAd()+" güncellendi."));
 	    }
 	  
+	public void selecttoDeleteSinif(int sinifId)
+	  {
+		  System.out.println("Bu sinif silinecek --> "+sinifId);
+		  this.sinifId = sinifId;
+	  }
+	  
+	  
+	public void deleteSinif()
+	  {
+
+		 System.out.println("Bu sinif silinecek --> "+sinifId);
+		  sinifService.deleteSinif(sinifId);
+		  this.siniflar=sinifService.getAllSinif();
+	  }
+	
 	public void deleteSinif(int sinifId)
 	  {
 		  System.out.println("Bu sinif silinecek --> "+sinifId);

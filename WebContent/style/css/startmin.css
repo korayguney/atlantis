@@ -8,6 +8,10 @@ body {
     background-color: #f8f8f8;
 }
 
+.testdlg{
+ top: 50% !important;
+ left:50% !important;
+}
 #wrapper {
     width: 100%;
 }

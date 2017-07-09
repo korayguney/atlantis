@@ -16,7 +16,7 @@
 			  <p:ajax event="rowEdit" listener="#{dersDuzenleBean.onRowEdit}"
 			   update="dtable :growl" />
 			
-			<p:column headerText="Ders adı">
+			<p:column headerText="Ders adı" sortBy="#{dersler.dersAd}">
 				<p:cellEditor>
 					<f:facet name="output">
 						#{dersler.dersAd}
@@ -32,13 +32,37 @@
 			</p:column>
 			
 			<p:column headerText="Sil">
-				<p:commandButton value="Sil" action="#{dersDuzenleBean.deleteDers(ders.id)}"
-				update="dtable"/>
+				<p:commandButton value="Sil" action="#{dersDuzenleBean.selecttoDeleteDers(dersler.id)}"
+				update="dtable" oncomplete="$('#myModal').modal();" />
 			</p:column>
 		</p:dataTable>
 
 	</h:form>
 	<p:growl id="growl"></p:growl>
+
+	<!-- Modal -->
+	<div id="myModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Sayın #{mySessionScopedBean.firstname}  #{mySessionScopedBean.lastname}</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Seçtiğiniz Ders Silinecek. Emin misiniz?</p>
+	      </div>
+	      <div class="modal-footer">
+	      <p:commandButton styleClass="btn btn-default" value="Sil" action="#{dersDuzenleBean.deleteDers()}" oncomplete="$('#myModal').modal();location.reload();"/>
+	     
+	        <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
+	      </div>
+	    </div>
+	
+	  </div>
+	</div>
+	
 
 	</ui:define>
 </ui:composition>

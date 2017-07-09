@@ -26,6 +26,7 @@ public class SinifOgretmeni {
 	
 	@ManyToMany 
 	private List<Ders> dersler;
+	// TODO ksadjsabdhasbdhasbdasb
 	
 	public SinifOgretmeni(String ad, String soyad, Sinif sinif) {
 		super();

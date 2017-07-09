@@ -24,6 +24,7 @@ import com.bagtep.domain.Sinif;
 public class DersDuzenleBean {
 	
 	private List<Ders> dersler;
+	private int dersId;
 	
 	@EJB
 	private DersService dersService;
@@ -42,14 +43,21 @@ public class DersDuzenleBean {
 	         FacesContext.getCurrentInstance().addMessage(null, 
 	        		 new FacesMessage(ders.getDersAd()+" güncellendi."));
 	    }
+	
+	public void selecttoDeleteDers(int dersId)
+	  {
+		  System.out.println("Bu ders silinecek --> "+dersId);
+		  this.dersId = dersId;
+	  }
 	  
-	public void deleteDers(int dersId)
+	  
+	public void deleteDers()
 	  {
 		  System.out.println("Bu ders silinecek --> "+dersId);
 		  dersService.deleteDers(dersId);
 		  this.dersler=dersService.getAllDers();
 	  }
-
+	  
 	public List<Ders> getDersler() {
 		return dersler;
 	}

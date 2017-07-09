@@ -1,6 +1,7 @@
 package com.bagtep.business;
 
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -8,6 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.bagtep.domain.KabaDegerlendirme;
+import com.bagtep.domain.Ogrenci;
+import com.bagtep.mbeans.MySessionScopedBean;
 
 
 
@@ -16,9 +19,16 @@ public class KabaDegerlendirmeService {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void degerlendirmeKaydet(List<KabaDegerlendirme> kabadegerlendirme) {
+	public void degerlendirmeKaydet() {
+		System.out.println("SERVICE : degerlendirmeKaydet GİRDİ !!!");
+		
+		KabaDegerlendirme kd = new KabaDegerlendirme();
+		kd.setDegerlendirmeTarihi(new Date());
+		
+		entityManager.persist(kd);
+		
 
-		entityManager.persist(kabadegerlendirme);
+		
 		// yapılan değerlendirmeyi db ye kaydedecek. Sonuç dönecek...
 		
 	}

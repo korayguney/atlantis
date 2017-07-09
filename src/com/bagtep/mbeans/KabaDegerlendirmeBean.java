@@ -32,12 +32,11 @@ public class KabaDegerlendirmeBean {
 	}
 	
 	
-	public List<KabaDegerlendirme> degerlendirmeKaydet(){
+	public void degerlendirmeKaydet(){
 		
-		kabaDegerlendirmeService.degerlendirmeKaydet(kabadegerlendirme2);
+		kabaDegerlendirmeService.degerlendirmeKaydet();
 		FacesContext.getCurrentInstance().
 		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "","Kaba Değerlendirme Başarıyla Kaydedildi !!!"));
-		return null;
 		
 	}
 

@@ -24,6 +24,7 @@ public class OgrenciDuzenleBean {
 	@EJB
 	private OgrenciService ogrenciService;
 	private Ogrenci newOgrenci = new Ogrenci();
+	private int ogrId;
 	
 	@PostConstruct
 	public void init()
@@ -38,10 +39,24 @@ public class OgrenciDuzenleBean {
 	        		 new FacesMessage(ogrenci.getAd()+" güncellendi."));
 	    }
 	  
-	  public void deleteOgrenci(int ogrenciId)
+	  
+	  public String silmedenDon(){
+		  System.out.println("silmedenDon metoduna girdi...");
+		  return "users/admin/adminogrenciduzenle";
+	  }
+	  
+	  
+	  public void selecttoDeleteOgrenci(int ogrenciId)
 	  {
 		  System.out.println("Bu öğrenci silinecek --> "+ogrenciId);
-		  ogrenciService.deleteOgrenci(ogrenciId);
+		  this.ogrId = ogrenciId;
+	  }
+	  
+	  
+	  public void deleteOgrenci()
+	  {
+
+		  ogrenciService.deleteOgrenci(ogrId);
 		  this.ogrenciler=ogrenciService.getAllOgrenci();
 	  }
 	  
