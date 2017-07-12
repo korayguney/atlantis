@@ -217,7 +217,7 @@ public class OgrenciSecBean implements Serializable {
         mySessionScopedBean.setSinif(ogrenci.getSinif().toString());
         mySessionScopedBean.setOgrencino(ogrenci.getOgrencino());
 
-        kabaDegerlendirmeService.degerlendirmeKaydet();
+        // kabaDegerlendirmeService.degerlendirmeKaydet();
         
         
         return "users/admin/adminkabadegerlendirme";

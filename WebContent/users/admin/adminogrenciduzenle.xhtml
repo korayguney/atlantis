@@ -4,120 +4,131 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-	
+
 <ui:composition template="/WEB-INF/templates/admin.xhtml">
 	<ui:define name="pageContent">
 
-	<h2 align="center">Öğrenci Düzenleme Sayfası</h2>
-		
-	<h:form id="tableForm">
-		<p:dataTable id="dtable" value="#{ogrenciDuzenleBean.ogrenciler}" var="ogrenci"
-			editable="true">
-			  <p:ajax event="rowEdit" listener="#{ogrenciDuzenleBean.onRowEdit}"
-			   update="dtable :growl" />
-			
-			<p:column headerText="Öğrenci adı" sortBy="#{ogrenci.ad}" >
-				<p:cellEditor>
-					<f:facet name="output">
+
+		<div class="alert alert-info" align="center">
+			<h3>Öğrenci Düzenleme Sayfası</h3>
+		</div>
+		<div class="alert alert-success" align="center">
+
+
+			<h:form id="tableForm">
+				<p:dataTable id="dtable" value="#{ogrenciDuzenleBean.ogrenciler}"
+					var="ogrenci" editable="true">
+					<p:ajax event="rowEdit" listener="#{ogrenciDuzenleBean.onRowEdit}"
+						update="dtable :growl" />
+
+					<p:column headerText="Öğrenci adı" sortBy="#{ogrenci.ad}">
+						<p:cellEditor>
+							<f:facet name="output">
 						#{ogrenci.ad}
 					</f:facet>
-					<f:facet name="input">
-						<p:inputText value="#{ogrenci.ad}" />
-					</f:facet>
-				</p:cellEditor>
-			</p:column>
-			
-			<p:column headerText="Öğrenci Soyadı" sortBy="#{ogrenci.soyad}" >
-				<p:cellEditor>
-					<f:facet name="output">
+							<f:facet name="input">
+								<p:inputText value="#{ogrenci.ad}" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Öğrenci Soyadı" sortBy="#{ogrenci.soyad}">
+						<p:cellEditor>
+							<f:facet name="output">
 						#{ogrenci.soyad}
 					</f:facet>
-					<f:facet name="input">
-						<p:inputText value="#{ogrenci.soyad}" />
-					</f:facet>
-				</p:cellEditor>
-			</p:column>
-			
-			<p:column headerText="Sınıfı" >
-				<p:cellEditor>
-					<f:facet name="output">
+							<f:facet name="input">
+								<p:inputText value="#{ogrenci.soyad}" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Sınıfı">
+						<p:cellEditor>
+							<f:facet name="output">
 						#{ogrenci.sinif.sinifAd}
 					</f:facet>
-					<f:facet name="input">
-						 <h:selectOneMenu value="#{ogrenci.sinif.id}" >
-	                       	<f:selectItems value="#{sinifEkleBean.siniflar}" var="sinif" itemLabel="#{sinif.sinifAd}" itemValue="#{sinif.id}" />
-	                 	 </h:selectOneMenu>
-					</f:facet>
-					
-				</p:cellEditor>
-			</p:column>
-			
-			<p:column headerText="Veli Adı">
-				<p:cellEditor>
-					<f:facet name="output">
+							<f:facet name="input">
+								<h:selectOneMenu value="#{ogrenci.sinif.id}">
+									<f:selectItems value="#{sinifEkleBean.siniflar}" var="sinif"
+										itemLabel="#{sinif.sinifAd}" itemValue="#{sinif.id}" />
+								</h:selectOneMenu>
+							</f:facet>
+
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Veli Adı">
+						<p:cellEditor>
+							<f:facet name="output">
 						#{ogrenci.veliad}
 					</f:facet>
-					<f:facet name="input">
-						<p:inputText value="#{ogrenci.veliad}" />
-					</f:facet>
-				</p:cellEditor>
-			</p:column>
-			
-			<p:column headerText="Veli Soyadı">
-				<p:cellEditor>
-					<f:facet name="output">
+							<f:facet name="input">
+								<p:inputText value="#{ogrenci.veliad}" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+
+					<p:column headerText="Veli Soyadı">
+						<p:cellEditor>
+							<f:facet name="output">
 						#{ogrenci.velisoyad}
 					</f:facet>
-					<f:facet name="input">
-						<p:inputText value="#{ogrenci.velisoyad}" />
-					</f:facet>
-				</p:cellEditor>
-			</p:column>
-			
-			<p:column headerText="Düzenle">
-				<p:rowEditor />
-			</p:column>
-			
-			<p:column headerText="Sil">
-				<p:commandButton value="Sil" action="#{ogrenciDuzenleBean.selecttoDeleteOgrenci(ogrenci.id)}"
-				update="dtable" oncomplete="$('#myModal').modal();" />
-			</p:column>
-			
-		</p:dataTable>
-		
-		
-		
-				
-	</h:form>
+							<f:facet name="input">
+								<p:inputText value="#{ogrenci.velisoyad}" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
 
-	<p:growl id="growl"></p:growl>
+					<p:column headerText="Düzenle">
+						<p:rowEditor />
+					</p:column>
+
+					<p:column headerText="Sil">
+						<p:commandButton value="Sil"
+							action="#{ogrenciDuzenleBean.selecttoDeleteOgrenci(ogrenci.id)}"
+							update="dtable" oncomplete="$('#myModal').modal();" />
+					</p:column>
+
+				</p:dataTable>
 
 
-	<!-- Modal -->
-	<div id="myModal" class="modal fade" role="dialog">
-	  <div class="modal-dialog">
-	
-	    <!-- Modal content-->
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">Sayın #{mySessionScopedBean.firstname}  #{mySessionScopedBean.lastname}</h4>
-	      </div>
-	      <div class="modal-body">
-	        <p>Seçtiğiniz Öğrenci Silinecek. Emin misiniz?</p>
-	      </div>
-	      <div class="modal-footer">
-	      <p:commandButton styleClass="btn btn-default" value="Sil" action="#{ogrenciDuzenleBean.deleteOgrenci()}" oncomplete="$('#myModal').modal();location.reload();"/>
-	     
-	        <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
-	      </div>
-	    </div>
-	
-	  </div>
-	</div>
-			    
+
+
+			</h:form>
+
+			<p:growl id="growl"></p:growl>
+
+
+			<!-- Modal -->
+			<div id="myModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Sayın
+								#{mySessionScopedBean.firstname} #{mySessionScopedBean.lastname}</h4>
+						</div>
+						<div class="modal-body">
+							<p>Seçtiğiniz Öğrenci Silinecek. Emin misiniz?</p>
+						</div>
+						<div class="modal-footer">
+							<p:commandButton styleClass="btn btn-default" value="Sil"
+								action="#{ogrenciDuzenleBean.deleteOgrenci()}"
+								oncomplete="$('#myModal').modal();location.reload();" />
+
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">İptal</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
 	</ui:define>
-	
+
 </ui:composition>
 
 </html>

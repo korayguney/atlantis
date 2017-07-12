@@ -22,7 +22,7 @@ public class Ders {
 	private List<Ogrenci> ogrenciler;	
 	
 	@ManyToMany(mappedBy="dersler")
-	private List<SinifOgretmeni> sinifOgretmenleri;
+	private List<Ogretmen> ogretmenler;
 	
 	@ManyToMany(mappedBy="dersler")
 	private List<BransOgretmeni> bransOgrentmenleri;
@@ -73,14 +73,14 @@ public class Ders {
 		this.ogrenciler = ogrenciler;
 	}
 	
-	public List<SinifOgretmeni> getSinifOgretmenleri() {
-		return sinifOgretmenleri;
+	public List<Ogretmen> getOgretmenler() {
+		return ogretmenler;
 	}
 
-	public void setSinifOgretmenleri(List<SinifOgretmeni> sinifOgretmenleri) {
-		this.sinifOgretmenleri = sinifOgretmenleri;
+	public void setOgretmenler(List<Ogretmen> ogretmenler) {
+		this.ogretmenler = ogretmenler;
 	}
-	
+
 	public List<BransOgretmeni> getBransOgrentmenleri() {
 		return bransOgrentmenleri;
 	}

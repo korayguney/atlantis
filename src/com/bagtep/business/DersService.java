@@ -8,7 +8,6 @@ import javax.persistence.PersistenceContext;
 
 import com.bagtep.domain.Ders;
 import com.bagtep.domain.User;
-
 import com.bagtep.mbeans.MySessionScopedBean;
 
 @Stateless
@@ -88,6 +87,5 @@ public class DersService {
 	public void updateDers(Ders ders) {
 		entityManager.merge(ders);
 	}
-
 
 }

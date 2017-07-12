@@ -4,65 +4,73 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-	
+
 <ui:composition template="/WEB-INF/templates/admin.xhtml">
 	<ui:define name="pageContent">
 
-	<h2 align="center">Sınıf Düzenleme Sayfası</h2>
-		
-	<h:form id="tableForm">
-		<p:dataTable id="dtable" value="#{sinifDuzenleBean.siniflar}" var="sinif"
-			editable="true">
-			  <p:ajax event="rowEdit" listener="#{sinifDuzenleBean.onRowEdit}"
-			   update="dtable :growl" />
-			
-			<p:column headerText="Sınıf adı" sortBy="#{sinif.sinifAd}"  >
-				<p:cellEditor>
-					<f:facet name="output">
+		<div class="alert alert-info" align="center">
+			<h3>Sınıf Düzenleme Sayfası</h3>
+		</div>
+		<div class="alert alert-success" align="center">
+
+			<h:form id="tableForm">
+				<p:dataTable id="dtable" value="#{sinifDuzenleBean.siniflar}"
+					var="sinif" editable="true" >
+					<p:ajax event="rowEdit" listener="#{sinifDuzenleBean.onRowEdit}"
+						update="dtable :growl" />
+
+					<p:column headerText="Sınıf adı" sortBy="#{sinif.sinifAd}">
+						<p:cellEditor>
+							<f:facet name="output">
 						#{sinif.sinifAd}
 					</f:facet>
-					<f:facet name="input">
-						<p:inputText value="#{sinif.sinifAd}" />
-					</f:facet>
-				</p:cellEditor>
-			</p:column>
-			
-			<p:column headerText="Düzenle">
-				<p:rowEditor />
-			</p:column>
-			
-			<p:column headerText="Sil">
-				<p:commandButton value="Sil" action="#{sinifDuzenleBean.selecttoDeleteSinif(sinif.id)}"
-				update="dtable" oncomplete="$('#myModal').modal();" />
-			</p:column>
-		</p:dataTable>
+							<f:facet name="input">
+								<p:inputText value="#{sinif.sinifAd}" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
 
-	</h:form>
-	<p:growl id="growl"></p:growl>
-	
-	<!-- Modal -->
-	<div id="myModal" class="modal fade" role="dialog">
-	  <div class="modal-dialog">
-	
-	    <!-- Modal content-->
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal">&times;</button>
-	        <h4 class="modal-title">Sayın #{mySessionScopedBean.firstname}  #{mySessionScopedBean.lastname}</h4>
-	      </div>
-	      <div class="modal-body">
-	        <p>Seçtiğiniz Sınıf Silinecek. Emin misiniz?</p>
-	      </div>
-	      <div class="modal-footer">
-	      <p:commandButton styleClass="btn btn-default" value="Sil" action="#{sinifDuzenleBean.deleteSinif()}" oncomplete="$('#myModal').modal();location.reload();"/>
-	     
-	        <button type="button" class="btn btn-default" data-dismiss="modal">İptal</button>
-	      </div>
-	    </div>
-	
-	  </div>
-	</div>
-	
+					<p:column headerText="Düzenle">
+						<p:rowEditor />
+					</p:column>
+
+					<p:column headerText="Sil">
+						<p:commandButton value="Sil"
+							action="#{sinifDuzenleBean.selecttoDeleteSinif(sinif.id)}"
+							update="dtable" oncomplete="$('#myModal').modal();" />
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
+			<p:growl id="growl"></p:growl>
+
+			<!-- Modal -->
+			<div id="myModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+
+					<!-- Modal content-->
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4 class="modal-title">Sayın
+								#{mySessionScopedBean.firstname} #{mySessionScopedBean.lastname}</h4>
+						</div>
+						<div class="modal-body">
+							<p>Seçtiğiniz Sınıf Silinecek. Emin misiniz?</p>
+						</div>
+						<div class="modal-footer">
+							<p:commandButton styleClass="btn btn-default" value="Sil"
+								action="#{sinifDuzenleBean.deleteSinif()}"
+								oncomplete="$('#myModal').modal();location.reload();" />
+
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">İptal</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
 	</ui:define>
 </ui:composition>
 

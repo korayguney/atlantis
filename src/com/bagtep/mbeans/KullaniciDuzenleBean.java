@@ -11,9 +11,7 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.event.RowEditEvent;
 
-import com.bagtep.business.OgrenciService;
 import com.bagtep.business.UserService;
-import com.bagtep.domain.Ogrenci;
 import com.bagtep.domain.User;
 
 

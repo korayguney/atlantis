@@ -7,10 +7,12 @@
 
 <ui:composition template="/WEB-INF/templates/admin.xhtml">
 	<ui:define name="pageContent">
+	<div class="alert alert-info" align="center"><h3>Kaba Değerlendirme Sayfası </h3> </div>
+		<div class="alert alert-success" align="center">
 	
 			<h:form>
 		    <p:growl id="msgs" showDetail="true" />
-		 	<h3 align="center">Kaba Değerlendirme Sayfası</h3>
+	
 		 
 		    <p:panel header="Ders ve Öğrenci seçiniz." style="margin-bottom:10px;">
 		        <h:panelGrid columns="2" cellpadding="5">
@@ -26,9 +28,7 @@
 		                <f:selectItem itemLabel="Sınıf seçiniz" itemValue="" noSelectionOption="true" />
 		                <f:selectItems value="#{ogrenciSecBean.tumsiniflar}" />
 		            </h:selectOneMenu>
-		 
-		 
-		           
+	       
 		        </h:panelGrid>
 		        
 		        <p:separator />
@@ -38,6 +38,7 @@
 		        <p:separator />
 		        		        
 		  		<p:dataTable id="dtable" var="ogrenci" value="#{ogrenciSecBean.ogrenciler}">
+					  
 					    <p:column headerText="Öğrenci No">
 					        <h:outputText value="#{ogrenci.ogrencino}" />
 					    </p:column>
@@ -50,14 +51,15 @@
 					        <h:outputText value="#{ogrenci.soyad}" />
 					    </p:column>
 					 
-					    <p:column headerText="">
-					       
+					    <p:column headerText="Değerlendirme">
+					  
 					        <a href="adminkabadegerlendirme.xhtml?oid=#{ogrenci.id}&amp;did=#{ogrenciSecBean.ders}&amp;classId=#{ogrenciSecBean.sinif}">Değerlendir</a>
 					    </p:column>
 				</p:dataTable> 
 				
 		   </p:panel>
 	 	</h:form>
+	 	</div>
 	</ui:define>
 </ui:composition>
 

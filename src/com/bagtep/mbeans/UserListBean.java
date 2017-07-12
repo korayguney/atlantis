@@ -16,6 +16,7 @@ import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 
 import com.bagtep.exceptions.UsernameExistsException;
+import com.bagtep.business.OgretmenService;
 import com.bagtep.business.UserService;
 import com.bagtep.domain.User;
 
@@ -29,6 +30,9 @@ public class UserListBean {
 	
 	@EJB
 	private UserService userService ;
+	@EJB
+	private OgretmenService ogretmenService ;
+	
 	
 	public UserListBean() {
 		// TODO Auto-generated constructor stub
@@ -46,6 +50,9 @@ public class UserListBean {
 	{
 		try{
 		userService.saveUser(this.newUser);
+		if(newUser.getRole().equals("Öğretmen")){
+			ogretmenService.ogretmenKaydet(newUser.getFirstname(), newUser.getLastname());
+		}
 		this.users = userService.getAllUsers();
 		FacesContext.getCurrentInstance().
 		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "","Yeni kullanıcı başarıyla eklendi!!"));

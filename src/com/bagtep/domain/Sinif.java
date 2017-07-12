@@ -20,7 +20,7 @@ public class Sinif {
 	private List<Ogrenci> ogrenciler;
 	
 	@OneToOne(mappedBy="sinif")
-	private SinifOgretmeni sinifOgretmen;
+	private Ogretmen ogretmen;
 	
 	private String sinifAd;
 
@@ -62,6 +62,14 @@ public class Sinif {
 
 	public void setSinifAd(String sinifAd) {
 		this.sinifAd = sinifAd;
+	}
+
+	public Ogretmen getOgretmen() {
+		return ogretmen;
+	}
+
+	public void setOgretmen(Ogretmen ogretmen) {
+		this.ogretmen = ogretmen;
 	}
 
 	@Override

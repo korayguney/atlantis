@@ -8,8 +8,8 @@
 <ui:composition template="/WEB-INF/templates/admin.xhtml">
 	<ui:define name="pageContent">
 
-	<h2 align="center">Kullanıcı Düzenleme Sayfası</h2>
-		
+	<div class="alert alert-info" align="center"><h3>Kullanıcı Düzenleme Sayfası </h3> </div>
+	<div class="alert alert-success" align="center">	
 	<h:form id="tableForm">
 		<p:dataTable id="dtable" value="#{kullaniciDuzenleBean.users}" var="user"
 			editable="true">
@@ -106,6 +106,7 @@
     </div>
 
   </div>
+</div>
 </div>
 	</ui:define>
 </ui:composition>
