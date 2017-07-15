@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Ogretmen {
@@ -18,8 +17,8 @@ public class Ogretmen {
 	private String ad;
 	private String soyad;
 	
-	@OneToOne
-	private Sinif sinif;
+	@ManyToMany(mappedBy="ogretmen")
+	private List<Sinif> siniflar;
 	
 	@ManyToMany 
 	private List<Ders> dersler;
@@ -28,11 +27,10 @@ public class Ogretmen {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Ogretmen(String ad, String soyad, Sinif sinif) {
+	public Ogretmen(String ad, String soyad) {
 		super();
 		this.ad = ad;
 		this.soyad = soyad;
-		this.sinif = sinif;
 	}
 
 	public int getId() {
@@ -59,14 +57,6 @@ public class Ogretmen {
 		this.soyad = soyad;
 	}
 
-	public Sinif getSinif() {
-		return sinif;
-	}
-
-	public void setSinif(Sinif sinif) {
-		this.sinif = sinif;
-	}
-
 	public List<Ders> getDersler() {
 		return dersler;
 	}
@@ -75,11 +65,16 @@ public class Ogretmen {
 		this.dersler = dersler;
 	}
 
-	@Override
-	public String toString() {
-		return "Ogretmen [id=" + id + ", ad=" + ad + ", soyad=" + soyad + ", sinif=" + sinif + ", dersler="
-				+ dersler + "]";
+	public List<Sinif> getSiniflar() {
+		return siniflar;
 	}
+
+	public void setSiniflar(List<Sinif> siniflar) {
+		this.siniflar = siniflar;
+	}
+
+	
+	
 	
 	
 	

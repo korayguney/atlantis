@@ -15,7 +15,7 @@ public class OgretmenService {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public List<Ogretmen> tumSinifOgretmenleriniGetir() {
+	public List<Ogretmen> tumOgretmenleriGetir() {
 		return entityManager.createQuery("select o from Ogretmen o", Ogretmen.class).getResultList();
 	}
 
@@ -29,14 +29,18 @@ public class OgretmenService {
 		entityManager.merge(ders);		
 	}
 
+
+//	public void ogretmeneAtananDersSil(int ogretmenId) {
+//		Ogretmen ogretmen = entityManager.find(Ogretmen.class, ogretmenId);	
+//		entityManager.remove(ogretmen);		
+//	}
+	
 	public void ogretmenKaydet(String firstname, String lastname) {
 		Ogretmen ogretmen = new Ogretmen();
 		ogretmen.setAd(firstname);
 		ogretmen.setSoyad(lastname);
 		entityManager.persist(ogretmen);
 	}
-		
-	
 
 
 }

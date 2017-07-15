@@ -22,7 +22,6 @@ public class OzelAmac {
 	@ManyToOne
 	private GenelAmac genelAmac;
 	private String icerik;
-	private String cevap;
 	
 	public OzelAmac(GenelAmac genelAmac, String icerik) {
 		super();
@@ -56,19 +55,6 @@ public class OzelAmac {
 	public void setIcerik(String icerik) {
 		this.icerik = icerik;
 	}
-	
-	public String getCevap() {
-		return cevap;
-	}
-	public void setCevap(String cevap) {
-		this.cevap = cevap;
-	}
-	@Override
-	public String toString() {
-		return "OzelAmac [id=" + id + ", kazanimlar=" + kazanimlar + ", genelAmac=" + genelAmac + ", icerik=" + icerik
-				+ "]";
-	}
-	
 	
 	
 

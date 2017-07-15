@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Kazanim {
@@ -20,9 +21,9 @@ public class Kazanim {
 	@ManyToOne
 	private OzelAmac ozelAmac;
 	
-	@ManyToMany
-	private List<KabaDegerlendirme> kabadegerlendirmeler;
-
+	@OneToMany(mappedBy="kazanim")
+	private List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap;
+	
 	public Kazanim(String icerik, OzelAmac ozelAmac) {
 		super();
 		this.icerik = icerik;
@@ -56,6 +57,16 @@ public class Kazanim {
 	public void setOzelAmac(OzelAmac ozelAmac) {
 		this.ozelAmac = ozelAmac;
 	}
+
+	public List<KabaDegerlendirmeKazanimCevap> getKabaDegerlendirmeKazanimCevap() {
+		return kabaDegerlendirmeKazanimCevap;
+	}
+
+	public void setKabaDegerlendirmeKazanimCevap(List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap) {
+		this.kabaDegerlendirmeKazanimCevap = kabaDegerlendirmeKazanimCevap;
+	}
+	
+	
 	
 	
 

@@ -7,7 +7,9 @@ import javax.faces.bean.ManagedProperty;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.bagtep.domain.Ders;
 import com.bagtep.domain.Ogrenci;
+import com.bagtep.domain.Ogretmen;
 import com.bagtep.domain.User;
 import com.bagtep.exceptions.UsernameExistsException;
 
@@ -111,6 +113,21 @@ public class OgrenciService {
 
 	public void addNewOgrenci(Ogrenci newOgrenci) {
 		entityManager.persist(newOgrenci);		
+	}
+
+
+	public void ogrenciyeDersAta(int ogrenciId, int dersId) {
+		System.out.println("SERVICE GELEN OGRENCI ID : "+  ogrenciId);
+		System.out.println("SERVICE GELEN DERS ID : "+  dersId);
+
+		Ogrenci ogrenci = entityManager.find(Ogrenci.class, ogrenciId);
+		Ders ders = entityManager.find(Ders.class, dersId);
+		
+		ogrenci.getDersler().add(ders);
+		
+		entityManager.merge(ogrenci);
+		entityManager.merge(ders);	
+		
 	}
 
 

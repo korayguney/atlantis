@@ -24,13 +24,13 @@ public class Ogrenci {
 	private Date dogumTarih;
 	private String veliad;
 	private String velisoyad;
-	private long telefon;
+	private String telefon;
 	private String evadres;
 	
 	@ManyToOne
 	private Sinif sinif;
 	
-	@ManyToMany(mappedBy="ogrenciler")
+	@ManyToMany
 	private List<Ders> dersler;
 	
 	@OneToMany(mappedBy="ogrenci")
@@ -40,15 +40,13 @@ public class Ogrenci {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Ogrenci(String ad, String soyad, int ogrencino, String cinsiyet, Date dogumTarih, Sinif sinif,
-			String veliad, String velisoyad, long telefon, String evadres) {
+	public Ogrenci(String ad, String soyad, int ogrencino, String cinsiyet, 
+			String veliad, String velisoyad, String telefon, String evadres) {
 		super();
 		this.ad = ad;
 		this.soyad = soyad;
 		this.ogrencino = ogrencino;
 		this.cinsiyet = cinsiyet;
-		this.dogumTarih = dogumTarih;
-		this.sinif = sinif;
 		this.veliad = veliad;
 		this.velisoyad = velisoyad;
 		this.telefon = telefon;
@@ -112,10 +110,10 @@ public class Ogrenci {
 	public void setVelisoyad(String velisoyad) {
 		this.velisoyad = velisoyad;
 	}
-	public long getTelefon() {
+	public String getTelefon() {
 		return telefon;
 	}
-	public void setTelefon(long telefon) {
+	public void setTelefon(String telefon) {
 		this.telefon = telefon;
 	}
 	public String getEvadres() {

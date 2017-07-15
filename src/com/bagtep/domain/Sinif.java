@@ -7,8 +7,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Sinif {
@@ -19,8 +19,8 @@ public class Sinif {
 	@OneToMany(fetch=FetchType.EAGER , mappedBy="sinif")
 	private List<Ogrenci> ogrenciler;
 	
-	@OneToOne(mappedBy="sinif")
-	private Ogretmen ogretmen;
+	@ManyToMany
+	private List<Ogretmen> ogretmen;
 	
 	private String sinifAd;
 
@@ -64,11 +64,11 @@ public class Sinif {
 		this.sinifAd = sinifAd;
 	}
 
-	public Ogretmen getOgretmen() {
+	public List<Ogretmen> getOgretmen() {
 		return ogretmen;
 	}
 
-	public void setOgretmen(Ogretmen ogretmen) {
+	public void setOgretmen(List<Ogretmen> ogretmen) {
 		this.ogretmen = ogretmen;
 	}
 

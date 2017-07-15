@@ -44,25 +44,22 @@
 					</tr>
 					<tr>
 						<td>Sınıfı :</td>
-						<td><p:selectOneMenu id="sinif"
+						<td><h:selectOneMenu id="sinif"
 								value="#{ogrenciEkleBean.newOgrenci.sinif}" style="width:204px">
 								<f:selectItem itemLabel="Sınıf Seçiniz" itemValue=""
 									noSelectionOption="true" />
 								<f:selectItems value="#{ogrenciSecBean.tumsiniflar}" />
-							</p:selectOneMenu></td>
+							</h:selectOneMenu></td>
 						<td><p:message for="sinif" /></td>
 					</tr>
 					<tr>
 						<td>Cinsiyet :</td>
-						<td><p:selectOneMenu id="cinsiyet"
-								value="#{ogrenciEkleBean.newOgrenci.cinsiyet}"
-								style="width:204px">
-								<f:selectItem itemLabel="Cinsiyet Seçiniz" itemValue=""
-									noSelectionOption="true" />
-								<f:selectItems value="Erkek" />
-								<f:selectItems value="Kız" />
-							</p:selectOneMenu></td>
-						<td></td>
+						<td><h:selectOneRadio id="cinsiyet"
+								value="#{ogrenciEkleBean.newOgrenci.cinsiyet}">
+								<f:selectItem itemLabel="Erkek" itemValue="Erkek" />
+								<f:selectItem itemLabel="Kız" itemValue="Kız" />
+							</h:selectOneRadio></td>
+						<td><p:message for="cinsiyet" /></td>
 					</tr>
 					<tr>
 						<td>Veli Adı :</td>
@@ -79,7 +76,7 @@
 					<tr>
 						<td>Telefon :</td>
 						<td><p:inputText id="telefon"
-								value="#{ogrenciEkleBean.newOgrenci.telefon}" required="true"
+								value="#{ogrenciEkleBean.newOgrenci.telefon}"
 								requiredMessage="Soyad boş geçilemez!" /></td>
 						<td><p:message for="telefon" /></td>
 					</tr>

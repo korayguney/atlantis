@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class KabaDegerlendirme {
@@ -16,11 +17,9 @@ public class KabaDegerlendirme {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private Date degerlendirmeTarihi;
-	private String kabaDegerlendirmeCevap;
-	private String yorum;
 	
-	@ManyToMany(mappedBy="kabadegerlendirmeler")
-	private List<Kazanim> kazanimlar;
+	@OneToMany(mappedBy="kabaDegerlendirme")
+	private List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap;
 	
 	@ManyToOne
 	private Ogrenci ogrenci;
@@ -28,12 +27,6 @@ public class KabaDegerlendirme {
 	@ManyToOne
 	private Ders ders;	
 	
-		
-	public KabaDegerlendirme(Date degerlendirmeTarihi, String kabaDegerlendirmeCevap) {
-		super();
-		this.degerlendirmeTarihi = degerlendirmeTarihi;
-		this.kabaDegerlendirmeCevap = kabaDegerlendirmeCevap;
-	}
 
 	public KabaDegerlendirme() {
 		super();
@@ -47,14 +40,6 @@ public class KabaDegerlendirme {
 		this.id = id;
 	}
 
-	public List<Kazanim> getKazanimlar() {
-		return kazanimlar;
-	}
-
-	public void setKazanimlar(List<Kazanim> kazanimlar) {
-		this.kazanimlar = kazanimlar;
-	}
-	
 	public Ogrenci getOgrenci() {
 		return ogrenci;
 	}
@@ -78,26 +63,18 @@ public class KabaDegerlendirme {
 	public void setDegerlendirmeTarihi(Date degerlendirmeTarihi) {
 		this.degerlendirmeTarihi = degerlendirmeTarihi;
 	}
-	
-	public String getKabaDegerlendirmeCevap() {
-		return kabaDegerlendirmeCevap;
+
+	public List<KabaDegerlendirmeKazanimCevap> getKabaDegerlendirmeKazanimCevap() {
+		return kabaDegerlendirmeKazanimCevap;
 	}
 
-	public void setKabaDegerlendirmeCevap(String kabaDegerlendirmeCevap) {
-		this.kabaDegerlendirmeCevap = kabaDegerlendirmeCevap;
-	}
-	
-	public String getYorum() {
-		return yorum;
-	}
-
-	public void setYorum(String yorum) {
-		this.yorum = yorum;
+	public void setKabaDegerlendirmeKazanimCevap(List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap) {
+		this.kabaDegerlendirmeKazanimCevap = kabaDegerlendirmeKazanimCevap;
 	}
 
 	@Override
 	public String toString() {
-		return "KabaDegerlendirme [id=" + id + ", kazanimlar=" + kazanimlar + "]";
+		return "KabaDegerlendirme [id=" + id + "]";
 	}
 	
 	

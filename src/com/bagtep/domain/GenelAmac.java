@@ -14,7 +14,7 @@ public class GenelAmac {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	
+
 	@OneToMany(mappedBy="genelAmac")
 	private List<OzelAmac> ozelAmaclar;
 	

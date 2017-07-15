@@ -3,6 +3,7 @@ package com.bagtep.business;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -10,7 +11,9 @@ import javax.persistence.PersistenceContext;
 
 import com.bagtep.domain.Ders;
 import com.bagtep.domain.KabaDegerlendirme;
+import com.bagtep.domain.Kazanim;
 import com.bagtep.domain.Ogrenci;
+import com.bagtep.domain.OzelAmac;
 import com.bagtep.mbeans.MySessionScopedBean;
 
 
@@ -27,7 +30,7 @@ public class KabaDegerlendirmeService {
 		kd.setDegerlendirmeTarihi(new Date());
 
 		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
-		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();		
+		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
 		
 		kd.setDers(ders);
 		kd.setOgrenci(ogrenci);

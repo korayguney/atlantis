@@ -1,6 +1,8 @@
 package com.bagtep.mbeans;
 
 import java.io.Serializable;
+import java.security.Timestamp;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -208,8 +210,8 @@ public class OgrenciSecBean implements Serializable {
 	}
 	
     public String onay(Ogrenci ogrenci) {
-    	
-        System.out.println("ONAY METODA GİRDİ");
+
+    	System.out.println("ONAY METODA GİRDİ");
         
         mySessionScopedBean.setAd(ogrenci.getAd());
         mySessionScopedBean.setSoyad(ogrenci.getSoyad());

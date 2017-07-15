@@ -18,14 +18,11 @@ public class Ders {
 	@OneToMany(mappedBy="ders")
 	private List<GenelAmac> genelAmaclar;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy="dersler")
 	private List<Ogrenci> ogrenciler;	
 	
 	@ManyToMany(mappedBy="dersler")
 	private List<Ogretmen> ogretmenler;
-	
-	@ManyToMany(mappedBy="dersler")
-	private List<BransOgretmeni> bransOgrentmenleri;
 	
 	@OneToMany(mappedBy="ders")
 	private List<KabaDegerlendirme> kabadegerlendirmeler;
@@ -80,14 +77,6 @@ public class Ders {
 	public void setOgretmenler(List<Ogretmen> ogretmenler) {
 		this.ogretmenler = ogretmenler;
 	}
-
-	public List<BransOgretmeni> getBransOgrentmenleri() {
-		return bransOgrentmenleri;
-	}
-
-	public void setBransOgrentmenleri(List<BransOgretmeni> bransOgrentmenleri) {
-		this.bransOgrentmenleri = bransOgrentmenleri;
-	}	
 	
 	public List<KabaDegerlendirme> getKabadegerlendirmeler() {
 		return kabadegerlendirmeler;

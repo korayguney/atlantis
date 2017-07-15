@@ -6,10 +6,9 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import com.bagtep.domain.Ders;
+import com.bagtep.domain.Ogretmen;
 import com.bagtep.domain.Sinif;
 import com.bagtep.domain.User;
-
 import com.bagtep.mbeans.MySessionScopedBean;
 
 @Stateless
@@ -89,6 +88,17 @@ public class SinifService {
 
 	public void updateSinif(Sinif sinif) {
 		entityManager.merge(sinif);
+	}
+
+
+	public void ogretmeneSinifAta(int ogretmenId, int sinifId) {
+		Ogretmen ogretmen = entityManager.find(Ogretmen.class, ogretmenId);
+		Sinif sinif = entityManager.find(Sinif.class, sinifId);
+		
+		sinif.getOgretmen().add(ogretmen);
+
+		entityManager.merge(ogretmen);
+		entityManager.merge(sinif);			
 	}
 
 
