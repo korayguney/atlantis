@@ -12,10 +12,10 @@
 	
 	<h:form>
 		<p:accordionPanel>
-			<p:tab title="Genel amaç : #{testBean.genelAmac.icerik}">
+			<p:tab title="Genel amaç : #{kabaDegerlendirmeBean.genelAmac.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{testBean.genelAmac.ozelAmaclar}"
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600">
@@ -23,9 +23,9 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-							<p:selectOneButton value="#{ozelAmac.kazanimlar}">
-								<f:selectItem itemLabel="Evet" itemValue="Evet" />
-								<f:selectItem itemLabel="Hayır" itemValue="Hayır" />
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="true" />
+								<f:selectItem itemLabel="Hayır" itemValue="false" />
 							</p:selectOneButton>
 						</p:column>
 
@@ -37,17 +37,17 @@
 					</p:dataTable>
 
 				</h:panelGrid>
-				<p:commandButton actionListener="#{kabaDegerlendirmeBean.degerlendirmeKaydet()}" value="Değerlendirme Kaydet" ajax="false" />
+				<p:commandButton actionListener="#{kabaDegerlendirmeBean.degerlendirmeKaydet()}" value="Değerlendirme Kaydet" />
 			</p:tab>
 			
 		</p:accordionPanel>
 	</h:form>
 	
 		<p:accordionPanel>
-			<p:tab title="Genel amaç : #{testBean.genelAmac2.icerik}">
+			<p:tab title="Genel amaç : #{kabaDegerlendirmeBean.genelAmac2.icerik}">
 				<h:panelGrid cellpadding="10">
 
-					<p:dataList value="#{testBean.genelAmac2.ozelAmaclar}"
+					<p:dataList value="#{kabaDegerlendirmeBean.genelAmac2.ozelAmaclar}"
 						var="ozelAmac">
 					#{ozelAmac.icerik}
 					<p:dataList value="#{ozelAmac.kazanimlar}" var="kaz">
@@ -68,10 +68,10 @@
 		</p:accordionPanel>
 
 		<p:accordionPanel>
-			<p:tab title="Genel amaç : #{testBean.genelAmac3.icerik}">
+			<p:tab title="Genel amaç : #{kabaDegerlendirmeBean.genelAmac3.icerik}">
 				<h:panelGrid cellpadding="10">
 
-					<p:dataList value="#{testBean.genelAmac3.ozelAmaclar}"
+					<p:dataList value="#{kabaDegerlendirmeBean.genelAmac3.ozelAmaclar}"
 						var="ozelAmac">
 					#{ozelAmac.icerik}
 					<p:dataList value="#{ozelAmac.kazanimlar}" var="kaz">

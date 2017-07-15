@@ -43,7 +43,7 @@
 						</p:cellEditor>
 					</p:column>
 
-					<p:column headerText="Sınıfı">
+					<p:column headerText="Sınıfı" sortBy="#{ogrenci.sinif.sinifAd}">
 						<p:cellEditor>
 							<f:facet name="output">
 						#{ogrenci.sinif.sinifAd}
@@ -76,6 +76,17 @@
 					</f:facet>
 							<f:facet name="input">
 								<p:inputText value="#{ogrenci.velisoyad}" />
+							</f:facet>
+						</p:cellEditor>
+					</p:column>
+					
+					<p:column headerText="Telefon">
+						<p:cellEditor>
+							<f:facet name="output">
+						#{ogrenci.telefon}
+					</f:facet>
+							<f:facet name="input">
+								<p:inputText value="#{ogrenci.telefon}" />
 							</f:facet>
 						</p:cellEditor>
 					</p:column>

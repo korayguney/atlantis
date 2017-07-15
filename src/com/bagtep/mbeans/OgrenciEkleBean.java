@@ -28,6 +28,7 @@ public class OgrenciEkleBean {
 		
 	private List<Ogrenci> ogrenciler ;
 	private List<Sinif> siniflar;
+	private int sinifId;
 	
 	@EJB
 	private OgrenciService ogrenciService ;
@@ -49,7 +50,7 @@ public class OgrenciEkleBean {
 	
 	public String add()
 	{
-		ogrenciService.saveOgrenci(this.newOgrenci);
+		ogrenciService.saveOgrenci(this.newOgrenci,this.sinifId);
 		this.ogrenciler = ogrenciService.getAllOgrenci();
 		FacesContext.getCurrentInstance().
 		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "","Yeni öğrenci başarıyla eklendi!!"));
@@ -77,6 +78,14 @@ public class OgrenciEkleBean {
 
 	public void setNewOgrenci(Ogrenci newOgrenci) {
 		this.newOgrenci = newOgrenci;
+	}
+
+	public int getSinifId() {
+		return sinifId;
+	}
+
+	public void setSinifId(int sinifId) {
+		this.sinifId = sinifId;
 	}
 
 	public List<Ogrenci> getOgrenciler() {

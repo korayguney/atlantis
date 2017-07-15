@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.bagtep.domain.Ders;
 import com.bagtep.domain.Ogretmen;
 import com.bagtep.domain.Sinif;
 import com.bagtep.domain.User;
@@ -99,6 +100,17 @@ public class SinifService {
 
 		entityManager.merge(ogretmen);
 		entityManager.merge(sinif);			
+	}
+
+
+	public void derseSinifAta(int dersId, int sinifId) {
+		Ders ders = entityManager.find(Ders.class, dersId);
+		Sinif sinif = entityManager.find(Sinif.class, sinifId);
+		
+		sinif.getDersler().add(ders);
+		
+		entityManager.merge(ders);
+		entityManager.merge(sinif);					
 	}
 
 

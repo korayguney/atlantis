@@ -38,17 +38,18 @@
 					</tr>
 					<tr>
 						<td>Doğum Tarihi :</td>
-						<td><p:calendar id="popup"
-								value="#{ogrenciEkleBean.newOgrenci.dogumTarih}" /></td>
+						<td><p:inputMask id="popup"
+								value="#{ogrenciEkleBean.newOgrenci.dogumTarih}" mask="99.99.9999"/>
+						</td>
 						<td></td>
 					</tr>
 					<tr>
 						<td>Sınıfı :</td>
 						<td><h:selectOneMenu id="sinif"
-								value="#{ogrenciEkleBean.newOgrenci.sinif}" style="width:204px">
+								value="#{ogrenciEkleBean.sinifId}" style="width:204px">
 								<f:selectItem itemLabel="Sınıf Seçiniz" itemValue=""
 									noSelectionOption="true" />
-								<f:selectItems value="#{ogrenciSecBean.tumsiniflar}" />
+								<f:selectItems value="#{ogrenciSecBean.tumsiniflar}" var="sinif" itemLabel="#{sinif.sinifAd}" itemValue="#{sinif.id}"/>
 							</h:selectOneMenu></td>
 						<td><p:message for="sinif" /></td>
 					</tr>
@@ -75,9 +76,9 @@
 					</tr>
 					<tr>
 						<td>Telefon :</td>
-						<td><p:inputText id="telefon"
+						<td><p:inputMask id="telefon"
 								value="#{ogrenciEkleBean.newOgrenci.telefon}"
-								requiredMessage="Soyad boş geçilemez!" /></td>
+								mask="(999) 999-9999" /></td>
 						<td><p:message for="telefon" /></td>
 					</tr>
 					<tr>

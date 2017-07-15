@@ -55,8 +55,8 @@ public class DersAtaBean {
 
 	}
 	
-	public void ekleOgrenci() {
-		ogrenciService.ogrenciyeDersAta(ogrenciId, dersId);
+	public void dersAtaSinif() {
+		sinifService.derseSinifAta(dersId, sinifId);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bilgilendirme"));
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Ders Başarıyla Atandı!"));
 

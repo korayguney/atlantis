@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 import com.bagtep.domain.Ders;
 import com.bagtep.domain.Ogrenci;
 import com.bagtep.domain.Ogretmen;
+import com.bagtep.domain.Sinif;
 import com.bagtep.domain.User;
 import com.bagtep.exceptions.UsernameExistsException;
 
@@ -22,25 +23,26 @@ public class OgrenciService {
 	@PersistenceContext
 	private EntityManager entityManager;
 		
-	public void saveOgrenci(Ogrenci newOgrenci) {
-		
-		List<Ogrenci> ogrenciler = entityManager.createQuery("select o from Ogrenci o where o.ad=:ad",Ogrenci.class).setParameter("ad", newOgrenci.getAd()).getResultList();
+	public void saveOgrenci(Ogrenci newOgrenci, int sinifId) {
+		Sinif sinif = entityManager.find(Sinif.class, sinifId);
+		newOgrenci.setSinif(sinif);
 		entityManager.persist(newOgrenci);
 	}
 
 	
-	public int getId(int ogrencino){
-		
-		List<Ogrenci> ogrenciler = entityManager.createQuery("select o from Ogrenci o where o.ogrencino=:ogrencino",Ogrenci.class).setParameter("ogrencino", ogrencino).getResultList();		
+	public int getId(int ogrencino) {
+
+		List<Ogrenci> ogrenciler = entityManager
+				.createQuery("select o from Ogrenci o where o.ogrencino=:ogrencino", Ogrenci.class)
+				.setParameter("ogrencino", ogrencino).getResultList();
 		int id = ogrenciler.get(0).getId();
 		return id;
 	}
-	
-	public String getOgrenciAd(int ogrencino){
+
+	public String getOgrenciAd(int oid){
 		
-		List<Ogrenci> ogrenciler = entityManager.createQuery("select o from Ogrenci o where o.ogrencino=:ogrencino",Ogrenci.class).setParameter("ogrencino", ogrencino).getResultList();		
-		String ogrenciad = ogrenciler.get(0).getAd();
-		return ogrenciad;
+		
+		return entityManager.find(Ogrenci.class, oid).getAd();
 	}
 	
 	public String getOgrenciSoyad(int ogrencino){

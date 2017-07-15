@@ -24,6 +24,9 @@ public class Ders {
 	@ManyToMany(mappedBy="dersler")
 	private List<Ogretmen> ogretmenler;
 	
+	@ManyToMany(mappedBy="dersler")
+	private List<Sinif> siniflar;
+	
 	@OneToMany(mappedBy="ders")
 	private List<KabaDegerlendirme> kabadegerlendirmeler;
 		
@@ -84,6 +87,14 @@ public class Ders {
 
 	public void setKabadegerlendirmeler(List<KabaDegerlendirme> kabadegerlendirmeler) {
 		this.kabadegerlendirmeler = kabadegerlendirmeler;
+	}
+	
+	public List<Sinif> getSiniflar() {
+		return siniflar;
+	}
+
+	public void setSiniflar(List<Sinif> siniflar) {
+		this.siniflar = siniflar;
 	}
 
 	@Override

@@ -17,6 +17,7 @@ public class KabaDegerlendirme {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	private Date degerlendirmeTarihi;
+	private String degerlendirici;
 	
 	@OneToMany(mappedBy="kabaDegerlendirme")
 	private List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap;
@@ -70,6 +71,14 @@ public class KabaDegerlendirme {
 
 	public void setKabaDegerlendirmeKazanimCevap(List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap) {
 		this.kabaDegerlendirmeKazanimCevap = kabaDegerlendirmeKazanimCevap;
+	}
+	
+	public String getDegerlendirici() {
+		return degerlendirici;
+	}
+
+	public void setDegerlendirici(String degerlendirici) {
+		this.degerlendirici = degerlendirici;
 	}
 
 	@Override

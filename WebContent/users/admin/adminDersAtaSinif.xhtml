@@ -9,17 +9,17 @@
 	<ui:define name="pageContent">
 
 		<div class="alert alert-info" align="center">
-			<h3>Öğrenci - Ders Atama Sayfası</h3>
+			<h3>Sınıf - Ders Atama Sayfası</h3>
 		</div>
 
 		<div class="alert alert-success" align="center">
 			<h:form>
 			<table align="center">
 					<tr>
-						<td>Öğrenci : &nbsp;  </td><td>
-				<h:selectOneMenu value="#{dersAtaBean.ogrenciId}">
-					<f:selectItems value="#{dersAtaBean.ogrenciler}" var="ogrenci"
-						itemLabel="#{ogrenci.ad} #{ogrenci.soyad}" itemValue="#{ogrenci.id}" />
+						<td>Sınıf : &nbsp;  </td><td>
+				<h:selectOneMenu value="#{dersAtaBean.sinifId}">
+					<f:selectItems value="#{dersAtaBean.siniflar}" var="sinif"
+						itemLabel="#{sinif.sinifAd}" itemValue="#{sinif.id}" />
 				</h:selectOneMenu>
 		</td></tr>
 		<tr>  <td> &nbsp;</td> <td> </td><td> </td></tr>
@@ -33,7 +33,7 @@
 				</td></tr>
 				<tr>  <td>&nbsp;</td> <td> </td><td> </td></tr>
 		<tr><td></td><td>
-				<p:commandButton action="#{dersAtaBean.ekleOgrenci}" value="Ders Ata"
+				<p:commandButton action="#{dersAtaBean.dersAtaSinif}" value="Ders Ata"
 					update="gr" />
 				<p:growl id="gr" />
 				</td></tr></table>

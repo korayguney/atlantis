@@ -22,6 +22,9 @@ public class Sinif {
 	@ManyToMany
 	private List<Ogretmen> ogretmen;
 	
+	@ManyToMany
+	private List<Ders> dersler;
+	
 	private String sinifAd;
 
 	
@@ -70,6 +73,14 @@ public class Sinif {
 
 	public void setOgretmen(List<Ogretmen> ogretmen) {
 		this.ogretmen = ogretmen;
+	}	
+	
+	public List<Ders> getDersler() {
+		return dersler;
+	}
+
+	public void setDersler(List<Ders> dersler) {
+		this.dersler = dersler;
 	}
 
 	@Override

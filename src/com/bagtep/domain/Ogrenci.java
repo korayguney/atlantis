@@ -21,7 +21,7 @@ public class Ogrenci {
 	private String soyad;
 	private int ogrencino;
 	private String cinsiyet;
-	private Date dogumTarih;
+	private String dogumTarih;
 	private String veliad;
 	private String velisoyad;
 	private String telefon;
@@ -83,10 +83,10 @@ public class Ogrenci {
 	public void setCinsiyet(String cinsiyet) {
 		this.cinsiyet = cinsiyet;
 	}
-	public Date getDogumTarih() {
+	public String getDogumTarih() {
 		return dogumTarih;
 	}
-	public void setDogumTarih(Date dogumTarih) {
+	public void setDogumTarih(String dogumTarih) {
 		this.dogumTarih = dogumTarih;
 	}
 	
