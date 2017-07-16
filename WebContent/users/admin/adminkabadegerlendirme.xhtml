@@ -7,10 +7,28 @@
 
 <ui:composition template="/WEB-INF/templates/admin.xhtml">
 	<ui:define name="pageContent">
-	
-	Öğrenci : <h:outputText value="#{kabaDegerlendirmeBean.ogrenciAd}"   />
-	
-	<h:form>
+
+		<div class="alert alert-info" align="center">
+			<h4>Kaba Değerlendirme Sayfası</h4>
+			<div class="alert alert-success" align="center">
+				<h5>
+					<i class="fa fa-book fa-fw" /><b> Ders : </b>
+					<h:outputText value="#{kabaDegerlendirmeBean.dersAd}" />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-child fa-fw" /><b>
+						Öğrenci : </b>
+					<h:outputText
+						value="#{kabaDegerlendirmeBean.ogrenciAd} #{kabaDegerlendirmeBean.ogrenciSoyad}" />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<i class="fa fa-eye fa-fw" /><b> Değerlendirici : </b>
+					<h:outputText
+						value="#{mySessionScopedBean.firstname} #{mySessionScopedBean.lastname}" />
+				</h5>
+			</div>
+		</div>
+
+
+		<h:form>
 		<p:accordionPanel>
 			<p:tab title="Genel amaç : #{kabaDegerlendirmeBean.genelAmac.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">

@@ -146,10 +146,9 @@ public class TestDataService {
 			entityManager.persist(ogretmen6);
 
 			try {
+				// MATEMATİK DERSİ VERİLERİ GİRİLİYOR !!!
 				InputStream in = getClass().getResourceAsStream("/com/bagtep/domain/testdata/matematik.txt");
 				BufferedReader rd = new BufferedReader(new InputStreamReader(in, "utf-8"));
-				
-				
 				
 				while (true) {
 					String line = rd.readLine();
@@ -165,6 +164,30 @@ public class TestDataService {
 						entityManager.persist(ozelAmac);
 					}
 					if (!line.contains("ÜNİTE") && !line.contains("Amaç ") && !line.contains("Davranışlar ")
+							&& line.length() > 5) {
+						kazanim = new Kazanim(line, ozelAmac);
+						entityManager.persist(kazanim);
+					}
+				}
+				
+				// DİL VE KONUŞMA GELİŞİMİ DERSİ VERİLERİ GİRİLİYOR !!!
+				InputStream in1 = getClass().getResourceAsStream("/com/bagtep/domain/testdata/dilvekonusmagelisimi.txt");
+				BufferedReader rd1 = new BufferedReader(new InputStreamReader(in1, "utf-8"));
+				
+				while (true) {
+					String line = rd1.readLine();
+					if (line == null)
+						break;
+
+					if (line.contains("Genel Amaç")) {
+						genelAmac = new GenelAmac(dilvekonusma, line);
+						entityManager.persist(genelAmac);
+					}
+					if (line.contains("Amaç ")) {
+						ozelAmac = new OzelAmac(genelAmac, line);
+						entityManager.persist(ozelAmac);
+					}
+					if (!line.contains("Genel Amaç") && !line.contains("Amaç ") && !line.contains("Davranışlar ")
 							&& line.length() > 5) {
 						kazanim = new Kazanim(line, ozelAmac);
 						entityManager.persist(kazanim);

@@ -33,6 +33,8 @@ public class KabaDegerlendirmeBean {
 	private int ogrenciId;
 	private String dersAd;
 	private String ogrenciAd;
+	private String ogrenciSoyad;
+	private boolean kabaDegerlendirmeCevap = false;
 	private GenelAmac genelAmac;
 	private GenelAmac genelAmac2;
 	private GenelAmac genelAmac3;
@@ -54,8 +56,14 @@ public class KabaDegerlendirmeBean {
 		HttpServletRequest req = (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext()
 				.getRequest();
 		ogrenciId = Integer.parseInt(req.getParameter("oid"));
+		this.dersAd = req.getParameter("did");
+	
+		System.out.println("Seçilen Ders adı : " + dersAd);
 		System.out.println("Seçilen Ogrenci id : " + ogrenciId);
+		
 		this.ogrenciAd = ogrenciService.getOgrenciAd(ogrenciId);
+		this.ogrenciSoyad = ogrenciService.getOgrenciSoyad(ogrenciId);
+			
 		this.genelAmac = testDataService.getGenelAmac(1);
 
 		for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -69,11 +77,12 @@ public class KabaDegerlendirmeBean {
 	public void degerlendirmeKaydet() {
 
 		System.out.println("Seçilen Ogrenci id : " + ogrenciId);
-		testMethod();
+		// testMethod();
 		
 		String degerlendirici = mySessionScopedBean.getFirstname() +" "+ mySessionScopedBean.getLastname();
+		
 
-		kabaDegerlendirmeService.degerlendirmeKaydet(ogrenciId, "Matematik", degerlendirici);
+		kabaDegerlendirmeService.degerlendirmeKaydet(ogrenciId, "Matematik", degerlendirici, ozelAmaclarMap);
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Kaba Değerlendirme Başarıyla Kaydedildi !!!"));
 	}
@@ -157,6 +166,24 @@ public class KabaDegerlendirmeBean {
 	public void setOgrenciAd(String ogrenciAd) {
 		this.ogrenciAd = ogrenciAd;
 	}
+	
+	
+	public String getOgrenciSoyad() {
+		return ogrenciSoyad;
+	}
+
+	public void setOgrenciSoyad(String ogrenciSoyad) {
+		this.ogrenciSoyad = ogrenciSoyad;
+	}
+
+	public boolean isKabaDegerlendirmeCevap() {
+		return kabaDegerlendirmeCevap;
+	}
+
+	public void setKabaDegerlendirmeCevap(boolean kabaDegerlendirmeCevap) {
+		this.kabaDegerlendirmeCevap = kabaDegerlendirmeCevap;
+	}
+
 	public MySessionScopedBean getMySessionScopedBean() {
 		return mySessionScopedBean;
 	}

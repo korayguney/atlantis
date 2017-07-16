@@ -13,7 +13,7 @@ public class KabaDegerlendirmeKazanimCevap {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	private String kabaDegerlendirmeCevap;
+	private boolean kabaDegerlendirmeCevap;
 	private String yorum;
 	
 	@ManyToOne
@@ -30,11 +30,12 @@ public class KabaDegerlendirmeKazanimCevap {
 		this.id = id;
 	}
 
-	public String getKabaDegerlendirmeCevap() {
+	
+	public boolean isKabaDegerlendirmeCevap() {
 		return kabaDegerlendirmeCevap;
 	}
 
-	public void setKabaDegerlendirmeCevap(String kabaDegerlendirmeCevap) {
+	public void setKabaDegerlendirmeCevap(boolean kabaDegerlendirmeCevap) {
 		this.kabaDegerlendirmeCevap = kabaDegerlendirmeCevap;
 	}
 

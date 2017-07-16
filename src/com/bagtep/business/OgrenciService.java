@@ -39,17 +39,14 @@ public class OgrenciService {
 		return id;
 	}
 
-	public String getOgrenciAd(int oid){
-		
-		
+	public String getOgrenciAd(int oid){		
 		return entityManager.find(Ogrenci.class, oid).getAd();
 	}
 	
-	public String getOgrenciSoyad(int ogrencino){
-		
-		List<Ogrenci> ogrenciler = entityManager.createQuery("select o from Ogrenci o where o.ogrencino=:ogrencino",Ogrenci.class).setParameter("ogrencino", ogrencino).getResultList();		
-		String ogrencisoyad = ogrenciler.get(0).getSoyad();
-		return ogrencisoyad;
+	public String getOgrenciSoyad(int oid){
+
+		return entityManager.find(Ogrenci.class, oid).getSoyad();
+
 	}
 		
 
