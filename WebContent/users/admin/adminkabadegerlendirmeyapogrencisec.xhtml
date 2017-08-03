@@ -16,18 +16,18 @@
 		 
 		    <p:panel header="Ders ve Öğrenci seçiniz." style="margin-bottom:10px;">
 		        <h:panelGrid columns="2" cellpadding="5">
-		            <p:outputLabel for="ders" value="Ders: " />
-		            <h:selectOneMenu id="ders" value="#{ogrenciSecBean.ders}" style="width:300px">
+		            <p:outputLabel for="ders" value="Ders:  &nbsp;  " />
+		            <p:selectOneMenu id="ders" value="#{ogrenciSecBean.ders}" style="width:250px">
 		            	<f:selectItem itemLabel="Ders seçiniz" itemValue="" noSelectionOption="true" />
 		                <f:selectItems value="#{ogrenciSecBean.tumdersler}" />
-		            </h:selectOneMenu>
+		            </p:selectOneMenu>
 		 
-				    <p:outputLabel for="sinif" value="Sınıf: " />
-		            <h:selectOneMenu id="sinif" value="#{ogrenciSecBean.sinif}" style="width:300px">
+				    <p:outputLabel for="sinif" value="Sınıf: &nbsp; " />
+		            <p:selectOneMenu id="sinif" value="#{ogrenciSecBean.sinif}" style="width:250px">
 		                <p:ajax listener="#{ogrenciSecBean.sinifDegistiginde()}" update="sinif" />
 		                <f:selectItem itemLabel="Sınıf seçiniz" itemValue="" noSelectionOption="true" />
 		                <f:selectItems value="#{ogrenciSecBean.tumsiniflar}" />
-		            </h:selectOneMenu>
+		            </p:selectOneMenu>
 	       
 		        </h:panelGrid>
 		        

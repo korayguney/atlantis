@@ -17,19 +17,19 @@
 			<table align="center">
 					<tr>
 						<td>Sınıf : &nbsp;  </td><td>
-				<h:selectOneMenu value="#{dersAtaBean.sinifId}">
+				<p:selectOneMenu value="#{dersAtaBean.sinifId}">
 					<f:selectItems value="#{dersAtaBean.siniflar}" var="sinif"
 						itemLabel="#{sinif.sinifAd}" itemValue="#{sinif.id}" />
-				</h:selectOneMenu>
+				</p:selectOneMenu>
 		</td></tr>
 		<tr>  <td> &nbsp;</td> <td> </td><td> </td></tr>
 						
 		<tr>
 						<td>Ders :  &nbsp; </td><td>
-		<h:selectOneMenu value="#{dersAtaBean.dersId}">
+		<p:selectOneMenu value="#{dersAtaBean.dersId}">
 					<f:selectItems value="#{dersAtaBean.dersler}" var="ders"
 						itemLabel="#{ders.dersAd}" itemValue="#{ders.id}" />
-				</h:selectOneMenu>
+				</p:selectOneMenu>
 				</td></tr>
 				<tr>  <td>&nbsp;</td> <td> </td><td> </td></tr>
 		<tr><td></td><td>

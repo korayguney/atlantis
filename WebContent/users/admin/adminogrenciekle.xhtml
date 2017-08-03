@@ -45,12 +45,12 @@
 					</tr>
 					<tr>
 						<td>Sınıfı :</td>
-						<td><h:selectOneMenu id="sinif"
+						<td><p:selectOneMenu id="sinif"
 								value="#{ogrenciEkleBean.sinifId}" style="width:204px">
 								<f:selectItem itemLabel="Sınıf Seçiniz" itemValue=""
 									noSelectionOption="true" />
 								<f:selectItems value="#{ogrenciSecBean.tumsiniflar}" var="sinif" itemLabel="#{sinif.sinifAd}" itemValue="#{sinif.id}"/>
-							</h:selectOneMenu></td>
+							</p:selectOneMenu></td>
 						<td><p:message for="sinif" /></td>
 					</tr>
 					<tr>

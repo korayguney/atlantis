@@ -73,13 +73,4 @@ public class Ogretmen {
 		this.siniflar = siniflar;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

@@ -24,35 +24,37 @@ public class KabaDegerlendirmeService {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void degerlendirmeKaydet(int ogrenciId, String dersAd, String degerlendirici, Map<Integer, Boolean> ozelAmaclarMap ) {
+	public void degerlendirmeKaydet(int ogrenciId, String dersAd, String degerlendirici, Map<Integer, Boolean> ozelAmaclarMap , Map<Integer, String> yorum , int kazanimId ) {
 		System.out.println("SERVICE : degerlendirmeKaydet GİRDİ !!!");
+	
+		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
+		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
+//		List<Kazanim> kazanimlar = entityManager.createQuery("select k from Kazanim k where k.id=:kazanimId").setParameter("kazanimId", kazanimId).getResultList();
+//		System.out.println("Kazanım size ::::: " + kazanimlar.size());
 		
 		KabaDegerlendirme kd = new KabaDegerlendirme();
 		kd.setDegerlendirmeTarihi(new Date());
 		kd.setDegerlendirici(degerlendirici);
-		
-		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
-		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
-		
 		kd.setDers(ders);
 		kd.setOgrenci(ogrenci);
 		
 		entityManager.persist(kd);
 		
-		KabaDegerlendirmeKazanimCevap kdcevap = new KabaDegerlendirmeKazanimCevap();
+//		Kazanim kazanim = new Kazanim();
+//		System.out.println(kazanim);
+		
+		KabaDegerlendirmeKazanimCevap kdcevap;
 		
 		for (Integer key : ozelAmaclarMap.keySet()) {
-			 kdcevap.setKabaDegerlendirmeCevap((Boolean)ozelAmaclarMap.get(key));
-			 entityManager.persist(kdcevap);
-			
-			 System.out.println("SONUCUM : ******** " + ozelAmaclarMap.get(key));
-			 
-//			if(ozelAmaclarMap.get(key) instanceof Boolean){
-//				System.out.println(key + " : " + ozelAmaclarMap.get(key));
-//			}else{
-//				System.out.println("******************* BOOLEAN DEĞER DEĞİL !!!");
-//			}
+			kdcevap = new KabaDegerlendirmeKazanimCevap();
+			kdcevap.setKabaDegerlendirmeCevap(Boolean.parseBoolean(""+ozelAmaclarMap.get(key)));
+			kdcevap.setYorum(""+yorum.get(key));
+			kdcevap.setKabaDegerlendirme(kd);
+//			kdcevap.setKazanim(kazanimlar.get(key));
+
+			entityManager.persist(kdcevap);
 		}		
+		
 	}
 	
 	public void getDegerlendirme() {

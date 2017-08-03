@@ -1,6 +1,8 @@
 package com.bagtep.mbeans;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -24,6 +26,7 @@ public class DersAtaBean {
 	private List<Ogrenci> ogrenciler;
 	private List<Ders> dersler;
 	private List<Sinif> siniflar;
+	private Map<Ogretmen, Ders> ogretmenDers = new LinkedHashMap<>();
 	
 	private int ogretmenId;
 	private int ogrenciId;
@@ -52,6 +55,15 @@ public class DersAtaBean {
 		ogretmenService.ogretmeneDersAta(ogretmenId, dersId);
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bilgilendirme"));
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Ders Başarıyla Atandı!"));
+
+	}
+	
+	public void ogretmeneAtananDersleriGetir() {
+		this.ogretmenDers = ogretmenService.ogretmeneAtananDersleriGetir(ogretmenId,dersId);
+
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bilgilendirme"));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ogretmeneAtananDersleriGetir! "+ogretmenDers.isEmpty()));
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ogretmeneAtananDersleriGetir! "+ogretmenDers.size()));
 
 	}
 	
@@ -141,6 +153,14 @@ public class DersAtaBean {
 		this.sinifId = sinifId;
 	}
 
+	public Map<Ogretmen, Ders> getOgretmenDers() {
+		return ogretmenDers;
+	}
+
+	public void setOgretmenDers(Map<Ogretmen, Ders> ogretmenDers) {
+		this.ogretmenDers = ogretmenDers;
+	}
+	
 	
 	
 	

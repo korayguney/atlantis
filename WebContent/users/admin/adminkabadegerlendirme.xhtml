@@ -30,85 +30,538 @@
 
 		<h:form>
 		<p:accordionPanel>
-			<p:tab title="Genel amaç : #{kabaDegerlendirmeBean.genelAmac.icerik}">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
 					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac.ozelAmaclar}"
 						var="ozelAmac" >
 
-						<p:column headerText="Özel Amaçlar" width="600">
+						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
 							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
-								<f:selectItem itemLabel="Evet" itemValue="true" />
-								<f:selectItem itemLabel="Hayır" itemValue="false" />
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
-							<p:inplace id="text" label="Yorum için buraya tıklayınız" effect="slide">
-								<p:inputTextarea rows="6" cols="33" />
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
 					</p:dataTable>
 
 				</h:panelGrid>
-				<p:commandButton actionListener="#{kabaDegerlendirmeBean.degerlendirmeKaydet()}" value="Değerlendirme Kaydet" />
 			</p:tab>
 			
 		</p:accordionPanel>
-	</h:form>
 	
 		<p:accordionPanel>
-			<p:tab title="Genel amaç : #{kabaDegerlendirmeBean.genelAmac2.icerik}">
-				<h:panelGrid cellpadding="10">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac2.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataList value="#{kabaDegerlendirmeBean.genelAmac2.ozelAmaclar}"
-						var="ozelAmac">
-					#{ozelAmac.icerik}
-					<p:dataList value="#{ozelAmac.kazanimlar}" var="kaz">
-						#{kaz.icerik}	
-						 <p:selectOneRadio>
-								<f:selectItem itemLabel="1" itemValue="1" />&nbsp;
-				        <f:selectItem itemLabel="2" itemValue="2" />&nbsp;
-				        <f:selectItem itemLabel="3" itemValue="3" />&nbsp;
-				        <f:selectItem itemLabel="4" itemValue="4" />&nbsp;
-				        <f:selectItem itemLabel="5" itemValue="5" />
-							</p:selectOneRadio>
-						</p:dataList>
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac2.ozelAmaclar}"
+						var="ozelAmac" >
 
-					</p:dataList>
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
 
 				</h:panelGrid>
 			</p:tab>
+			
 		</p:accordionPanel>
-
+	
 		<p:accordionPanel>
-			<p:tab title="Genel amaç : #{kabaDegerlendirmeBean.genelAmac3.icerik}">
-				<h:panelGrid cellpadding="10">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac3.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataList value="#{kabaDegerlendirmeBean.genelAmac3.ozelAmaclar}"
-						var="ozelAmac">
-					#{ozelAmac.icerik}
-					<p:dataList value="#{ozelAmac.kazanimlar}" var="kaz">
-						#{kaz.icerik}	
-						 <p:selectOneRadio>
-								<f:selectItem itemLabel="1" itemValue="1" />&nbsp;
-				        <f:selectItem itemLabel="2" itemValue="2" />&nbsp;
-				        <f:selectItem itemLabel="3" itemValue="3" />&nbsp;
-				        <f:selectItem itemLabel="4" itemValue="4" />&nbsp;
-				        <f:selectItem itemLabel="5" itemValue="5" />
-							</p:selectOneRadio>
-						</p:dataList>
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac3.ozelAmaclar}"
+						var="ozelAmac" >
 
-					</p:dataList>
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
 
 				</h:panelGrid>
 			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac4 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac4.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac4.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac5 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac5.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac5.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac6 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac6.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac6.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac7 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac7.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac7.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac8 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac8.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac8.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac9 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac9.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac9.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac10 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac10.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac10.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac11 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac11.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac11.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac12 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac12.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac12.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac13 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac13.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac13.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac14 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac14.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac14.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac15 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac15.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac15.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac16 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac16.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac16.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac17 }">
+			<p:tab title="#{kabaDegerlendirmeBean.genelAmac17.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac17.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
+								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
+							</p:selectOneButton>
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
 		</p:accordionPanel>
 
+		<div class="alert alert-info" align="center">
+			<p:commandButton actionListener="#{kabaDegerlendirmeBean.degerlendirmeKaydet()}" value="Değerlendirme Kaydet" />
+		</div>
+	</h:form>
+	
+		
 	</ui:define>
 </ui:composition>
 

@@ -9,31 +9,32 @@
 	<ui:define name="pageContent">
 	
 	<div class="alert alert-info" align="center"><h3>Gelişim Görüntüleme Sayfası </h3> </div>
-		 <div class="alert alert-success" align="center">
+		<div class="alert alert-success" align="center">
+	
 			<h:form>
 		    <p:growl id="msgs" showDetail="true" />
 	
-		    <p:panel header="Sınıf seçiniz." style="margin-bottom:10px;">
-		        <h:panelGrid columns="2" cellpadding="5"> 
-				  
-				    <p:outputLabel for="sinif" value="Sınıf: " />
-		            <h:selectOneMenu id="sinif" value="#{ogrenciSecBean.sinif}" style="width:300px">
+		 
+		    <p:panel header="Öğrenci seçiniz." style="margin-bottom:10px;">
+		        <h:panelGrid columns="2" cellpadding="5">
+		           		 
+				    <p:outputLabel for="sinif" value="Sınıf: &nbsp;" />
+		            <p:selectOneMenu id="sinif" value="#{ogrenciSecBean.sinif}" style="width:200px">
 		                <p:ajax listener="#{ogrenciSecBean.sinifDegistiginde()}" update="sinif" />
 		                <f:selectItem itemLabel="Sınıf seçiniz" itemValue="" noSelectionOption="true" />
 		                <f:selectItems value="#{ogrenciSecBean.tumsiniflar}" />
-		            </h:selectOneMenu>
-		 
-		 
-		           
+		            </p:selectOneMenu>
+	       
 		        </h:panelGrid>
 		        
 		        <p:separator />
 		 
-		        <p:commandButton value="Öğrencileri Listele" update="msgs" actionListener="#{ogrenciSecBean.ogrencilistele()}" icon="ui-icon-circle-arrow-s" />
+		        <p:commandButton value="Öğrencileri Listele" update="dtable" action="#{ogrenciSecBean.ogrencilistele()}" icon="ui-icon-circle-arrow-s" />
 		 
 		        <p:separator />
-		        
-		  		<p:dataTable var="ogrenci" value="#{ogrenciSecBean.ogrencilistele()}">
+		        		        
+		  		<p:dataTable id="dtable" var="ogrenci" value="#{ogrenciSecBean.ogrenciler}">
+					  
 					    <p:column headerText="Öğrenci No">
 					        <h:outputText value="#{ogrenci.ogrencino}" />
 					    </p:column>
@@ -46,14 +47,16 @@
 					        <h:outputText value="#{ogrenci.soyad}" />
 					    </p:column>
 					 
-					    <p:column headerText="Gelişim">
-					        <p:commandButton value="Görüntüle" update="msgs" actionListener="#{ogrenciSecBean.gelisimGoruntule()}" icon="ui-icon-star" />
+					    <p:column headerText="Değerlendirme">
+					  
+					        <a href="adminkabadegerlendirmegelisimgoruntule.xhtml?oid=#{ogrenci.id}&amp;classId=#{ogrenciSecBean.sinif}">Görüntüle</a>
 					    </p:column>
 				</p:dataTable> 
 				
 		   </p:panel>
 	 	</h:form>
-</div>
+	 	</div>
+	 	
 	</ui:define>
 </ui:composition>
 

@@ -14,38 +14,62 @@
 
 		<div class="alert alert-success" align="center">
 			<h:form>
-			<table align="center">
+				<table align="center">
 					<tr>
-						<td>Öğretmen : &nbsp;  </td><td>
-				<h:selectOneMenu value="#{dersAtaBean.ogretmenId}">
-					<f:selectItems value="#{dersAtaBean.ogretmenler}" var="ogretmen"
-						itemLabel="#{ogretmen.ad} #{ogretmen.soyad}" itemValue="#{ogretmen.id}" />
-				</h:selectOneMenu>
-		</td></tr>
-		<tr>  <td> &nbsp;</td> <td> </td><td> </td></tr>
-						
-		<tr>
-						<td>Ders :  &nbsp; </td><td>
-		<h:selectOneMenu value="#{dersAtaBean.dersId}">
-					<f:selectItems value="#{dersAtaBean.dersler}" var="ders"
-						itemLabel="#{ders.dersAd}" itemValue="#{ders.id}" />
-				</h:selectOneMenu>
-				</td></tr>
-				<tr>  <td>&nbsp;</td> <td> </td><td> </td></tr>
-		<tr><td></td><td>
-				<p:commandButton action="#{dersAtaBean.ekle}" value="Ders Ata"
-					update="gr" />
-				<p:growl id="gr" />
-				</td></tr></table>
+						<td>Öğretmen : &nbsp;</td>
+						<td><p:selectOneMenu value="#{dersAtaBean.ogretmenId}">
+								<f:selectItems value="#{dersAtaBean.ogretmenler}" var="ogretmen"
+									itemLabel="#{ogretmen.ad} #{ogretmen.soyad}"
+									itemValue="#{ogretmen.id}" />
+							</p:selectOneMenu></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td></td>
+						<td></td>
+					</tr>
+
+					<tr>
+						<td>Ders : &nbsp;</td>
+						<td><p:selectOneMenu value="#{dersAtaBean.dersId}">
+								<f:selectItems value="#{dersAtaBean.dersler}" var="ders"
+									itemLabel="#{ders.dersAd}" itemValue="#{ders.id}" />
+							</p:selectOneMenu></td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><p:commandButton action="#{dersAtaBean.ekle}"
+								value="Ders Ata" update="gr" /> <p:growl id="gr" /></td>
+					</tr>
+				</table>
 			</h:form>
 		</div>
-		
+
 		<div class="alert alert-info" align="center">
-			<b>TODO : </b> Buraya datatable koyarak atamalar silinebilir...
+			<h:form id="tableForm">
+				<p:dataTable id="dtable" value="#{dersAtaBean.ogretmeneAtananDersleriGetir()}"
+					var="ogretmenDers">
+
+					<p:column headerText="Öğretmen adı">
+						<h:outputText value="#{ogretmenDers.key}" />
+					</p:column>
+
+					<p:column headerText="Ders adı">
+						<h:outputText value="#{ogretmenDers.value}" />
+					</p:column>
+				</p:dataTable>
+
+			</h:form>
+			<p:growl id="growl"></p:growl>
 		</div>
-			
-		
-		
+
+
+
 
 	</ui:define>
 </ui:composition>

@@ -53,6 +53,20 @@ public class Ogrenci {
 		this.evadres = evadres;
 	}
 	
+	public Ogrenci(String ad, String soyad, int ogrencino, String cinsiyet, 
+			String veliad, String velisoyad, String telefon, String evadres , Sinif sinif) {
+		super();
+		this.ad = ad;
+		this.soyad = soyad;
+		this.ogrencino = ogrencino;
+		this.cinsiyet = cinsiyet;
+		this.veliad = veliad;
+		this.velisoyad = velisoyad;
+		this.telefon = telefon;
+		this.evadres = evadres;
+		this.sinif = sinif;
+	}
+	
 	public int getId() {
 		return id;
 	}

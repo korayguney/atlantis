@@ -22,12 +22,22 @@ public class DersService {
 		entityManager.persist(newDers);
 	}
 
-	
 	public int getId(int dersno){
-		
 		List<Ders> dersler = entityManager.createQuery("select d from Ders d where d.dersno=:dersno",Ders.class).setParameter("dersno", dersno).getResultList();		
 		int id = dersler.get(0).getId();
 		return id;
+	}
+	
+	public int getId(String dersAd){
+		List<Ders> dersler = entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getResultList();	
+		if(dersler.get(0).getId() > 0){
+			System.out.println("DERS SERVICE GET ID METOD DÖNÜŞÜ : " + dersler.get(0).getId());
+			int id = dersler.get(0).getId();
+			return id;
+		}else {
+			System.out.println("DERS SERVICE GET ID BOŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞ");
+			return 0;
+		}
 	}
 	
 	public String getDersAd(int dersno){

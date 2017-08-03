@@ -49,10 +49,10 @@
 						#{ogrenci.sinif.sinifAd}
 					</f:facet>
 							<f:facet name="input">
-								<h:selectOneMenu value="#{ogrenci.sinif.id}">
+								<p:selectOneMenu value="#{ogrenci.sinif.id}" style="width:80px">
 									<f:selectItems value="#{sinifEkleBean.siniflar}" var="sinif"
 										itemLabel="#{sinif.sinifAd}" itemValue="#{sinif.id}" />
-								</h:selectOneMenu>
+								</p:selectOneMenu>
 							</f:facet>
 
 						</p:cellEditor>
