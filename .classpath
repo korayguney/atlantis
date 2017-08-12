@@ -9,7 +9,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/JavaJARS/iTextPDF/itextpdf-5.5.4.jar"/>
-	<classpathentry kind="lib" path="C:/JavaJARS/Apache PDFBox/pdfbox-1.8.2.jar"/>
+	<classpathentry kind="lib" path="C:/JavaJARS/Apache PDFBox/fontbox-2.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/JavaJARS/Apache PDFBox/pdfbox-2.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/JavaJARS/Apache PDFBox/pdfbox-tools-2.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/JavaJARS/Apache PDFBox/preflight-2.0.7.jar"/>
+	<classpathentry kind="lib" path="C:/JavaJARS/Apache PDFBox/xmpbox-2.0.7.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

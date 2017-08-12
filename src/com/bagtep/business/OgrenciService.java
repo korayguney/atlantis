@@ -1,6 +1,7 @@
 package com.bagtep.business;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.ejb.Stateless;
 import javax.faces.bean.ManagedProperty;
@@ -128,6 +129,23 @@ public class OgrenciService {
 		entityManager.merge(ders);	
 		
 	}
+
+
+//	public List<Ogrenci> degerlendirmesiYapilanlariGetir(String ders, String sinif) {
+//		
+//		List<Ogrenci> ogrenciler = getSelectedOgrenciForClass(sinif);
+//		
+//		List<Ogrenci> ogrenciler5 =	entityManager.createNativeQuery("select o from kabadegerlendirme k, ogrenci o where o.id = ogrenci_id & ders.id = ders_id").getResultList();
+//		for (Ogrenci ogrenci : ogrenciler5) {
+//			System.out.println("Değerlendirmesi yapılmış Öğrenciler : " + ogrenci.getAd());
+//		}
+//		
+//		return ogrenciler;
+//		
+//		
+//		
+//		
+//	}
 
 
 }

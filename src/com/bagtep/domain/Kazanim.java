@@ -21,9 +21,6 @@ public class Kazanim {
 	@ManyToOne
 	private OzelAmac ozelAmac;
 	
-	@OneToMany(mappedBy="kazanim")
-	private List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap;
-	
 	public Kazanim(String icerik, OzelAmac ozelAmac) {
 		super();
 		this.icerik = icerik;
@@ -58,13 +55,6 @@ public class Kazanim {
 		this.ozelAmac = ozelAmac;
 	}
 
-	public List<KabaDegerlendirmeKazanimCevap> getKabaDegerlendirmeKazanimCevap() {
-		return kabaDegerlendirmeKazanimCevap;
-	}
-
-	public void setKabaDegerlendirmeKazanimCevap(List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap) {
-		this.kabaDegerlendirmeKazanimCevap = kabaDegerlendirmeKazanimCevap;
-	}
 	
 	
 	

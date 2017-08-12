@@ -21,10 +21,13 @@ import com.bagtep.mbeans.MySessionScopedBean;
 
 @Stateless
 public class KabaDegerlendirmeService {
+	
+	KabaDegerlendirmeKazanimCevap kdcevap;
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void degerlendirmeKaydet(int ogrenciId, String dersAd, String degerlendirici, Map<Integer, Boolean> ozelAmaclarMap , Map<Integer, String> yorum , int kazanimId ) {
+	public void degerlendirmeKaydet(int ogrenciId, String dersAd, String degerlendirici, Map<Integer, Boolean> ozelAmaclarMap , Map<Integer, String> yorum) {
 		System.out.println("SERVICE : degerlendirmeKaydet GİRDİ !!!");
 	
 		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
@@ -43,14 +46,13 @@ public class KabaDegerlendirmeService {
 //		Kazanim kazanim = new Kazanim();
 //		System.out.println(kazanim);
 		
-		KabaDegerlendirmeKazanimCevap kdcevap;
 		
 		for (Integer key : ozelAmaclarMap.keySet()) {
 			kdcevap = new KabaDegerlendirmeKazanimCevap();
 			kdcevap.setKabaDegerlendirmeCevap(Boolean.parseBoolean(""+ozelAmaclarMap.get(key)));
 			kdcevap.setYorum(""+yorum.get(key));
 			kdcevap.setKabaDegerlendirme(kd);
-//			kdcevap.setKazanim(kazanimlar.get(key));
+//			kdcevap.setOzelAmacId(ozelAmacId.get(key));
 
 			entityManager.persist(kdcevap);
 		}		
@@ -65,6 +67,14 @@ public class KabaDegerlendirmeService {
 	public void getGelisim() {
 		System.out.println("SERVICE : getGelisim GİRDİ !!!");
 		// db den gelişim çekerek bean e return edecek.		
+	}
+
+	public int degerlendirmePuanHesapla(int ogrenciId, String dersAd) {
+//		
+//		kdcevap.isKabaDegerlendirmeCevap();
+//		return ogrenciId;
+		
+		return 0;
 	}
 	
 	

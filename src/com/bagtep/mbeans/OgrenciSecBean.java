@@ -37,6 +37,8 @@ public class OgrenciSecBean implements Serializable {
 
     private Map<String,String> ogrenciler2;
     private List<Ogrenci> ogrenciler;
+    private List<Ogrenci> ogrenciler3;
+
     
     @EJB
 	private SinifService sinifService ;
@@ -161,7 +163,17 @@ public class OgrenciSecBean implements Serializable {
 		this.ogrenciler = ogrenciler;
 	}
 
-	
+	public List<Ogrenci> getOgrenciler3() {
+		return ogrenciler3;
+	}
+
+	public void setOgrenciler3(List<Ogrenci> ogrenciler3) {
+		this.ogrenciler3 = ogrenciler3;
+	}
+
+	public void setData(Map<String, Map<String, String>> data) {
+		this.data = data;
+	}
 
 	public MySessionScopedBean getMySessionScopedBean() {
 		return mySessionScopedBean;
@@ -193,6 +205,8 @@ public class OgrenciSecBean implements Serializable {
         }else{
         	System.out.println("Öğrenci listesi boş döndü...");
         }
+        
+//        ogrenciler3 = ogrenciService.degerlendirmesiYapilanlariGetir(ders, sinif); 
         
 
 	}

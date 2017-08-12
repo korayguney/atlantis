@@ -54,6 +54,7 @@ public class KabaDegerlendirmeBean {
 	private GenelAmac genelAmac17;
 	private Map<Integer, Boolean> ozelAmaclarMap = new LinkedHashMap<Integer, Boolean>();
 	private Map<Integer, String> ozelAmacYorum = new LinkedHashMap<Integer, String>();
+	private OzelAmac ozelAmac;
 
 
 
@@ -829,12 +830,12 @@ public class KabaDegerlendirmeBean {
 		int kazanimId = new Kazanim().getId();
 //		System.out.println("DEneme kazanım IDDDD : " + kazanimId);
 		System.out.println("Seçilen Ogrenci id : " + ogrenciId);
-
+		
 		// testMethod();
 		
 		String degerlendirici = mySessionScopedBean.getFirstname() +" "+ mySessionScopedBean.getLastname();
 		
-		kabaDegerlendirmeService.degerlendirmeKaydet(ogrenciId, dersAd, degerlendirici, ozelAmaclarMap, ozelAmacYorum, kazanimId);
+		kabaDegerlendirmeService.degerlendirmeKaydet(ogrenciId, dersAd, degerlendirici, ozelAmaclarMap, ozelAmacYorum);
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Kaba Değerlendirme Başarıyla Kaydedildi !!!"));
 	}
@@ -1070,6 +1071,46 @@ public class KabaDegerlendirmeBean {
 
 	public void setGenelAmac17(GenelAmac genelAmac17) {
 		this.genelAmac17 = genelAmac17;
+	}
+
+	public TestDataService getTestDataService() {
+		return testDataService;
+	}
+
+	public void setTestDataService(TestDataService testDataService) {
+		this.testDataService = testDataService;
+	}
+
+	public KabaDegerlendirmeService getKabaDegerlendirmeService() {
+		return kabaDegerlendirmeService;
+	}
+
+	public void setKabaDegerlendirmeService(KabaDegerlendirmeService kabaDegerlendirmeService) {
+		this.kabaDegerlendirmeService = kabaDegerlendirmeService;
+	}
+
+	public OgrenciService getOgrenciService() {
+		return ogrenciService;
+	}
+
+	public void setOgrenciService(OgrenciService ogrenciService) {
+		this.ogrenciService = ogrenciService;
+	}
+
+	public DersService getDersService() {
+		return dersService;
+	}
+
+	public void setDersService(DersService dersService) {
+		this.dersService = dersService;
+	}
+
+	public OzelAmac getOzelAmac() {
+		return ozelAmac;
+	}
+
+	public void setOzelAmac(OzelAmac ozelAmac) {
+		this.ozelAmac = ozelAmac;
 	}
 
 	

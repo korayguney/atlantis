@@ -15,12 +15,13 @@ public class KabaDegerlendirmeKazanimCevap {
 	
 	private boolean kabaDegerlendirmeCevap;
 	private String yorum;
+	private int ozelAmacId;
 	
 	@ManyToOne
 	private KabaDegerlendirme kabaDegerlendirme;
 	
 	@ManyToOne
-	private Kazanim kazanim;
+	private OzelAmac ozelAmac;
 
 	public int getId() {
 		return id;
@@ -55,13 +56,25 @@ public class KabaDegerlendirmeKazanimCevap {
 		this.kabaDegerlendirme = kabaDegerlendirme;
 	}
 
-	public Kazanim getKazanim() {
-		return kazanim;
+	public OzelAmac getOzelAmac() {
+		return ozelAmac;
 	}
 
-	public void setKazanim(Kazanim kazanim) {
-		this.kazanim = kazanim;
+	public void setOzelAmac(OzelAmac ozelAmac) {
+		this.ozelAmac = ozelAmac;
 	}
+
+	public int getOzelAmacId() {
+		return ozelAmacId;
+	}
+
+	public void setOzelAmacId(int ozelAmacId) {
+		this.ozelAmacId = ozelAmacId;
+	}
+	
+	
+
+	
 	
 	
 	

@@ -1,5 +1,7 @@
 package com.bagtep.mbeans;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import org.primefaces.model.chart.Axis;
@@ -8,14 +10,19 @@ import org.primefaces.model.chart.CategoryAxis;
 import org.primefaces.model.chart.LineChartModel;
 import org.primefaces.model.chart.ChartSeries;
 import org.primefaces.model.chart.LineChartSeries;
+
+import com.bagtep.business.KabaDegerlendirmeService;
  
 @ManagedBean
 public class ChartView implements Serializable {
  
     private LineChartModel lineModel1;
      
+    @EJB
+   	private KabaDegerlendirmeService kabaDegerlendirmeService ;
+    
     @PostConstruct
-    public void init() {
+    public void init() {	
         createLineModels();
     }
  
@@ -40,6 +47,8 @@ public class ChartView implements Serializable {
         LineChartSeries series1 = new LineChartSeries();
         series1.setLabel("Matematik");
  
+//        kabaDegerlendirmeService.degerlendirmePuanHesapla();
+        
         series1.set(1, 2);
         series1.set(2, 1);
         series1.set(3, 3);

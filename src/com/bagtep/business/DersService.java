@@ -29,13 +29,19 @@ public class DersService {
 	}
 	
 	public int getId(String dersAd){
+		System.out.println("----------- DersService getId(String dersAd) metoduna girdi...--------------");
+		System.out.println("Metoda gelen ders adı : " + dersAd);
 		List<Ders> dersler = entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getResultList();	
-		if(dersler.get(0).getId() > 0){
+		if(dersler.size() > 0){
+			System.out.println(" DERSLER BOŞ GELMEDİİİ++++++++++++++++++++++++++++++++");
 			System.out.println("DERS SERVICE GET ID METOD DÖNÜŞÜ : " + dersler.get(0).getId());
 			int id = dersler.get(0).getId();
 			return id;
+		}else if(dersler.size() == 0) {
+			System.out.println("DERS LİSTESİ BOŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞ *************************");
+			return 0;
 		}else {
-			System.out.println("DERS SERVICE GET ID BOŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞŞ");
+			System.out.println("DERS LİSTESİ NE DURUMDAAAAAAAAA *************************");
 			return 0;
 		}
 	}

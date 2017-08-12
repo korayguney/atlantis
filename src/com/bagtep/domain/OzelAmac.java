@@ -19,6 +19,9 @@ public class OzelAmac {
 	@OneToMany(mappedBy="ozelAmac")
 	private List<Kazanim> kazanimlar;
 	
+	@OneToMany(mappedBy="ozelAmac")
+	private List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap;
+	
 	@ManyToOne
 	private GenelAmac genelAmac;
 	private String icerik;
@@ -55,6 +58,13 @@ public class OzelAmac {
 	public void setIcerik(String icerik) {
 		this.icerik = icerik;
 	}
+	public List<KabaDegerlendirmeKazanimCevap> getKabaDegerlendirmeKazanimCevap() {
+		return kabaDegerlendirmeKazanimCevap;
+	}
+	public void setKabaDegerlendirmeKazanimCevap(List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap) {
+		this.kabaDegerlendirmeKazanimCevap = kabaDegerlendirmeKazanimCevap;
+	}
+	
 	
 	
 
