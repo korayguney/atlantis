@@ -7,17 +7,17 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class KabaDegerlendirmeKazanimCevap {
+public class DonemDegerlendirmeKazanimCevap {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
-	private boolean kabaDegerlendirmeCevap;
+	private double donemDegerlendirmeCevap;
 	private String yorum;
 	
 	@ManyToOne
-	private KabaDegerlendirme kabaDegerlendirme;
+	private DonemDegerlendirme donemDegerlendirme;
 	
 	@ManyToOne
 	private OzelAmac ozelAmac;
@@ -31,14 +31,6 @@ public class KabaDegerlendirmeKazanimCevap {
 	}
 
 	
-	public boolean isKabaDegerlendirmeCevap() {
-		return kabaDegerlendirmeCevap;
-	}
-
-	public void setKabaDegerlendirmeCevap(boolean kabaDegerlendirmeCevap) {
-		this.kabaDegerlendirmeCevap = kabaDegerlendirmeCevap;
-	}
-
 	public String getYorum() {
 		return yorum;
 	}
@@ -47,19 +39,31 @@ public class KabaDegerlendirmeKazanimCevap {
 		this.yorum = yorum;
 	}
 
-	public KabaDegerlendirme getKabaDegerlendirme() {
-		return kabaDegerlendirme;
-	}
-
-	public void setKabaDegerlendirme(KabaDegerlendirme kabaDegerlendirme) {
-		this.kabaDegerlendirme = kabaDegerlendirme;
-	}
-
 	public OzelAmac getOzelAmac() {
 		return ozelAmac;
 	}
 
 	public void setOzelAmac(OzelAmac ozelAmac) {
 		this.ozelAmac = ozelAmac;
+	}
+
+	public double getDonemDegerlendirmeCevap() {
+		return donemDegerlendirmeCevap;
+	}
+
+	public void setDonemDegerlendirmeCevap(double donemDegerlendirmeCevap) {
+		this.donemDegerlendirmeCevap = donemDegerlendirmeCevap;
+	}
+
+	public DonemDegerlendirme getDonemDegerlendirme() {
+		return donemDegerlendirme;
+	}
+
+	public void setDonemDegerlendirme(DonemDegerlendirme donemDegerlendirme) {
+		this.donemDegerlendirme = donemDegerlendirme;
 	}	
+	
+	
+	
+	
 }

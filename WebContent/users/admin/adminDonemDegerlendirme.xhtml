@@ -13,14 +13,16 @@
 			<div class="alert alert-success" align="center">
 				<h5>
 					<i class="fa fa-book fa-fw" /><b> Ders : </b>
-					<h:outputText value="#{kabaDegerlendirmeBean.dersAd}" />
+					<h:outputText value="#{donemDegerlendirmeBean.dersAd}" />
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-child fa-fw" /><b>
-						Öğrenci : </b>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					<i class="fa fa-child fa-fw" />
+					<b>	Öğrenci : </b>
 					<h:outputText
-						value="#{kabaDegerlendirmeBean.ogrenciAd} #{kabaDegerlendirmeBean.ogrenciSoyad}" />
+						value="#{donemDegerlendirmeBean.ogrenciAd} #{donemDegerlendirmeBean.ogrenciSoyad}" />
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<i class="fa fa-eye fa-fw" /><b> Değerlendirici : </b>
+					<i class="fa fa-eye fa-fw" />
+					<b> Değerlendirici : </b>
 					<h:outputText
 						value="#{mySessionScopedBean.firstname} #{mySessionScopedBean.lastname}" />
 				</h5>
@@ -29,11 +31,11 @@
 
 
 		<h:form>
-		<p:accordionPanel>
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac.icerik}">
+		<p:accordionPanel activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -41,12 +43,12 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-							<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -57,11 +59,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel>
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac2.icerik}">
+		<p:accordionPanel activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac2.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac2.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac2.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -69,12 +71,12 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-					            <p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -85,11 +87,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel>
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac3.icerik}">
+		<p:accordionPanel activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac3.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac3.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac3.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -97,13 +99,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -114,11 +116,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac4 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac4.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac4 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac4.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac4.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac4.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -126,13 +128,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -143,11 +145,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac5 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac5.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac5 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac5.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac5.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac5.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -155,13 +157,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -172,11 +174,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac6 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac6.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac6 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac6.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac6.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac6.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -184,13 +186,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -201,11 +203,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac7 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac7.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac7 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac7.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac7.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac7.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -213,13 +215,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -230,11 +232,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac8 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac8.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac8 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac8.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac8.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac8.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -242,13 +244,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -259,11 +261,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac9 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac9.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac9 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac9.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac9.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac9.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -271,13 +273,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -288,11 +290,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac10 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac10.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac10 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac10.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac10.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac10.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -300,13 +302,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -317,11 +319,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac11 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac11.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac11 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac11.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac11.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac11.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -329,13 +331,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -346,11 +348,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac12 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac12.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac12 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac12.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac12.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac12.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -358,13 +360,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -375,11 +377,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac13 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac13.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac13 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac13.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac13.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac13.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -387,13 +389,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -404,11 +406,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac14 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac14.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac14 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac14.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac14.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac14.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -416,13 +418,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -433,11 +435,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac15 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac15.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac15 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac15.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac15.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac15.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -445,13 +447,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -462,11 +464,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac16 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac16.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac16 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac16.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac16.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac16.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -474,13 +476,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -491,11 +493,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac17 }">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac17.icerik}">
+		<p:accordionPanel rendered="#{not empty donemDegerlendirmeBean.genelAmac17 }" activeIndex="null">
+			<p:tab title="#{donemDegerlendirmeBean.genelAmac17.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac17.ozelAmaclar}"
+					<p:dataTable value="#{donemDegerlendirmeBean.genelAmac17.ozelAmaclar}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -503,13 +505,13 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-														<p:inputText placeholder="puan gir"  />
+							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
-								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{kabaDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
+								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
 								<br /><h:outputText id="display" />
 							</p:inplace>
 						</p:column>
@@ -521,7 +523,7 @@
 		</p:accordionPanel>
 
 		<div class="alert alert-info" align="center">
-			<p:commandButton actionListener="#{kabaDegerlendirmeBean.degerlendirmeKaydet()}" value="Değerlendirme Kaydet" />
+			<p:commandButton actionListener="#{donemDegerlendirmeBean.degerlendirmeKaydet()}" value="Değerlendirme Kaydet" />
 		</div>
 	</h:form>
 	

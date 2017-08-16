@@ -2,7 +2,6 @@ package com.bagtep.business;
 
 
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 import javax.ejb.Stateless;
@@ -10,46 +9,43 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.bagtep.domain.Ders;
-import com.bagtep.domain.KabaDegerlendirme;
-import com.bagtep.domain.KabaDegerlendirmeKazanimCevap;
-import com.bagtep.domain.Kazanim;
+import com.bagtep.domain.DonemDegerlendirme;
+import com.bagtep.domain.DonemDegerlendirmeKazanimCevap;
 import com.bagtep.domain.Ogrenci;
 import com.bagtep.domain.OzelAmac;
-import com.bagtep.mbeans.MySessionScopedBean;
 
 
 
 @Stateless
-public class KabaDegerlendirmeService {
+public class DonemDegerlendirmeService {
 	
-	KabaDegerlendirmeKazanimCevap kdcevap;
+	DonemDegerlendirmeKazanimCevap ddcevap;
 	
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void degerlendirmeKaydet(int ogrenciId, String dersAd, String degerlendirici, Map<Integer, Boolean> ozelAmaclarMap , Map<Integer, String> yorum, Map<Integer, OzelAmac> ozelAmacIdMap) {
+	public void degerlendirmeKaydet(int ogrenciId, String dersAd, String degerlendirici, Map<Integer, Double> ozelAmaclarMap , Map<Integer, String> yorum, Map<Integer, OzelAmac> ozelAmacIdMap) {
 		System.out.println("SERVICE : degerlendirmeKaydet GİRDİ !!!");
 	
 		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
 		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
-//		List<Kazanim> kazanimlar = entityManager.createQuery("select k from Kazanim k where k.id=:kazanimId").setParameter("kazanimId", kazanimId).getResultList();
 		
-		KabaDegerlendirme kd = new KabaDegerlendirme();
-		kd.setDegerlendirmeTarihi(new Date());
-		kd.setDegerlendirici(degerlendirici);
-		kd.setDers(ders);
-		kd.setOgrenci(ogrenci);
+		DonemDegerlendirme dd = new DonemDegerlendirme();
+		dd.setDegerlendirmeTarihi(new Date());
+		dd.setDegerlendirici(degerlendirici);
+		dd.setDers(ders);
+		dd.setOgrenci(ogrenci);
 		
-		entityManager.persist(kd);
+		entityManager.persist(dd);
 		
 		for (Integer key : ozelAmaclarMap.keySet()) {
-			kdcevap = new KabaDegerlendirmeKazanimCevap();
-			kdcevap.setKabaDegerlendirmeCevap(Boolean.parseBoolean(""+ozelAmaclarMap.get(key)));
-			kdcevap.setYorum(""+yorum.get(key));
-			kdcevap.setKabaDegerlendirme(kd);
-			kdcevap.setOzelAmac(ozelAmacIdMap.get(key));
+			ddcevap = new DonemDegerlendirmeKazanimCevap();
+			ddcevap.setDonemDegerlendirmeCevap(Double.parseDouble(""+ozelAmaclarMap.get(key)));
+			ddcevap.setYorum(""+yorum.get(key));
+			ddcevap.setDonemDegerlendirme(dd);
+			ddcevap.setOzelAmac(ozelAmacIdMap.get(key));
 
-			entityManager.persist(kdcevap);
+			entityManager.persist(ddcevap);
 		}		
 		
 	}

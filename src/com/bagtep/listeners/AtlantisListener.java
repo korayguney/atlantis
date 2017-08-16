@@ -6,6 +6,7 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import com.bagtep.business.TestDataService;
+import com.bagtep.business.TestDataService2;
 
 /**
  * Application Lifecycle Listener implementation class AtlantisListener
@@ -16,6 +17,8 @@ public class AtlantisListener implements ServletContextListener {
 
   @EJB
   private TestDataService testDataService;
+
+	
 	
     public void contextInitialized(ServletContextEvent arg0)  { 
        

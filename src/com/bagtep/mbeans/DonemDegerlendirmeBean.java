@@ -1,8 +1,6 @@
 package com.bagtep.mbeans;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -15,26 +13,25 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
 import com.bagtep.business.DersService;
-import com.bagtep.business.KabaDegerlendirmeService;
+import com.bagtep.business.DonemDegerlendirmeService;
 import com.bagtep.business.OgrenciService;
-import com.bagtep.business.TestDataService;
+import com.bagtep.business.TestDataService2;
+import com.bagtep.domain.DonemDegerlendirme;
 import com.bagtep.domain.GenelAmac;
-import com.bagtep.domain.KabaDegerlendirme;
 import com.bagtep.domain.Kazanim;
 import com.bagtep.domain.OzelAmac;
 
 @ManagedBean
 @ViewScoped
-public class KabaDegerlendirmeBean {
+public class DonemDegerlendirmeBean {
 
-	List<KabaDegerlendirme> kabadegerlendirme2 = new ArrayList<>();
-	KabaDegerlendirme kabadegerlendirme;
+	DonemDegerlendirme donemDegerlendirme;
 	private int ogrenciId;
 	private int dersId;
 	private String dersAd;
 	private String ogrenciAd;
 	private String ogrenciSoyad;
-	private boolean kabaDegerlendirmeCevap = false;
+	private double donemDegerlendirmeCevap =0 ;
 	private GenelAmac genelAmac;
 	private GenelAmac genelAmac2;
 	private GenelAmac genelAmac3;
@@ -52,7 +49,7 @@ public class KabaDegerlendirmeBean {
 	private GenelAmac genelAmac15;
 	private GenelAmac genelAmac16;
 	private GenelAmac genelAmac17;
-	private Map<Integer, Boolean> ozelAmaclarMap = new LinkedHashMap<Integer, Boolean>();
+	private Map<Integer, Double> ozelAmaclarMap = new LinkedHashMap<Integer, Double>();
 	private Map<Integer, String> ozelAmacYorum = new LinkedHashMap<Integer, String>();
 	private Map<Integer, OzelAmac > ozelAmacIdMap = new LinkedHashMap<Integer, OzelAmac>();
 	private OzelAmac ozelAmac;
@@ -60,9 +57,9 @@ public class KabaDegerlendirmeBean {
 
 
 	@EJB
-	private TestDataService testDataService;
+	private TestDataService2 testDataService2;
 	@EJB
-	private KabaDegerlendirmeService kabaDegerlendirmeService;
+	private DonemDegerlendirmeService donemDegerlendirmeService;
 	@EJB
 	private OgrenciService ogrenciService;
 	@EJB
@@ -84,11 +81,12 @@ public class KabaDegerlendirmeBean {
 		this.ogrenciAd = ogrenciService.getOgrenciAd(ogrenciId);
 		this.ogrenciSoyad = ogrenciService.getOgrenciSoyad(ogrenciId);
 		this.dersId = dersService.getId(dersAd);
+//		testDataService2.createTestData();
 		
 		if(dersAd.equals("Matematik")){
-		this.genelAmac = testDataService.getGenelAmac(dersId, 1);
+		this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -99,9 +97,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac2 = testDataService.getGenelAmac(dersId, 2);
+		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -111,9 +109,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac3 = testDataService.getGenelAmac(dersId, 3);
+		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -123,9 +121,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac4 = testDataService.getGenelAmac(dersId, 4);
+		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -136,9 +134,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac5 = testDataService.getGenelAmac(dersId, 5);
+		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -148,9 +146,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac6 = testDataService.getGenelAmac(dersId, 6);
+		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -161,9 +159,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		}else if(dersAd.equals("Dil ve Konuşma Gelişimi")){
-		this.genelAmac = testDataService.getGenelAmac(dersId, 1);
+		this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -174,9 +172,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac2 = testDataService.getGenelAmac(dersId, 2);
+		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -186,9 +184,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac3 = testDataService.getGenelAmac(dersId, 3);
+		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -198,9 +196,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac4 = testDataService.getGenelAmac(dersId, 4);
+		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -210,9 +208,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac5 = testDataService.getGenelAmac(dersId, 5);
+		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -223,9 +221,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		
-		this.genelAmac6 = testDataService.getGenelAmac(dersId, 6);
+		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -235,9 +233,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac7 = testDataService.getGenelAmac(dersId, 7);
+		this.genelAmac7 = testDataService2.getGenelAmac(dersId, 7);
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
@@ -249,9 +247,9 @@ public class KabaDegerlendirmeBean {
 			}
 			
 		}else if(dersAd.equals("Din Kültürü ve Ahlak Bilgisi")){
-			this.genelAmac = testDataService.getGenelAmac(dersId, 1);
+			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -262,9 +260,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac2 = testDataService.getGenelAmac(dersId, 2);
+		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -275,9 +273,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		
-		this.genelAmac3 = testDataService.getGenelAmac(dersId, 3);
+		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -287,9 +285,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac4 = testDataService.getGenelAmac(dersId, 4);
+		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -300,9 +298,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		}else if(dersAd.equals("Hayat Bilgisi")){
-			this.genelAmac = testDataService.getGenelAmac(dersId, 1);
+			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -312,9 +310,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac2 = testDataService.getGenelAmac(dersId, 2);
+		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -324,9 +322,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac3 = testDataService.getGenelAmac(dersId, 3);
+		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -336,9 +334,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac4 = testDataService.getGenelAmac(dersId, 4);
+		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -349,9 +347,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac5 = testDataService.getGenelAmac(dersId, 5);
+		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -362,9 +360,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		
-		this.genelAmac6 = testDataService.getGenelAmac(dersId, 6);
+		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -374,9 +372,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac7 = testDataService.getGenelAmac(dersId, 7);
+		this.genelAmac7 = testDataService2.getGenelAmac(dersId, 7);
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
@@ -386,9 +384,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac8 = testDataService.getGenelAmac(dersId, 8);
+		this.genelAmac8 = testDataService2.getGenelAmac(dersId, 8);
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
@@ -399,9 +397,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac9 = testDataService.getGenelAmac(dersId, 9);
+		this.genelAmac9 = testDataService2.getGenelAmac(dersId, 9);
 			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
@@ -412,9 +410,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		
-		this.genelAmac10 = testDataService.getGenelAmac(dersId, 10);
+		this.genelAmac10 = testDataService2.getGenelAmac(dersId, 10);
 			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
@@ -424,9 +422,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac11 = testDataService.getGenelAmac(dersId, 11);
+		this.genelAmac11 = testDataService2.getGenelAmac(dersId, 11);
 			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
@@ -437,21 +435,21 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac12 = testDataService.getGenelAmac(dersId, 12);
+		this.genelAmac12 = testDataService2.getGenelAmac(dersId, 12);
 			for (OzelAmac o : this.genelAmac12.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
-			}
-			
-			for (OzelAmac o : this.genelAmac12.getOzelAmaclar()) {
-				this.ozelAmacYorum.put(o.getId(), "");
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac12.getOzelAmaclar()) {
+				this.ozelAmacYorum.put(o.getId(), "");
+			}
+			
+			for (OzelAmac o : this.genelAmac12.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac13 = testDataService.getGenelAmac(dersId, 13);
+		this.genelAmac13 = testDataService2.getGenelAmac(dersId, 13);
 			for (OzelAmac o : this.genelAmac13.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac13.getOzelAmaclar()) {
@@ -461,9 +459,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac13.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac14 = testDataService.getGenelAmac(dersId, 14);
+		this.genelAmac14 = testDataService2.getGenelAmac(dersId, 14);
 			for (OzelAmac o : this.genelAmac14.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac14.getOzelAmaclar()) {
@@ -473,9 +471,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac14.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac15 = testDataService.getGenelAmac(dersId, 15);
+		this.genelAmac15 = testDataService2.getGenelAmac(dersId, 15);
 			for (OzelAmac o : this.genelAmac15.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac15.getOzelAmaclar()) {
@@ -485,9 +483,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac15.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac16 = testDataService.getGenelAmac(dersId, 16);
+		this.genelAmac16 = testDataService2.getGenelAmac(dersId, 16);
 			for (OzelAmac o : this.genelAmac16.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac16.getOzelAmaclar()) {
@@ -497,9 +495,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac16.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac17 = testDataService.getGenelAmac(dersId, 17);
+		this.genelAmac17 = testDataService2.getGenelAmac(dersId, 17);
 			for (OzelAmac o : this.genelAmac17.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac17.getOzelAmaclar()) {
@@ -511,9 +509,9 @@ public class KabaDegerlendirmeBean {
 			}
 			
 		}else if(dersAd.equals("Müzik")){
-			this.genelAmac = testDataService.getGenelAmac(dersId, 1);
+			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -524,9 +522,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac2 = testDataService.getGenelAmac(dersId, 2);
+		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -537,9 +535,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		
-		this.genelAmac3 = testDataService.getGenelAmac(dersId, 3);
+		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -549,9 +547,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac4 = testDataService.getGenelAmac(dersId, 4);
+		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -562,21 +560,21 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac5 = testDataService.getGenelAmac(dersId, 5);
+		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
-			}
-			
-			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmacYorum.put(o.getId(), "");
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmacYorum.put(o.getId(), "");
+			}
+			
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac6 = testDataService.getGenelAmac(dersId, 6);
+		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -586,21 +584,21 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac7 = testDataService.getGenelAmac(dersId, 7);
+		this.genelAmac7 = testDataService2.getGenelAmac(dersId, 7);
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
-			}
-			
-			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
-				this.ozelAmacYorum.put(o.getId(), "");
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
+				this.ozelAmacYorum.put(o.getId(), "");
+			}
+			
+			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac8 = testDataService.getGenelAmac(dersId, 8);
+		this.genelAmac8 = testDataService2.getGenelAmac(dersId, 8);
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
@@ -610,9 +608,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac9 = testDataService.getGenelAmac(dersId, 9);
+		this.genelAmac9 = testDataService2.getGenelAmac(dersId, 9);
 			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
@@ -622,9 +620,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac10 = testDataService.getGenelAmac(dersId, 10);
+		this.genelAmac10 = testDataService2.getGenelAmac(dersId, 10);
 			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
@@ -634,9 +632,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac11 = testDataService.getGenelAmac(dersId, 11);
+		this.genelAmac11 = testDataService2.getGenelAmac(dersId, 11);
 			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
@@ -647,21 +645,21 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		}else if(dersAd.equals("Beslenme Bilgisi")){
-		this.genelAmac = testDataService.getGenelAmac(dersId, 1);
+		this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
-			}
-			
-			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmacYorum.put(o.getId(), "");
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+				this.ozelAmacYorum.put(o.getId(), "");
+			}
+			
+			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac2 = testDataService.getGenelAmac(dersId, 2);
+		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -671,9 +669,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac3 = testDataService.getGenelAmac(dersId, 3);
+		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -683,9 +681,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac4 = testDataService.getGenelAmac(dersId, 4);
+		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -695,9 +693,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac5 = testDataService.getGenelAmac(dersId, 5);
+		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -708,9 +706,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		}else if(dersAd.equals("Görsel Sanatlar")){
-			this.genelAmac = testDataService.getGenelAmac(dersId, 1);
+			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -721,9 +719,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac2 = testDataService.getGenelAmac(dersId, 2);
+		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -733,9 +731,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac3 = testDataService.getGenelAmac(dersId, 3);
+		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -745,9 +743,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac4 = testDataService.getGenelAmac(dersId, 4);
+		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -758,9 +756,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac5 = testDataService.getGenelAmac(dersId, 5);
+		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -771,9 +769,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		
-		this.genelAmac6 = testDataService.getGenelAmac(dersId, 6);
+		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -783,9 +781,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac7 = testDataService.getGenelAmac(dersId, 7);
+		this.genelAmac7 = testDataService2.getGenelAmac(dersId, 7);
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
@@ -795,9 +793,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac8 = testDataService.getGenelAmac(dersId, 8);
+		this.genelAmac8 = testDataService2.getGenelAmac(dersId, 8);
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
@@ -809,9 +807,9 @@ public class KabaDegerlendirmeBean {
 			}
 			
 		}else if(dersAd.equals("Okuma Yazma")){
-			this.genelAmac = testDataService.getGenelAmac(dersId, 1);
+			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -821,9 +819,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac2 = testDataService.getGenelAmac(dersId, 2);
+		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -833,9 +831,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac3 = testDataService.getGenelAmac(dersId, 3);
+		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -845,9 +843,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac4 = testDataService.getGenelAmac(dersId, 4);
+		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -858,9 +856,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac5 = testDataService.getGenelAmac(dersId, 5);
+		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -870,9 +868,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac6 = testDataService.getGenelAmac(dersId, 6);
+		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -883,9 +881,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		}else if(dersAd.equals("Trafik ve İlk Yardım Eğitimi")){
-			this.genelAmac = testDataService.getGenelAmac(dersId, 1);
+			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -896,9 +894,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac2 = testDataService.getGenelAmac(dersId, 2);
+		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -908,9 +906,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac3 = testDataService.getGenelAmac(dersId, 3);
+		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -920,9 +918,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac4 = testDataService.getGenelAmac(dersId, 4);
+		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -932,9 +930,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac5 = testDataService.getGenelAmac(dersId, 5);
+		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -945,9 +943,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		
-		this.genelAmac6 = testDataService.getGenelAmac(dersId, 6);
+		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -958,9 +956,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		}else if(dersAd.equals("Beden Eğitimi")){
-			this.genelAmac = testDataService.getGenelAmac(dersId, 1);
+			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -971,9 +969,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac2 = testDataService.getGenelAmac(dersId, 2);
+		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -984,9 +982,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		
-		this.genelAmac3 = testDataService.getGenelAmac(dersId, 3);
+		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -996,9 +994,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac4 = testDataService.getGenelAmac(dersId, 4);
+		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -1009,9 +1007,9 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 
-		this.genelAmac5 = testDataService.getGenelAmac(dersId, 5);
+		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -1021,9 +1019,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac6 = testDataService.getGenelAmac(dersId, 6);
+		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -1033,9 +1031,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac7 = testDataService.getGenelAmac(dersId, 7);
+		this.genelAmac7 = testDataService2.getGenelAmac(dersId, 7);
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
@@ -1045,9 +1043,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac8 = testDataService.getGenelAmac(dersId, 8);
+		this.genelAmac8 = testDataService2.getGenelAmac(dersId, 8);
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
@@ -1058,21 +1056,21 @@ public class KabaDegerlendirmeBean {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
 		}else if(dersAd.equals("Toplumsal Uyum Becerileri")){
-			this.genelAmac = testDataService.getGenelAmac(dersId, 1);
+			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
-			}
-			
-			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmacYorum.put(o.getId(), "");
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+				this.ozelAmacYorum.put(o.getId(), "");
+			}
+			
+			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac2 = testDataService.getGenelAmac(dersId, 2);
+		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -1082,9 +1080,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac3 = testDataService.getGenelAmac(dersId, 3);
+		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -1094,9 +1092,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac4 = testDataService.getGenelAmac(dersId, 4);
+		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -1106,9 +1104,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac5 = testDataService.getGenelAmac(dersId, 5);
+		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -1118,9 +1116,9 @@ public class KabaDegerlendirmeBean {
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
 				this.ozelAmacIdMap.put(o.getId(), o);
 			}
-		this.genelAmac6 = testDataService.getGenelAmac(dersId, 6);
+		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), false);
+				this.ozelAmaclarMap.put(o.getId(), 0.0);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -1136,14 +1134,14 @@ public class KabaDegerlendirmeBean {
 	}
 
 	public void degerlendirmeKaydet() {
-		int kazanimId = new Kazanim().getId();
+//		int kazanimId = new Kazanim().getId();
 		System.out.println("Seçilen Ogrenci id : " + ogrenciId);
 		
 		// testMethod();
 		
 		String degerlendirici = mySessionScopedBean.getFirstname() +" "+ mySessionScopedBean.getLastname();
 		
-		kabaDegerlendirmeService.degerlendirmeKaydet(ogrenciId, dersAd, degerlendirici, ozelAmaclarMap, ozelAmacYorum, ozelAmacIdMap);
+		donemDegerlendirmeService.degerlendirmeKaydet(ogrenciId, dersAd, degerlendirici, ozelAmaclarMap, ozelAmacYorum, ozelAmacIdMap);
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Kaba Değerlendirme Başarıyla Kaydedildi !!!"));
 	}
@@ -1180,28 +1178,20 @@ public class KabaDegerlendirmeBean {
 		this.genelAmac3 = genelAmac3;
 	}
 
-	public Map<Integer, Boolean> getOzelAmaclarMap() {
+	public Map<Integer, Double> getOzelAmaclarMap() {
 		return ozelAmaclarMap;
 	}
 
-	public void setOzelAmaclarMap(Map<Integer, Boolean> ozelAmaclarMap) {
+	public void setOzelAmaclarMap(Map<Integer, Double> ozelAmaclarMap) {
 		this.ozelAmaclarMap = ozelAmaclarMap;
 	}
 	
-	public List<KabaDegerlendirme> getKabadegerlendirme2() {
-		return kabadegerlendirme2;
+	public DonemDegerlendirme getDonemDegerlendirme() {
+		return donemDegerlendirme;
 	}
 
-	public void setKabadegerlendirme2(List<KabaDegerlendirme> kabadegerlendirme2) {
-		this.kabadegerlendirme2 = kabadegerlendirme2;
-	}
-
-	public KabaDegerlendirme getKabadegerlendirme() {
-		return kabadegerlendirme;
-	}
-
-	public void setKabadegerlendirme(KabaDegerlendirme kabadegerlendirme) {
-		this.kabadegerlendirme = kabadegerlendirme;
+	public void setDonemDegerlendirme(DonemDegerlendirme donemDegerlendirme) {
+		this.donemDegerlendirme = donemDegerlendirme;
 	}
 
 	public int getOgrenciId() {
@@ -1235,14 +1225,6 @@ public class KabaDegerlendirmeBean {
 
 	public void setOgrenciSoyad(String ogrenciSoyad) {
 		this.ogrenciSoyad = ogrenciSoyad;
-	}
-
-	public boolean isKabaDegerlendirmeCevap() {
-		return kabaDegerlendirmeCevap;
-	}
-
-	public void setKabaDegerlendirmeCevap(boolean kabaDegerlendirmeCevap) {
-		this.kabaDegerlendirmeCevap = kabaDegerlendirmeCevap;
 	}
 
 	public MySessionScopedBean getMySessionScopedBean() {
@@ -1381,20 +1363,14 @@ public class KabaDegerlendirmeBean {
 		this.genelAmac17 = genelAmac17;
 	}
 
-	public TestDataService getTestDataService() {
-		return testDataService;
+
+
+	public DonemDegerlendirmeService getDonemDegerlendirmeService() {
+		return donemDegerlendirmeService;
 	}
 
-	public void setTestDataService(TestDataService testDataService) {
-		this.testDataService = testDataService;
-	}
-
-	public KabaDegerlendirmeService getKabaDegerlendirmeService() {
-		return kabaDegerlendirmeService;
-	}
-
-	public void setKabaDegerlendirmeService(KabaDegerlendirmeService kabaDegerlendirmeService) {
-		this.kabaDegerlendirmeService = kabaDegerlendirmeService;
+	public void setDonemDegerlendirmeService(DonemDegerlendirmeService donemDegerlendirmeService) {
+		this.donemDegerlendirmeService = donemDegerlendirmeService;
 	}
 
 	public OgrenciService getOgrenciService() {
@@ -1428,5 +1404,15 @@ public class KabaDegerlendirmeBean {
 	public void setOzelAmacIdMap(Map<Integer, OzelAmac> ozelAmacIdMap) {
 		this.ozelAmacIdMap = ozelAmacIdMap;
 	}
+
+	public double getDonemDegerlendirmeCevap() {
+		return donemDegerlendirmeCevap;
+	}
+
+	public void setDonemDegerlendirmeCevap(double donemDegerlendirmeCevap) {
+		this.donemDegerlendirmeCevap = donemDegerlendirmeCevap;
+	}
+	
+	
 	
 }
