@@ -32,6 +32,10 @@ public class DersAtaBean {
 	private int ogrenciId;
 	private int dersId;
 	private int sinifId;
+	private String ogretmenAd;
+	private String ogretmenSoyad;
+	private String dersAd;
+	
 
 	@EJB
 	private DersService dersService;
@@ -159,6 +163,30 @@ public class DersAtaBean {
 
 	public void setOgretmenDers(Map<Ogretmen, Ders> ogretmenDers) {
 		this.ogretmenDers = ogretmenDers;
+	}
+
+	public String getOgretmenAd() {
+		return ogretmenAd;
+	}
+
+	public void setOgretmenAd(String ogretmenAd) {
+		this.ogretmenAd = ogretmenAd;
+	}
+
+	public String getOgretmenSoyad() {
+		return ogretmenSoyad;
+	}
+
+	public void setOgretmenSoyad(String ogretmenSoyad) {
+		this.ogretmenSoyad = ogretmenSoyad;
+	}
+
+	public String getDersAd() {
+		return dersAd;
+	}
+
+	public void setDersAd(String dersAd) {
+		this.dersAd = dersAd;
 	}
 	
 	

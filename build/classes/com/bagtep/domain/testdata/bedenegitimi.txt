@@ -28,7 +28,7 @@ Davranışlar
 2. Yerinde sola döner. 
 3. Yerinde geriye döner. 
 
-Amaç 5. Çeşitli şekilde dizilmeler yapar. (7,5 P)
+Amaç 5. Çeşitli şekilde dizilmeler yapar. (7.5 P)
 Davranışlar 
 1. Geniş kolda sıra olur. 
 2. Derin kolda sıra olur. 
@@ -77,7 +77,7 @@ Davranışlar
 3. Gösterilen ana bölümün adını söyler. 
 4. Vücudun ana bölümlerinin adlarını söyler. 
 
-Amaç 34. Vücudun ana bölümlerinde yer alan diğer bölümleri tanır. (12,5P)
+Amaç 34. Vücudun ana bölümlerinde yer alan diğer bölümleri tanır. (12.5P)
 Davranışlar 
 1. Vücudunda adı söylenen bölümü gösterir. 
 2. Adı söylenen bölümü çeşitli materyallerden gösterir. 
@@ -87,7 +87,7 @@ Davranışlar
 
 Genel Amaç-2. Sporla ilgili temel bilgi, beceri ve alışkanlıklar kazanır.
 
-Amaç 3. Temel duruşlarla ilgili beceriler geliştirir. (10,5 p)
+Amaç 3. Temel duruşlarla ilgili beceriler geliştirir. (10.5 P)
 Davranışlar 
 1. "Rahat ol" duruşu yapar. 
 2. "Hazır ol" duruşu yapar. 
@@ -111,7 +111,7 @@ Davranışlar
 3. Geniş kolda açılır. 
 4. Derin kolda açılır. 
 
-Amaç 7. Yürüme çalışmaları yapar. (15,5 P)
+Amaç 7. Yürüme çalışmaları yapar. (15.5 P)
 Davranışlar 
 1. Serbest şekilde yürür. 
 2. Tempoya uygun yürür. 
@@ -142,7 +142,7 @@ Davranışlar
 12. Belirlenen kulvarda koşar. 
 13. Koşu bandında belirlenen süre kadar koşar. 
 
-Amaç 9. Sıçrama çalışmaları yapar. (10,5 P )
+Amaç 9. Sıçrama çalışmaları yapar. (10.5 P)
 Davranışlar 
 1. Çift ayakla olduğu yerde sıçrar. 
 2. Çift ayakla ileriye sıçrar. 
@@ -153,7 +153,7 @@ Davranışlar
 7. Tek ayakla geriye sıçrar. 
 8. Tek ayakla yana sıçrar. 
 
-Amaç 10. Sıçramalar ile koordinasyonu geliştirme çalışmaları yapar. (10,5 P)
+Amaç 10. Sıçramalar ile koordinasyonu geliştirme çalışmaları yapar. (10.5 P)
 Davranışlar 
 1. Yere çizilmiş şekillerin içine çift ayakla sıçrar. 
 2. Yere çizilmiş şekillerin dışına çift ayakla sıçrar. 
@@ -871,7 +871,7 @@ Davranışlar
 2. Beden eğitimi çalışmaları bitiminde üzerini değiştirir. 
 3. Terliyken soğuk içecekler içmez. 
 
-Amaç 7. Büyük kaslarla gerçekleştirilen hareketleri taklit etme çalışmaları yapar. (DİL VE KON. GELİŞİMİ)(2,5 P)
+Amaç 7. Büyük kaslarla gerçekleştirilen hareketleri taklit etme çalışmaları yapar. (DİL VE KON. GELİŞİMİ)(2.5 P)
 Davranışlar 
 1. Nesnelerle yapılan büyük kas davranışlarını taklit eder. 
 2. Nesne kullanmaksızın gerçekleştirilen büyük kas davranışlarını taklit eder. 
@@ -917,7 +917,7 @@ Davranışlar
 13. Elleriyle yumuşak maddeleri sıkar/gevşetir. 
 14. Elleriyle kil, plasterin vb. malzemeleri şekillendirir. 
 
-Amaç 150. Çekiçle çivi çakar.  (TOPLUMSAL UYUM BECERİLERİ)(2,5 P)
+Amaç 150. Çekiçle çivi çakar.  (TOPLUMSAL UYUM BECERİLERİ)(2.5 P)
 Davranışlar 
 1. Çiviyi alır. 
 2. Çekici alır. 
@@ -942,7 +942,7 @@ Davranışlar
 4. Tornavidayı sağa döndürür. 
 5. Vidayı yuvasına yerleşene kadar döndürür. 
 
-Amaç 11. Müziğe uygun ritmik hareketler yapar. (MÜZİK)(2,5 P)
+Amaç 11. Müziğe uygun ritmik hareketler yapar. (MÜZİK)(2.5 P)
 Davranışlar 
 1. Dinletilen müziğe uygun olarak sallanır. 
 2. Dinletilen müziğe uygun olarak başını sallar. 
@@ -958,7 +958,7 @@ Davranışlar
 12. Dinletilen müziğin ritmine uygun olarak yürürken ellerini çırpar. 
 13. Dinletilen müziğin ritmine uygun ritim aletleri ile vuruş yapar. 
 
-Amaç 28. Müzikli oyunlar oynar.(2,5 P)
+Amaç 28. Müzikli oyunlar oynar.(2.5 P)
 Davranışlar 
 1. Oyunun hareketlerini sözsüz ve müziksiz olarak yapar.
 2. Oyunun sözlerini ve müziğini dinler.
@@ -967,7 +967,7 @@ Davranışlar
 5. Oyunun hareketlerini söz ve müziği söyleyerek grupla birlikte yapar.
 6. Oyunun yerleşim planını ve yürüyüşünü uygular.
 
-Amaç 29. Müzik eşliğinde dans eder.(2,5 P)
+Amaç 29. Müzik eşliğinde dans eder.(2.5 P)
 Davranışlar 
 1.	Dansın figürlerini müziksiz olarak yapar.
 2.	Dansın müziğini dinler.

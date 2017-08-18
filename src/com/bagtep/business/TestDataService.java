@@ -171,9 +171,12 @@ public class TestDataService {
 						entityManager.persist(genelAmac);
 					}
 					if (line.contains("Amaç ")) {
+						//FIXME Amaç puanlarını burada fetch ediyorum
 						
 						String[] lineWithoutPharantesis = line.split(Pattern.quote("("));
+						String[] lineWithoutPharantesis2 = lineWithoutPharantesis[1].split(Pattern.quote(" P)"));
 						ozelAmac = new OzelAmac(genelAmac, lineWithoutPharantesis[0]);
+						ozelAmac.setDegerlendirmePuani(Double.parseDouble(lineWithoutPharantesis2[0]));
 
 						entityManager.persist(ozelAmac);
 					}
@@ -200,7 +203,9 @@ public class TestDataService {
 					}
 					if (line.contains("Amaç ")) {
 						String[] lineWithoutPharantesis = line.split(Pattern.quote("("));
+						String[] lineWithoutPharantesis2 = lineWithoutPharantesis[1].split(Pattern.quote(" P)"));
 						ozelAmac = new OzelAmac(genelAmac, lineWithoutPharantesis[0]);
+						ozelAmac.setDegerlendirmePuani(Double.parseDouble(lineWithoutPharantesis2[0]));
 						entityManager.persist(ozelAmac);
 					}
 					if (!line.contains("Genel Amaç") && !line.contains("Amaç ") && !line.contains("Davranış")
@@ -226,6 +231,9 @@ public class TestDataService {
 					if (line.contains("Amaç ")) {
 						String[] lineWithoutPharantesis = line.split(Pattern.quote("("));
 						ozelAmac = new OzelAmac(genelAmac, lineWithoutPharantesis[0]);
+						
+						String[] lineWithoutPharantesis2 = lineWithoutPharantesis[1].split(Pattern.quote("P)"));
+						ozelAmac.setDegerlendirmePuani(Double.parseDouble(lineWithoutPharantesis2[0]));
 						entityManager.persist(ozelAmac);
 					}
 					if (!line.contains("Genel Amaç") && !line.contains("Amaç ") && !line.contains("Davranış")
@@ -250,7 +258,9 @@ public class TestDataService {
 					}
 					if (line.contains("Amaç ")) {
 						String[] lineWithoutPharantesis = line.split(Pattern.quote("("));
+						String[] lineWithoutPharantesis2 = lineWithoutPharantesis[1].split(Pattern.quote("P)"));
 						ozelAmac = new OzelAmac(genelAmac, lineWithoutPharantesis[0]);
+						ozelAmac.setDegerlendirmePuani(Double.parseDouble(lineWithoutPharantesis2[0]));
 						entityManager.persist(ozelAmac);
 					}
 					if (!line.contains("Genel Amaç") && !line.contains("Amaç ") && !line.contains("Davranış")
@@ -275,7 +285,9 @@ public class TestDataService {
 					}
 					if (line.contains("Amaç ")) {
 						String[] lineWithoutPharantesis = line.split(Pattern.quote("("));
+						String[] lineWithoutPharantesis2 = lineWithoutPharantesis[1].split(Pattern.quote("P)"));
 						ozelAmac = new OzelAmac(genelAmac, lineWithoutPharantesis[0]);
+						ozelAmac.setDegerlendirmePuani(Double.parseDouble(lineWithoutPharantesis2[0]));
 						entityManager.persist(ozelAmac);
 					}
 					if (!line.contains("Genel Amaç") && !line.contains("Amaç ") && !line.contains("Davranış")
@@ -300,7 +312,9 @@ public class TestDataService {
 					}
 					if (line.contains("Amaç ")) {
 						String[] lineWithoutPharantesis = line.split(Pattern.quote("("));
+						String[] lineWithoutPharantesis2 = lineWithoutPharantesis[1].split(Pattern.quote("P)"));
 						ozelAmac = new OzelAmac(genelAmac, lineWithoutPharantesis[0]);
+						ozelAmac.setDegerlendirmePuani(Double.parseDouble(lineWithoutPharantesis2[0]));
 						entityManager.persist(ozelAmac);
 					}
 					if (!line.contains("Genel Amaç") && !line.contains("Amaç ") && !line.contains("Davranış")
@@ -325,7 +339,9 @@ public class TestDataService {
 					}
 					if (line.contains("Amaç ")) {
 						String[] lineWithoutPharantesis = line.split(Pattern.quote("("));
+						String[] lineWithoutPharantesis2 = lineWithoutPharantesis[1].split(Pattern.quote("P)"));
 						ozelAmac = new OzelAmac(genelAmac, lineWithoutPharantesis[0]);
+						ozelAmac.setDegerlendirmePuani(Double.parseDouble(lineWithoutPharantesis2[0]));
 						entityManager.persist(ozelAmac);
 					}
 					if (!line.contains("Genel Amaç") && !line.contains("Amaç ") && !line.contains("Davranış")
@@ -350,7 +366,9 @@ public class TestDataService {
 					}
 					if (line.contains("Amaç ")) {
 						String[] lineWithoutPharantesis = line.split(Pattern.quote("("));
+						String[] lineWithoutPharantesis2 = lineWithoutPharantesis[1].split(Pattern.quote("P)"));
 						ozelAmac = new OzelAmac(genelAmac, lineWithoutPharantesis[0]);
+						ozelAmac.setDegerlendirmePuani(Double.parseDouble(lineWithoutPharantesis2[0]));
 						entityManager.persist(ozelAmac);
 					}
 					if (!line.contains("Genel Amaç") && !line.contains("Amaç ") && !line.contains("Davranış")
@@ -375,7 +393,9 @@ public class TestDataService {
 					}
 					if (line.contains("Amaç ")) {
 						String[] lineWithoutPharantesis = line.split(Pattern.quote("("));
+						String[] lineWithoutPharantesis2 = lineWithoutPharantesis[1].split(Pattern.quote("P)"));
 						ozelAmac = new OzelAmac(genelAmac, lineWithoutPharantesis[0]);
+						ozelAmac.setDegerlendirmePuani(Double.parseDouble(lineWithoutPharantesis2[0]));
 						entityManager.persist(ozelAmac);
 					}
 					if (!line.contains("Genel Amaç") && !line.contains("Amaç ") && !line.contains("Davranış")
@@ -400,7 +420,9 @@ public class TestDataService {
 					}
 					if (line.contains("Amaç ")) {
 						String[] lineWithoutPharantesis = line.split(Pattern.quote("("));
+						String[] lineWithoutPharantesis2 = lineWithoutPharantesis[1].split(Pattern.quote("P)"));
 						ozelAmac = new OzelAmac(genelAmac, lineWithoutPharantesis[0]);
+						ozelAmac.setDegerlendirmePuani(Double.parseDouble(lineWithoutPharantesis2[0]));
 						entityManager.persist(ozelAmac);
 					}
 					if (!line.contains("Genel Amaç") && !line.contains("Amaç ") && !line.contains("Davranış")
@@ -425,7 +447,9 @@ public class TestDataService {
 					}
 					if (line.contains("Amaç ")) {
 						String[] lineWithoutPharantesis = line.split(Pattern.quote("("));
+						String[] lineWithoutPharantesis2 = lineWithoutPharantesis[1].split(Pattern.quote("P)"));
 						ozelAmac = new OzelAmac(genelAmac, lineWithoutPharantesis[0]);
+						ozelAmac.setDegerlendirmePuani(Double.parseDouble(lineWithoutPharantesis2[0]));
 						entityManager.persist(ozelAmac);
 					}
 					if (!line.contains("Genel Amaç") && !line.contains("Amaç ") && !line.contains("Davranış")

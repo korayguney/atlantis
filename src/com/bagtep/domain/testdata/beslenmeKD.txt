@@ -1,14 +1,14 @@
 ﻿
 Genel Amaç-1. Bağımsız olarak yemek yeme becerisi kazanır.
 
-Amaç 1. Eliyle yiyecek yer. (4,5 P)
+Amaç 1. Eliyle yiyecek yer. (4.5 P)
 Davranışlar 
 1. Yiyeceği alır. 
 2. Yiyecekten uygun miktarda ısırır. 
 3. Yiyeceği çiğner. 
 4. Yiyeceği yutar. 
 
-Amaç 2. Bardaktan sıvı içer. (4,5 P)
+Amaç 2. Bardaktan sıvı içer. (4.5 P)
 Davranışlar 
 1. Bardağı alır. 
 2. Bardağı ağzına götürür. 
@@ -32,7 +32,7 @@ Davranışlar
 4. Sürahiyi doluncaya kadar bekler. 
 5. Musluğu kapatır. 
 
-Amaç 5. Sürahiden bardağa sıvı doldurur. (4,5 P)
+Amaç 5. Sürahiden bardağa sıvı doldurur. (4.5 P)
 Davranışlar 
 1. Sürahiyi alır. 
 2. Bardağı alır. 
@@ -61,7 +61,7 @@ Davranışlar
 4. Peçetenin diğer katını açar. 
 5. Peçeteyi eliyle düzeltir. 
 
-Amaç 8. Eliyle ekmek koparır. (4,5 P)
+Amaç 8. Eliyle ekmek koparır. (4.5 P)
 Davranışlar 
 1. Ekmeği bir eliyle tutar. 
 2. Çekerek, ekmekten bir parçayı koparır. 
@@ -92,7 +92,7 @@ Davranışlar
 7. Peçetenin alt kenarını üst kenarının üzerine koyar. 
 8. Peçetenin katladığı kısmını eliyle düzeltir. 
 
-Amaç 12. Kaşık kullanarak yemek yer. (4,5 P)
+Amaç 12. Kaşık kullanarak yemek yer. (4.5 P)
 Davranışlar 
 1. Kaşığı alır. 
 2. Tabaktan kaşığa bir miktar yemek alır. 
@@ -100,7 +100,7 @@ Davranışlar
 4. Yiyeceği çiğner. 
 5. Yiyeceği yutar. 
 
-Amaç 13. Çatal kullanarak yemek yer. (4,5 P)
+Amaç 13. Çatal kullanarak yemek yer. (4.5 P)
 Davranışlar 
 1. Çatalı alır. 
 2. Çatalı tabaktaki yiyeceğe batırır. 
@@ -108,7 +108,7 @@ Davranışlar
 4. Yiyeceği çiğner. 
 5. Yiyeceği yutar. 
 
-Amaç 14. Çatal ve bıçağı birlikte kullanarak yemek yer. (4,5 P)
+Amaç 14. Çatal ve bıçağı birlikte kullanarak yemek yer. (4.5 P)
 Davranışlar 
 1. Bıçağı alır. 
 2. Çatalı alır. 
@@ -132,12 +132,12 @@ Davranışlar
 10. Peçeteyi çantaya koyar. 
 11. Çantayı kapatır. 
 
-Amaç 16. Peçete ile ağzını siler.(4,5 P)
+Amaç 16. Peçete ile ağzını siler.(4.5 P)
 1.Peçeteyi eline alır
 2.Peçeteyi ağzına götürür.
 3.Peçeteyi sağa sola hareket ettirerek ağzını siler.
 
-Amaç 17. Yemekhanede yemek yemede izlenmesi gereken sıraya uyar. (4,5 P)
+Amaç 17. Yemekhanede yemek yemede izlenmesi gereken sıraya uyar. (4.5 P)
 Davranışlar 
 1. Yemek sırasına girer. 
 2. Tabldot tepsisini alır. 
@@ -156,7 +156,7 @@ Davranışlar
 15. Sandalyeyi yerine yerleştirir. 
 16. Tabldot tepsisini bulaşıkların konulduğu yere koyar. 
 
-Amaç 18. Yemek yerken kurallara uymaya özen gösterir. (4,5 P)
+Amaç 18. Yemek yerken kurallara uymaya özen gösterir. (4.5 P)
 Davranışlar 
 1. Yemeğini öncelik sırasına göre yer. 
 2. Ağzı kapalı olarak yemek yer. 
@@ -293,7 +293,7 @@ Davranışlar
 5. Peçeteyi açar. 
 6. Peçeteyi çöp kutusunun üzerinde çırpar. 
 
-Amaç 12. Kaşık kullanarak yemek yer. (7,5 P)
+Amaç 12. Kaşık kullanarak yemek yer. (7.5 P)
 Davranışlar 
 1. Kaşığı alır. 
 2. Tabaktan kaşığa bir miktar yemek alır. 
@@ -301,7 +301,7 @@ Davranışlar
 4. Yiyeceği çiğner. 
 5. Yiyeceği yutar. 
 
-Amaç 13. Çatal kullanarak yemek yer. (7,5 P)
+Amaç 13. Çatal kullanarak yemek yer. (7.5 P)
 Davranışlar 
 1. Çatalı alır. 
 2. Çatalı tabaktaki yiyeceğe batırır. 
@@ -309,7 +309,7 @@ Davranışlar
 4. Yiyeceği çiğner. 
 5. Yiyeceği yutar. 
 
-Amaç 14. Çatal ve bıçağı birlikte kullanarak yemek yer. (7,5 P)
+Amaç 14. Çatal ve bıçağı birlikte kullanarak yemek yer. (7.5 P)
 Davranışlar 
 1. Bıçağı alır. 
 2. Çatalı alır. 
@@ -333,7 +333,7 @@ Davranışlar
 10. Peçeteyi çantaya koyar. 
 11. Çantayı kapatır. 
 
-Amaç 16. Peçete ile ağzını siler.(7,5 P)
+Amaç 16. Peçete ile ağzını siler.(7.5 P)
 1.Peçeteyi eline alır
 2.Peçeteyi ağzına götürür.
 3.Peçeteyi sağa sola hareket ettirerek ağzını siler.
@@ -357,7 +357,7 @@ Davranışlar
 15. Sandalyeyi yerine yerleştirir. 
 16. Tabldot tepsisini bulaşıkların konulduğu yere koyar. 
 
-Amaç 18. Yemek yerken kurallara uymaya özen gösterir. (16,5 P)
+Amaç 18. Yemek yerken kurallara uymaya özen gösterir. (16.5 P)
 Davranışlar 
 1. Yemeğini öncelik sırasına göre yer. 
 2. Ağzı kapalı olarak yemek yer. 

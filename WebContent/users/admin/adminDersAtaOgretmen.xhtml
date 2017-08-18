@@ -56,11 +56,11 @@
 					var="ogretmenDers">
 
 					<p:column headerText="Öğretmen adı">
-						<h:outputText value="#{ogretmenDers.key}" />
+						<h:outputText value="#{dersAtaBean.ogretmenler.get(dersAtaBean.ogretmenId)}" />
 					</p:column>
 
 					<p:column headerText="Ders adı">
-						<h:outputText value="#{ogretmenDers.value}" />
+						<h:outputText value="#{dersAtaBean.dersler.get(dersAtaBean.dersId)}" />
 					</p:column>
 				</p:dataTable>
 

@@ -25,6 +25,7 @@ public class OzelAmac {
 	@ManyToOne
 	private GenelAmac genelAmac;
 	private String icerik;
+	private double degerlendirmePuani;
 	
 	public OzelAmac(GenelAmac genelAmac, String icerik) {
 		super();
@@ -64,6 +65,13 @@ public class OzelAmac {
 	public void setKabaDegerlendirmeKazanimCevap(List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap) {
 		this.kabaDegerlendirmeKazanimCevap = kabaDegerlendirmeKazanimCevap;
 	}
+	public double getDegerlendirmePuani() {
+		return degerlendirmePuani;
+	}
+	public void setDegerlendirmePuani(double degerlendirmePuani) {
+		this.degerlendirmePuani = degerlendirmePuani;
+	}
+	
 	
 	
 	

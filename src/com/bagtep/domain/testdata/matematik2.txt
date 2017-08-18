@@ -581,18 +581,19 @@ Davranışlar
 
 Amaç 71. “1, 2, 3, 4, 5, 6, 7, 8, 9” doğal sayılarını tanır. (4 P)
 Davranışlar 
-1. Farklı sayıda nesnelerden oluşan kümeler içinden 1 (2, 3, 4, 5, 6, 7, 8, 9) tane nesne olanı gösterir. 
-2. 1 (2, 3, 4, 5, 6, ,8, 9) tane nesnesi olan küme gösterildiğinde nesne sayısının 1 (2, 3, 4, 5, 6, 7, 8, 9) tane olduğunu söyler. 
-3. Farklı sayıda nesnelerden oluşan kümeleri ifade eden resim kartları arasından 1 (2, 3, 4, 5, 6, 7, 8, 9) tane nesnesi olan resim kartını gösterir. 
-4. 1 (2, 3, 4, 5, 6, 7, 8, 9) tane nesneyi ifade eden resim kartı gösterildiğinde nesne sayısının 1 (2, 3, 4, 5, 6, 7, 8, 9) tane olduğunu söyler. 
-5. Söylendiğinde nesne kümesi içinden 1 (2, 3, 4, 5, 6, 7, 8, 9) nesne alır. 
-6. Sayı sembolü 1 (2, 3, 4, 5, 6, 7, 8, 9) gösterildiğinde farklı sayıda nesnelerden oluşan kümeler içinden, sayı sembolü miktarı kadar nesneden oluşan kümeyi gösterir. 
-7. Sayı sembolü 1 (2, 3, 4, 5, 6, 7, 8, 9) gösterildiğinde farklı sayıda nesnelerden oluşan kümeleri ifade eden resim kartları içinden, sayı sembolü miktarını ifade eden resim kartını gösterir. 
-8. Gösterilen nesne kümesindeki nesne sayısını ifade eden sayı sembolünü gösterir. 
-9. Nesne kümesini ifade eden resim kartı gösterildiğinde karşılığı olan sayı sembolünü gösterir. 
-10. Sayı sembolü gösterildiğinde nesne kümesi içinden gösterilen sayı sembolü miktarı kadar nesne alır. 
-11. Sayı sembollerini ifade eden kartlar arasından söylenen sayı sembolünü gösterir. 
-12. Gösterilen sayı sembolünün kaç olduğunu söyler. 
+1. Farklı sayıda nesnelerden oluşan kümeler içinden (1, 2, 3, 4, 5, 6, 7, 8, 9) tane nesne olanı gösterir. 
+2. (1, 2, 3, 4, 5, 6, 7, 8, 9) tane nesnesi olan küme gösterildiğinde nesne sayısının (1, 2, 3, 4, 5, 6, 7, 8, 9) tane olduğunu söyler. 
+3. Farklı sayıda nesnelerden oluşan kümeleri ifade eden resim kartları arasından (1, 2, 3, 4, 5, 6, 7, 8, 9) tane nesnesi olan resim kartını gösterir. 
+4. (1, 2, 3, 4, 5, 6, 7, 8, 9) tane nesneyi ifade eden resim kartı gösterildiğinde nesne sayısının (1, 2, 3, 4, 5, 6, 7, 8, 9) tane olduğunu söyler. 
+5. (1, 2, 3, 4, 5, 6, 7, 8, 9) tane olduğunu söyler. 
+6. Söylendiğinde nesne kümesi içinden (1, 2, 3, 4, 5, 6, 7, 8, 9) nesne alır. 
+7. Sayı sembolü (1, 2, 3, 4, 5, 6, 7, 8, 9) gösterildiğinde farklı sayıda nesnelerden oluşan kümeler içinden, sayı sembolü miktarı kadar nesneden oluşan kümeyi gösterir. 
+8. Sayı sembolü (1, 2, 3, 4, 5, 6, 7, 8, 9) gösterildiğinde farklı sayıda nesnelerden oluşan kümeleri ifade eden resim kartları içinden, sayı sembolü miktarını ifade eden resim kartını gösterir. 
+9. Gösterilen nesne kümesindeki nesne sayısını ifade eden sayı sembolünü gösterir. 
+10. Nesne kümesini ifade eden resim kartı gösterildiğinde karşılığı olan sayı sembolünü gösterir. 
+11. Sayı sembolü gösterildiğinde nesne kümesi içinden gösterilen sayı sembolü miktarı kadar nesne alır. 
+12. Sayı sembollerini ifade eden kartlar arasından söylenen sayı sembolünü gösterir. 
+13. Gösterilen sayı sembolünün kaç olduğunu söyler.  
 
 Amaç 72. Rakamları yazar. (4 P)
 Davranışlar 

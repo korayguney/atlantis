@@ -41,6 +41,10 @@
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
 						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
 							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
@@ -68,6 +72,10 @@
 
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
@@ -98,6 +106,10 @@
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
 						</p:column>
 
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+						
 						<p:column headerText="Değerlendirme" width="200">
 							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
@@ -125,6 +137,10 @@
 
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
@@ -154,6 +170,10 @@
 
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
@@ -185,6 +205,10 @@
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
 						</p:column>
 
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+						
 						<p:column headerText="Değerlendirme" width="200">
 							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
@@ -212,6 +236,10 @@
 
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
@@ -242,7 +270,11 @@
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
 						</p:column>
-
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+						
 						<p:column headerText="Değerlendirme" width="200">
 							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
@@ -271,7 +303,11 @@
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
 						</p:column>
-
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+						
 						<p:column headerText="Değerlendirme" width="200">
 							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
@@ -299,6 +335,10 @@
 
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
@@ -329,12 +369,15 @@
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
 						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
 							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
-
 						</p:column>
-
+						
 						<p:column headerText="Yorum" width="">
 							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
 								<p:inputTextarea rows="6" cols="33" counter="display" maxlength="100" counterTemplate="{0} karakter kaldı." value="#{donemDegerlendirmeBean.ozelAmacYorum[ozelAmac.id]}" />
@@ -357,6 +400,10 @@
 
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
@@ -387,6 +434,10 @@
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
 						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
 							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
@@ -415,6 +466,10 @@
 
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
@@ -445,7 +500,11 @@
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
 						</p:column>
-
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+	
 						<p:column headerText="Değerlendirme" width="200">
 							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
 
@@ -473,6 +532,10 @@
 
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
@@ -502,6 +565,10 @@
 
 						<p:column headerText="Özel Amaçlar" width="600" >
 							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
