@@ -2,6 +2,7 @@ package com.bagtep.mbeans;
 
 import java.io.Serializable;
 import java.security.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +39,7 @@ public class OgrenciSecBean implements Serializable {
     private Map<String,String> ogrenciler2;
     private List<Ogrenci> ogrenciler;
     private List<Ogrenci> ogrenciler3;
+    static int x =0;
 
     
     @EJB
@@ -190,25 +192,49 @@ public class OgrenciSecBean implements Serializable {
         	ogrenciler2 = new HashMap<String, String>();
     }
 	
-	public void ogrencilistele() {
-        System.out.println("ogrencilistele METODUNA GİRDİ");
-        mySessionScopedBean.setSinif(sinif);
-        System.out.println("SINIF1 :::::::::: " + sinif);
+	public void ogrencilisteleDonemDegerlendirme() {
+		System.out.println("ogrencilisteleDonemDegerlendirme METODUNA GİRDİ");
+		mySessionScopedBean.setSinif(sinif);
+		ogrenciler = ogrenciService.getSelectedOgrenciForClass(sinif);
+		final int ogrencilerSayisi = ogrenciler.size();
 
-        System.out.println("SINIF :::::::::: " + mySessionScopedBean.getSinif());
-        ogrenciler = ogrenciService.getSelectedOgrenciForClass(sinif);
-        System.out.println("SONUÇ : "+ ogrenciler.isEmpty());
-        
-        // doluluk kontrolüm...
-        if (ogrenciler.isEmpty() != true){      
-        	System.out.println("ÖĞRENCİ : "+ ogrenciler.get(0).getAd() + " "+ogrenciler.get(0).getSoyad());
-        }else{
-        	System.out.println("Öğrenci listesi boş döndü...");
-        }
-        
-//        ogrenciler3 = ogrenciService.degerlendirmesiYapilanlariGetir(ders, sinif); 
-        
+        for (int i = 0; i < ogrencilerSayisi; i++) {
+			Ogrenci ogrenci = ogrenciler.get(i-x);
+			
+			boolean degerlendirmeSonuc = ogrenciService.dahaOnceDegerlendirilmismi(ogrenci.getId(), ders);
+			
+			if(degerlendirmeSonuc){
+				ogrenciler.remove(ogrenci);
+				System.out.println("SİLİNEN ÖĞRENCİ :" + ogrenci.getAd());
+				x++;
+			}
+		}
+        x = 0;
+	}
+	
+	
+	public void ogrencilisteleKabaDegerlendirme() {
+		System.out.println("ogrencilisteleKabaDegerlendirme METODUNA GİRDİ");
+		mySessionScopedBean.setSinif(sinif);
+		ogrenciler = ogrenciService.getSelectedOgrenciForClass(sinif);
+		final int ogrencilerSayisi = ogrenciler.size();
 
+        for (int i = 0; i < ogrencilerSayisi; i++) {
+			Ogrenci ogrenci = ogrenciler.get(i-x);
+			
+			boolean degerlendirmeSonuc = ogrenciService.dahaOnceKabaDegerlendirilmismi(ogrenci.getId(), ders);
+			
+			if(degerlendirmeSonuc){
+				ogrenciler.remove(ogrenci);
+				System.out.println("SİLİNEN ÖĞRENCİ :" + ogrenci.getAd());
+				x++;
+			}
+			
+			System.out.println(" ogrenci sayısı SİLİNDİKTEN SONRA : +++++++++++++++++++ " +ogrenciler.size());
+			System.out.println(" ogrenci sayısı FINAL DEĞER : +++++++++++++++++++ " +ogrencilerSayisi);
+			System.out.println(" simdiki öğrenci : +++++++++++++++++++ " +i);
+		}
+        x = 0;
 	}
 	
 	public void degerlendirmegoruntule() {

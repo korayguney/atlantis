@@ -1,6 +1,7 @@
 package com.bagtep.mbeans;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -10,15 +11,18 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.persistence.Query;
 import javax.servlet.http.HttpServletRequest;
 
 import com.bagtep.business.DersService;
 import com.bagtep.business.DonemDegerlendirmeService;
 import com.bagtep.business.OgrenciService;
 import com.bagtep.business.TestDataService2;
+import com.bagtep.domain.Ders;
 import com.bagtep.domain.DonemDegerlendirme;
 import com.bagtep.domain.GenelAmac;
 import com.bagtep.domain.Kazanim;
+import com.bagtep.domain.Ogrenci;
 import com.bagtep.domain.OzelAmac;
 
 @ManagedBean
@@ -1133,7 +1137,7 @@ public class DonemDegerlendirmeBean {
 		
 	}
 
-	public void degerlendirmeKaydet() {
+	public String degerlendirmeKaydet() {
 //		int kazanimId = new Kazanim().getId();
 		System.out.println("Seçilen Ogrenci id : " + ogrenciId);
 		
@@ -1144,6 +1148,14 @@ public class DonemDegerlendirmeBean {
 		donemDegerlendirmeService.degerlendirmeKaydet(ogrenciId, dersAd, degerlendirici, ozelAmaclarMap, ozelAmacYorum, ozelAmacIdMap);
 		FacesContext.getCurrentInstance().addMessage(null,
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Kaba Değerlendirme Başarıyla Kaydedildi !!!"));
+		System.out.println("DEĞERLENDİRME KAYDEDİLDİ !!! Oğrenci : " + ogrenciAd);
+		return "adminDonemDegerlendirmeYapOgrenciSec";
+	}
+	
+	public boolean dahaOnceDegerlendirilmismi(){
+		
+		boolean result = donemDegerlendirmeService.dahaOnceDegerlendirilmismi(ogrenciId, dersAd);
+		return result;
 	}
 	
 	// Konsoldan kabadeğerlendirme cevaplarını kontrol etmek için..

@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Ogrenci {
+public class Ogrenci implements Cloneable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -26,6 +26,8 @@ public class Ogrenci {
 	private String velisoyad;
 	private String telefon;
 	private String evadres;
+	private boolean kabaDegerlendirmeDurumu;
+	private boolean donemDegerlendirmeDurumu;
 	
 	@ManyToOne
 	private Sinif sinif;
@@ -153,13 +155,32 @@ public class Ogrenci {
 		this.kabadegerlendirmeler = kabadegerlendirmeler;
 	}
 
+		
+	public boolean isKabaDegerlendirmeDurumu() {
+		return kabaDegerlendirmeDurumu;
+	}
+
+	public void setKabaDegerlendirmeDurumu(boolean kabaDegerlendirmeDurumu) {
+		this.kabaDegerlendirmeDurumu = kabaDegerlendirmeDurumu;
+	}
+
+	
+	public boolean isDonemDegerlendirmeDurumu() {
+		return donemDegerlendirmeDurumu;
+	}
+
+	public void setDonemDegerlendirmeDurumu(boolean donemDegerlendirmeDurumu) {
+		this.donemDegerlendirmeDurumu = donemDegerlendirmeDurumu;
+	}
+
 	@Override
 	public String toString() {
 		return ad + " " + soyad ;
 	}
 	
-	
-	
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 	
 
 }

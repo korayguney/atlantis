@@ -47,7 +47,7 @@
 						</p:column>
 
 						<p:column headerText="Değerlendirme" width="200">
-							<p:inputText placeholder="puan gir" value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}" />
+							<p:inputText value="#{donemDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}"  />
 						</p:column>
 
 						<p:column headerText="Yorum" width="">
@@ -590,10 +590,12 @@
 		</p:accordionPanel>
 
 		<div class="alert alert-info" align="center">
-			<p:commandButton actionListener="#{donemDegerlendirmeBean.degerlendirmeKaydet()}" value="Değerlendirme Kaydet" />
+			<h:outputText value="Daha önce değerlendirmesi yapılmıştır." rendered="#{donemDegerlendirmeBean.dahaOnceDegerlendirilmismi() eq true}" />
+			<p:commandButton actionListener="#{donemDegerlendirmeBean.degerlendirmeKaydet()}" value="Değerlendirme Kaydet" rendered="#{donemDegerlendirmeBean.dahaOnceDegerlendirilmismi() eq false}"/>
 		</div>
+		
 	</h:form>
-	
+		<p:growl></p:growl>
 		
 	</ui:define>
 </ui:composition>

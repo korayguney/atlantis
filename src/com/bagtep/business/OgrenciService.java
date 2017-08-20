@@ -7,8 +7,11 @@ import javax.ejb.Stateless;
 import javax.faces.bean.ManagedProperty;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import com.bagtep.domain.Ders;
+import com.bagtep.domain.DonemDegerlendirme;
+import com.bagtep.domain.KabaDegerlendirme;
 import com.bagtep.domain.Ogrenci;
 import com.bagtep.domain.Ogretmen;
 import com.bagtep.domain.Sinif;
@@ -105,7 +108,6 @@ public class OgrenciService {
 		return ogrenciler;
 	}
 
-
 	public void updateOgrenci(Ogrenci ogrenci) {
 		entityManager.merge(ogrenci);
 	}
@@ -131,6 +133,41 @@ public class OgrenciService {
 	}
 
 
+	public boolean dahaOnceDegerlendirilmismi(int ogrenciId, String dersAd){
+		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
+		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
+		
+		Query q = entityManager.createNativeQuery("select * from DonemDegerlendirme where ders_id= "+ ders.getId() +" and ogrenci_id="+ ogrenci.getId());
+		List<DonemDegerlendirme> res = (List<DonemDegerlendirme>)q.getResultList();
+		
+		if(res.isEmpty()){
+			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Dönem Değerlendirmesi Yapılmamış...");
+			return false;
+		}else {
+			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Dönem Değerlendirmesi YAPILMIŞŞŞŞŞŞŞŞŞŞŞ...");
+			return true;
+		}
+	}
+	
+	public boolean dahaOnceKabaDegerlendirilmismi(int ogrenciId, String dersAd){
+		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
+		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
+		
+		System.out.println("dahaOnceKabaDegerlendirilmismi METODUNA GELEN ÖĞRENCİ : " + ogrenci.getAd() + " " +ogrenci.getSoyad());
+		
+		Query q = entityManager.createNativeQuery("select * from KabaDegerlendirme where ders_id= "+ ders.getId() +" and ogrenci_id="+ ogrenci.getId());
+		List<KabaDegerlendirme> res = (List<KabaDegerlendirme>)q.getResultList();
+		
+		if(res.isEmpty()){
+			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Kaba Değerlendirmesi Yapılmamış...");
+			return false;
+		}else {
+			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Kaba Değerlendirmesi YAPILMIŞŞŞŞŞŞŞŞŞŞŞ...");
+			return true;
+		}
+	}
+	
+	
 //	public List<Ogrenci> degerlendirmesiYapilanlariGetir(String ders, String sinif) {
 //		
 //		List<Ogrenci> ogrenciler = getSelectedOgrenciForClass(sinif);
@@ -141,10 +178,6 @@ public class OgrenciService {
 //		}
 //		
 //		return ogrenciler;
-//		
-//		
-//		
-//		
 //	}
 
 

@@ -2,11 +2,13 @@ package com.bagtep.business;
 
 
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import com.bagtep.domain.Ders;
 import com.bagtep.domain.DonemDegerlendirme;
@@ -24,11 +26,23 @@ public class DonemDegerlendirmeService {
 	@PersistenceContext
 	private EntityManager entityManager;
 
-	public void degerlendirmeKaydet(int ogrenciId, String dersAd, String degerlendirici, Map<Integer, Double> ozelAmaclarMap , Map<Integer, String> yorum, Map<Integer, OzelAmac> ozelAmacIdMap) {
+	public String degerlendirmeKaydet(int ogrenciId, String dersAd, String degerlendirici, Map<Integer, Double> ozelAmaclarMap , Map<Integer, String> yorum, Map<Integer, OzelAmac> ozelAmacIdMap) {
 		System.out.println("SERVICE : degerlendirmeKaydet GİRDİ !!!");
 	
 		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
 		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
+		
+		Query q = entityManager.createNativeQuery("select * from DonemDegerlendirme where ders_id= "+ ders.getId() +" and ogrenci_id="+ ogrenci.getId());
+		List<DonemDegerlendirme> res = (List<DonemDegerlendirme>)q.getResultList();
+		
+		if(res.isEmpty()){
+			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Dönem Değerlendirmesi Yapılmamış...");
+		}else {
+			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Dönem Değerlendirmesi YAPILMIŞŞŞŞŞŞŞŞŞŞŞ...");
+		}
+			
+		
+//		ogrenci.setDonemDegerlendirmeDurumu(true);	
 		
 		DonemDegerlendirme dd = new DonemDegerlendirme();
 		dd.setDegerlendirmeTarihi(new Date());
@@ -48,6 +62,24 @@ public class DonemDegerlendirmeService {
 			entityManager.persist(ddcevap);
 		}		
 		
+		return "";
+		
+	}
+	
+	public boolean dahaOnceDegerlendirilmismi(int ogrenciId, String dersAd){
+		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
+		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
+		
+		Query q = entityManager.createNativeQuery("select * from DonemDegerlendirme where ders_id= "+ ders.getId() +" and ogrenci_id="+ ogrenci.getId());
+		List<DonemDegerlendirme> res = (List<DonemDegerlendirme>)q.getResultList();
+		
+		if(res.isEmpty()){
+			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Dönem Değerlendirmesi Yapılmamış...");
+			return false;
+		}else {
+			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Dönem Değerlendirmesi YAPILMIŞŞŞŞŞŞŞŞŞŞŞ...");
+			return true;
+		}
 	}
 	
 	public void getDegerlendirme() {
