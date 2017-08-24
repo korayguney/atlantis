@@ -1,5 +1,6 @@
 package com.bagtep.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class KabaDegerlendirme {
+public class KabaDegerlendirme implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 742083733563172053L;
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;

@@ -1,5 +1,6 @@
 package com.bagtep.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -11,7 +12,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Sinif {
+public class Sinif implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6873061229863242749L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;

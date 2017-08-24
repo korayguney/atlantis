@@ -1,5 +1,6 @@
 package com.bagtep.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,7 +11,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Ders {
+public class Ders implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3977219678967843877L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;

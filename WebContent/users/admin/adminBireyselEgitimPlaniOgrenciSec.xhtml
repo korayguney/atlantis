@@ -33,7 +33,7 @@
 		        
 		        <p:separator />
 		 
-		        <p:commandButton value="Öğrencileri Listele" update="dtable" action="#{ogrenciSecBean.ogrencilistele()}" icon="ui-icon-circle-arrow-s" />
+		        <p:commandButton value="Öğrencileri Listele" update="dtable" action="#{ogrenciSecBean.ogrencilisteleBEP()}" icon="ui-icon-circle-arrow-s" />
 		 
 		        <p:separator />
 		        		        
@@ -51,9 +51,9 @@
 					        <h:outputText value="#{ogrenci.soyad}" />
 					    </p:column>
 					 
-					    <p:column headerText="Değerlendirme">
+					    <p:column headerText="Bireysel Eğitim Planı Düzenle">
 					  
-					        <a href="adminBireyselEgitimPlani.xhtml?oid=#{ogrenci.id}&amp;did=#{ogrenciSecBean.ders}&amp;classId=#{ogrenciSecBean.sinif}">Değerlendir</a>
+					        <a href="adminBireyselEgitimPlani.xhtml?oid=#{ogrenci.id}&amp;did=#{ogrenciSecBean.ders}&amp;classId=#{ogrenciSecBean.sinif}">Düzenle</a>
 					    </p:column>
 				</p:dataTable> 
 				

@@ -13,12 +13,12 @@
 			<div class="alert alert-success" align="center">
 				<h5>
 					<i class="fa fa-book fa-fw" /><b> Ders : </b>
-					<h:outputText value="#{kabaDegerlendirmeBean.dersAd}" />
+					<h:outputText value="#{bireyselEgitimPlaniBean.dersAd}" />
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-child fa-fw" /><b>
 						Öğrenci : </b>
 					<h:outputText
-						value="#{kabaDegerlendirmeBean.ogrenciAd} #{kabaDegerlendirmeBean.ogrenciSoyad}" />
+						value="#{bireyselEgitimPlaniBean.ogrenciAd} #{bireyselEgitimPlaniBean.ogrenciSoyad}" />
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<i class="fa fa-eye fa-fw" /><b> Değerlendirici : </b>
 					<h:outputText
@@ -30,10 +30,10 @@
 
 		<h:form>
 		<p:accordionPanel activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac.icerik}">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen1}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -41,14 +41,14 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
 
@@ -58,10 +58,10 @@
 		</p:accordionPanel>
 	
 		<p:accordionPanel activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac2.icerik}">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac2.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac2.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen2}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -69,16 +69,17 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
@@ -86,10 +87,10 @@
 		</p:accordionPanel>
 	
 		<p:accordionPanel activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac3.icerik}">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac3.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac3.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen3}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -97,14 +98,14 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
 
@@ -113,11 +114,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac4 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac4.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac4 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac4.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac4.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen4}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -125,14 +126,14 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
 
@@ -141,11 +142,11 @@
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac5 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac5.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac5 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac5.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac5.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen5}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -153,27 +154,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac6 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac6.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac6 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac6.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac6.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen6}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -181,27 +183,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac7 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac7.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac7 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac7.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac7.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen7}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -209,27 +212,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac8 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac8.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac8 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac8.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac8.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen8}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -237,27 +241,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac9 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac9.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac9 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac9.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac9.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen9}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -265,27 +270,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac10 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac10.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac10 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac10.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac10.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen10}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -293,27 +299,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac11 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac11.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac11 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac11.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac11.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen11}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -321,27 +328,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac12 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac12.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac12 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac12.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac12.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen12}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -349,27 +357,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac13 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac13.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac13 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac13.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac13.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen13}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -377,27 +386,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac14 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac14.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac14 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac14.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac14.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen14}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -405,27 +415,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac15 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac15.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac15 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac15.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac15.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen15}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -433,27 +444,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac16 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac16.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac16 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac16.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac16.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen16}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -461,27 +473,28 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
+
 
 				</h:panelGrid>
 			</p:tab>
 			
 		</p:accordionPanel>
 	
-		<p:accordionPanel rendered="#{not empty kabaDegerlendirmeBean.genelAmac17 }" activeIndex="null">
-			<p:tab title="#{kabaDegerlendirmeBean.genelAmac17.icerik}">
+		<p:accordionPanel rendered="#{not empty bireyselEgitimPlaniBean.genelAmac17 }" activeIndex="null">
+			<p:tab title="#{bireyselEgitimPlaniBean.genelAmac17.icerik}">
 				<h:panelGrid columns="2" cellpadding="10">
 
-					<p:dataTable value="#{kabaDegerlendirmeBean.genelAmac17.ozelAmaclar}"
+					<p:dataTable value="#{bireyselEgitimPlaniBean.ozelAmacHayirVerilen17}"
 						var="ozelAmac" >
 
 						<p:column headerText="Özel Amaçlar" width="600" >
@@ -489,24 +502,24 @@
 						</p:column>
 
 						<p:column headerText="BEP'e Dahil Edilsin mi?" width="200">
-							<p:selectOneButton value="#{kabaDegerlendirmeBean.ozelAmaclarMap[ozelAmac.id]}">
+							<p:selectOneButton value="#{bireyselEgitimPlaniBean.ozelAmaclarMap[ozelAmac.id]}">
 								<f:selectItem itemLabel="Evet" itemValue="#{true}" />
 								<f:selectItem itemLabel="Hayır" itemValue="#{false}" />
 							</p:selectOneButton>
 						</p:column>
 
-						<p:column headerText="Yorum" width="600" >
-							<h:outputText value="DB den alınan yorum burada görünecek" />
+						<p:column headerText="Değerlendirici Tarafından Yapılmış Yorum" width="600" >
+							<h:outputText value="#{ozelAmac.kabaDegerlendirmeKazanimCevap.iterator().next().yorum}" />
 						</p:column>
 					</p:dataTable>
 
+
 				</h:panelGrid>
 			</p:tab>
-			
 		</p:accordionPanel>
 
 		<div class="alert alert-info" align="center">
-			<p:commandButton actionListener="#{kabaDegerlendirmeBean.degerlendirmeKaydet()}" value="Bireysel Eğitim Planı Al" />
+			<p:commandButton actionListener="#{bireyselEgitimPlaniBean.bireyselEgitimPlaniAl()}" value="Bireysel Eğitim Planı Al" />
 		</div>
 	</h:form>
 	

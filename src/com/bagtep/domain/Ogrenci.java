@@ -1,5 +1,6 @@
 package com.bagtep.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Ogrenci implements Cloneable{
+public class Ogrenci implements Cloneable, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2051419634586362750L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;

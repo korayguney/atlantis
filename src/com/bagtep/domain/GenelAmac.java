@@ -1,5 +1,6 @@
 package com.bagtep.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -10,7 +11,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class GenelAmac {
+public class GenelAmac implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1880186859779551734L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;

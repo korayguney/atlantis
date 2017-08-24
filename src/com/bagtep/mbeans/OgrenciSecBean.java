@@ -192,6 +192,19 @@ public class OgrenciSecBean implements Serializable {
         	ogrenciler2 = new HashMap<String, String>();
     }
 	
+	public void ogrencilistele() {
+		System.out.println("ogrencilisteleBEP METODUNA GİRDİ");
+		mySessionScopedBean.setSinif(sinif);
+		ogrenciler = ogrenciService.getSelectedOgrenciForClass(sinif);
+	}
+	
+	
+	public void ogrencilisteleBEP() {
+		System.out.println("ogrencilisteleBEP METODUNA GİRDİ");
+		mySessionScopedBean.setSinif(sinif);
+		ogrenciler = ogrenciService.getSelectedOgrenciForClass(sinif);
+	}
+	
 	public void ogrencilisteleDonemDegerlendirme() {
 		System.out.println("ogrencilisteleDonemDegerlendirme METODUNA GİRDİ");
 		mySessionScopedBean.setSinif(sinif);

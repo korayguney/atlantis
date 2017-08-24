@@ -1,7 +1,9 @@
 package com.bagtep.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class OzelAmac {
+public class OzelAmac implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5966157310625797788L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
@@ -19,7 +26,7 @@ public class OzelAmac {
 	@OneToMany(mappedBy="ozelAmac")
 	private List<Kazanim> kazanimlar;
 	
-	@OneToMany(mappedBy="ozelAmac")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ozelAmac", cascade = CascadeType.ALL)
 	private List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap;
 	
 	@ManyToOne
