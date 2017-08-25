@@ -11,9 +11,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class BireyselEgitimPlaniRaporSecim implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -7748655281126697255L;
 
 	@Id
@@ -21,7 +18,6 @@ public class BireyselEgitimPlaniRaporSecim implements Serializable {
 	private int id;
 	
 	private boolean bireyselEgitimPlaniCevap;
-	private String yorum;
 	
 	@ManyToOne
 	private BireyselEgitimPlani bireyselEgitimPlani;
@@ -35,14 +31,6 @@ public class BireyselEgitimPlaniRaporSecim implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public String getYorum() {
-		return yorum;
-	}
-
-	public void setYorum(String yorum) {
-		this.yorum = yorum;
 	}
 
 	public OzelAmac getOzelAmac() {

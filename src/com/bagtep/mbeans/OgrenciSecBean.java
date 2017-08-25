@@ -203,6 +203,20 @@ public class OgrenciSecBean implements Serializable {
 		System.out.println("ogrencilisteleBEP METODUNA GİRDİ");
 		mySessionScopedBean.setSinif(sinif);
 		ogrenciler = ogrenciService.getSelectedOgrenciForClass(sinif);
+		final int ogrencilerSayisi = ogrenciler.size();
+
+		for (int i = 0; i < ogrencilerSayisi; i++) {
+			Ogrenci ogrenci = ogrenciler.get(i-x);
+			
+			boolean degerlendirmeSonuc = ogrenciService.dahaOnceKabaDegerlendirilmismi(ogrenci.getId(), ders);
+			
+			if(!degerlendirmeSonuc){
+				ogrenciler.remove(ogrenci);
+				System.out.println("SİLİNEN ÖĞRENCİ :" + ogrenci.getAd());
+				x++;
+			}
+		}
+        x = 0;
 	}
 	
 	public void ogrencilisteleDonemDegerlendirme() {

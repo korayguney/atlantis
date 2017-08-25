@@ -21,6 +21,10 @@ import com.bagtep.domain.KabaDegerlendirmeKazanimCevap;
 import com.bagtep.domain.Kazanim;
 import com.bagtep.domain.Ogrenci;
 import com.bagtep.domain.OzelAmac;
+import com.cete.dynamicpdf.Font;
+import com.cete.dynamicpdf.Page;
+import com.cete.dynamicpdf.merger.MergeDocument;
+import com.cete.dynamicpdf.pageelements.Label;
 
 @Stateless
 public class BireyselEgitimPlaniService {
@@ -135,7 +139,7 @@ public class BireyselEgitimPlaniService {
 			}else {
 				continue;
 			}
-		}		
-				
+		}				
+		
 	}
 }

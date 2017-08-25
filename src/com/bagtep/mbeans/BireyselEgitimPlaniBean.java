@@ -20,6 +20,10 @@ import com.bagtep.business.OgrenciService;
 import com.bagtep.business.TestDataService4;
 import com.bagtep.domain.GenelAmac;
 import com.bagtep.domain.OzelAmac;
+import com.cete.dynamicpdf.Font;
+import com.cete.dynamicpdf.Page;
+import com.cete.dynamicpdf.merger.MergeDocument;
+import com.cete.dynamicpdf.pageelements.Label;
 
 @ManagedBean
 @ViewScoped
@@ -749,9 +753,18 @@ public class BireyselEgitimPlaniBean {
 
 		bireyselEgitimPlaniService.bireyselEgitimPlaniAl(ogrenciId, dersAd, degerlendirici, ozelAmaclarMap, ozelAmacIdMap);
 		
-		// FIXME Burada PDF için gerekli işlemler de yapılacak...
-
-		
+		// PDF e döndürür
+//		MergeDocument document = new MergeDocument("/com/bagtep/domain/testdata/bepForm.pdf");
+//		document.setCreator(this.getClass().getSimpleName());
+//        document.setAuthor(mySessionScopedBean.getFirstname() + " " + mySessionScopedBean.getLastname());
+//        document.setTitle("Bireysel Eğitim Planı : " + ogrenciAd+ " "+ ogrenciSoyad);
+//        
+//        Page page = document.getPages().getPage(0);
+//        page.getDimensions().setMargins(41, 35, 45, 37);
+//        
+//		page.getElements().add(new Label(ogrenciAd+ " "+ogrenciSoyad, 20, 60, 490, 12, Font.getCourier(), 12));
+//		page.getElements().add(new Label(dersAd, 20, 84, 490, 12, Font.getCourier(), 12));
+//		document.draw("IlkOrnek.pdf");
 	}
 	
 	
