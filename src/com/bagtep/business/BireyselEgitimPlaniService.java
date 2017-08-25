@@ -1,5 +1,6 @@
 package com.bagtep.business;
 
+import java.util.Date;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -11,6 +12,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import com.bagtep.domain.BireyselEgitimPlani;
+import com.bagtep.domain.BireyselEgitimPlaniRaporSecim;
 import com.bagtep.domain.Ders;
 import com.bagtep.domain.GenelAmac;
 import com.bagtep.domain.KabaDegerlendirme;
@@ -22,6 +25,8 @@ import com.bagtep.domain.OzelAmac;
 @Stateless
 public class BireyselEgitimPlaniService {
 
+	BireyselEgitimPlaniRaporSecim bepCevap;
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -100,5 +105,37 @@ public class BireyselEgitimPlaniService {
 		
 		return ozelAmaclarHayirVerilen;
 
+	}
+
+	public void bireyselEgitimPlaniAl(int ogrenciId, String dersAd, String degerlendirici,
+			Map<Integer, Boolean> ozelAmaclarMap, Map<Integer, OzelAmac> ozelAmacIdMap) {
+		
+		System.out.println("SERVICE : bireyselEgitimPlaniAl GİRDİ !!!");
+		
+		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
+		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
+		
+		BireyselEgitimPlani bep = new BireyselEgitimPlani();
+		bep.setDegerlendirmeTarihi(new Date());
+		bep.setDegerlendirici(degerlendirici);
+		bep.setDers(ders);
+		bep.setOgrenci(ogrenci);
+		
+		entityManager.persist(bep);
+		
+		for (Integer key : ozelAmaclarMap.keySet()) {
+			bepCevap = new BireyselEgitimPlaniRaporSecim();
+			bepCevap.setBireyselEgitimPlaniCevap(Boolean.parseBoolean(""+ozelAmaclarMap.get(key)));
+			bepCevap.setBireyselEgitimPlani(bep);
+			bepCevap.setOzelAmac(ozelAmacIdMap.get(key));
+			
+			// sadece  BEP'e eklemek istediklerinin kontrolü (yani EVET seçtiklerinin)
+			if(Boolean.parseBoolean(""+ozelAmaclarMap.get(key))){
+				entityManager.persist(bepCevap);
+			}else {
+				continue;
+			}
+		}		
+				
 	}
 }

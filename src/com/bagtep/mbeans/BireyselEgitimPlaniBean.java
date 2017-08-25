@@ -48,9 +48,8 @@ public class BireyselEgitimPlaniBean {
 	private GenelAmac genelAmac16;
 	private GenelAmac genelAmac17;
 	private Map<Integer, Boolean> ozelAmaclarMap = new LinkedHashMap<Integer, Boolean>();
-	private Map<Integer, String> ozelAmacYorum = new LinkedHashMap<Integer, String>();
 	private Map<Integer, OzelAmac > ozelAmacIdMap = new LinkedHashMap<Integer, OzelAmac>();
-	private OzelAmac ozelAmac;
+
 	private List<OzelAmac> ozelAmacHayirVerilen = new ArrayList<>();
 	private List<OzelAmac> ozelAmacHayirVerilen1 = new ArrayList<>();
 	private List<OzelAmac> ozelAmacHayirVerilen2 = new ArrayList<>();
@@ -103,183 +102,604 @@ public class BireyselEgitimPlaniBean {
 		
 		if(dersAd.equals("Matematik")){
 			this.genelAmac = testDataService4.getGenelAmac(dersId, 1);
-				
+			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			
+			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac2 = testDataService4.getGenelAmac(dersId, 2);
-				
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac3 = testDataService4.getGenelAmac(dersId, 3);
-				
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac4 = testDataService4.getGenelAmac(dersId, 4);
-				
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac5 = testDataService4.getGenelAmac(dersId, 5);
-				
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac6 = testDataService4.getGenelAmac(dersId, 6);
-				
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			}else if(dersAd.equals("Dil ve Konuşma Gelişimi")){
 			this.genelAmac = testDataService4.getGenelAmac(dersId, 1);
-				
+			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac2 = testDataService4.getGenelAmac(dersId, 2);
-				
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac3 = testDataService4.getGenelAmac(dersId, 3);
-				
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac4 = testDataService4.getGenelAmac(dersId, 4);
-				
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac5 = testDataService4.getGenelAmac(dersId, 5);
-							
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}		
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac6 = testDataService4.getGenelAmac(dersId, 6);
-				
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac7 = testDataService4.getGenelAmac(dersId, 7);
-								
+			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			}else if(dersAd.equals("Din Kültürü ve Ahlak Bilgisi")){
 			this.genelAmac = testDataService4.getGenelAmac(dersId, 1);
-				
+			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac2 = testDataService4.getGenelAmac(dersId, 2);
-							
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac3 = testDataService4.getGenelAmac(dersId, 3);
-				
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac4 = testDataService4.getGenelAmac(dersId, 4);
-				
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			}else if(dersAd.equals("Hayat Bilgisi")){
 				this.genelAmac = testDataService4.getGenelAmac(dersId, 1);
-				
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmaclarMap.put(o.getId(), false);
+				}
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmacIdMap.put(o.getId(), o);
+				}
 			this.genelAmac2 = testDataService4.getGenelAmac(dersId, 2);
-				
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac3 = testDataService4.getGenelAmac(dersId, 3);
-				
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac4 = testDataService4.getGenelAmac(dersId, 4);
-				
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac5 = testDataService4.getGenelAmac(dersId, 5);
-							
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac6 = testDataService4.getGenelAmac(dersId, 6);
-				
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac7 = testDataService4.getGenelAmac(dersId, 7);
-				
+			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac8 = testDataService4.getGenelAmac(dersId, 8);
-				
+			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac9 = testDataService4.getGenelAmac(dersId, 9);
-				
+			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac10 = testDataService4.getGenelAmac(dersId, 10);
-				
+			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac11 = testDataService4.getGenelAmac(dersId, 11);
-				
+			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac12 = testDataService4.getGenelAmac(dersId, 12);
-				
+			for (OzelAmac o : this.genelAmac12.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac12.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac13 = testDataService4.getGenelAmac(dersId, 13);
-				
+			for (OzelAmac o : this.genelAmac13.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac13.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac14 = testDataService4.getGenelAmac(dersId, 14);
-				
+			for (OzelAmac o : this.genelAmac14.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac14.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac15 = testDataService4.getGenelAmac(dersId, 15);
-				
+			for (OzelAmac o : this.genelAmac15.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac15.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac16 = testDataService4.getGenelAmac(dersId, 16);
-				
+			for (OzelAmac o : this.genelAmac16.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac16.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac17 = testDataService4.getGenelAmac(dersId, 17);
-								
+			for (OzelAmac o : this.genelAmac17.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac17.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			}else if(dersAd.equals("Müzik")){
 				this.genelAmac = testDataService4.getGenelAmac(dersId, 1);
-				
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmaclarMap.put(o.getId(), false);
+				}
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmacIdMap.put(o.getId(), o);
+				}
 			this.genelAmac2 = testDataService4.getGenelAmac(dersId, 2);
-							
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}	
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac3 = testDataService4.getGenelAmac(dersId, 3);
-				
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac4 = testDataService4.getGenelAmac(dersId, 4);
-				
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac5 = testDataService4.getGenelAmac(dersId, 5);
-				
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac6 = testDataService4.getGenelAmac(dersId, 6);
-				
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac7 = testDataService4.getGenelAmac(dersId, 7);
-				
+			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac8 = testDataService4.getGenelAmac(dersId, 8);
-				
+			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac9 = testDataService4.getGenelAmac(dersId, 9);
-				
+			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac10 = testDataService4.getGenelAmac(dersId, 10);
-				
+			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac11 = testDataService4.getGenelAmac(dersId, 11);
-				
+			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			}else if(dersAd.equals("Beslenme Bilgisi")){
 			this.genelAmac = testDataService4.getGenelAmac(dersId, 1);
-				
+			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac2 = testDataService4.getGenelAmac(dersId, 2);
-				
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac3 = testDataService4.getGenelAmac(dersId, 3);
-				
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac4 = testDataService4.getGenelAmac(dersId, 4);
-				
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac5 = testDataService4.getGenelAmac(dersId, 5);
-				
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			}else if(dersAd.equals("Görsel Sanatlar")){
 				this.genelAmac = testDataService4.getGenelAmac(dersId, 1);
-			
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmaclarMap.put(o.getId(), false);
+				}
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmacIdMap.put(o.getId(), o);
+				}
 			this.genelAmac2 = testDataService4.getGenelAmac(dersId, 2);
-			
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac3 = testDataService4.getGenelAmac(dersId, 3);
-				
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac4 = testDataService4.getGenelAmac(dersId, 4);
-				
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac5 = testDataService4.getGenelAmac(dersId, 5);
-							
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}	
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac6 = testDataService4.getGenelAmac(dersId, 6);
-				
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac7 = testDataService4.getGenelAmac(dersId, 7);
-				
+			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac8 = testDataService4.getGenelAmac(dersId, 8);
-				
+			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			}else if(dersAd.equals("Okuma Yazma")){
 				this.genelAmac = testDataService4.getGenelAmac(dersId, 1);
-				
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmaclarMap.put(o.getId(), false);
+				}
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmacIdMap.put(o.getId(), o);
+				}
 			this.genelAmac2 = testDataService4.getGenelAmac(dersId, 2);
-			
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac3 = testDataService4.getGenelAmac(dersId, 3);
-				
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac4 = testDataService4.getGenelAmac(dersId, 4);
-				
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac5 = testDataService4.getGenelAmac(dersId, 5);
-				
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac6 = testDataService4.getGenelAmac(dersId, 6);
-				
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			}else if(dersAd.equals("Trafik ve İlk Yardım Eğitimi")){
 				this.genelAmac = testDataService4.getGenelAmac(dersId, 1);
-				
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmaclarMap.put(o.getId(), false);
+				}
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmacIdMap.put(o.getId(), o);
+				}
 			this.genelAmac2 = testDataService4.getGenelAmac(dersId, 2);
-				
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac3 = testDataService4.getGenelAmac(dersId, 3);
-				
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac4 = testDataService4.getGenelAmac(dersId, 4);
-				
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac5 = testDataService4.getGenelAmac(dersId, 5);
-				
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac6 = testDataService4.getGenelAmac(dersId, 6);
-				
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			}else if(dersAd.equals("Beden Eğitimi")){
 				this.genelAmac = testDataService4.getGenelAmac(dersId, 1);
-
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmaclarMap.put(o.getId(), false);
+				}
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmacIdMap.put(o.getId(), o);
+				}
 			this.genelAmac2 = testDataService4.getGenelAmac(dersId, 2);
-				
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac3 = testDataService4.getGenelAmac(dersId, 3);
-				
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac4 = testDataService4.getGenelAmac(dersId, 4);
-				
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac5 = testDataService4.getGenelAmac(dersId, 5);
-						
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac6 = testDataService4.getGenelAmac(dersId, 6);
-				
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac7 = testDataService4.getGenelAmac(dersId, 7);
-				
+			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac8 = testDataService4.getGenelAmac(dersId, 8);
-				
+			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			}else if(dersAd.equals("Toplumsal Uyum Becerileri")){
 				this.genelAmac = testDataService4.getGenelAmac(dersId, 1);
-				
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmaclarMap.put(o.getId(), false);
+				}
+				for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
+					this.ozelAmacIdMap.put(o.getId(), o);
+				}
 			this.genelAmac2 = testDataService4.getGenelAmac(dersId, 2);
-				
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac3 = testDataService4.getGenelAmac(dersId, 3);
-				
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac4 = testDataService4.getGenelAmac(dersId, 4);
-				
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac5 = testDataService4.getGenelAmac(dersId, 5);
-			
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			this.genelAmac6 = testDataService4.getGenelAmac(dersId, 6);
-				
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmaclarMap.put(o.getId(), false);
+			}
+			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
+				this.ozelAmacIdMap.put(o.getId(), o);
+			}
 			}
 		
 		for (OzelAmac ozelAmac : ozelAmacHayirVerilen) {
@@ -325,8 +745,12 @@ public class BireyselEgitimPlaniBean {
 
 	public void bireyselEgitimPlaniAl() {
 
-		// Önce DB'ye seçimleri başka bir tabloda kaydet;
-		// Sonra pdf e döüştürme metodlarını buraya yaz...
+		String degerlendirici = mySessionScopedBean.getFirstname() + " " + mySessionScopedBean.getLastname();
+
+		bireyselEgitimPlaniService.bireyselEgitimPlaniAl(ogrenciId, dersAd, degerlendirici, ozelAmaclarMap, ozelAmacIdMap);
+		
+		// FIXME Burada PDF için gerekli işlemler de yapılacak...
+
 		
 	}
 	
@@ -402,14 +826,6 @@ public class BireyselEgitimPlaniBean {
 
 	public void setMySessionScopedBean(MySessionScopedBean mySessionScopedBean) {
 		this.mySessionScopedBean = mySessionScopedBean;
-	}
-
-	public Map<Integer, String> getOzelAmacYorum() {
-		return ozelAmacYorum;
-	}
-
-	public void setOzelAmacYorum(Map<Integer, String> ozelAmacYorum) {
-		this.ozelAmacYorum = ozelAmacYorum;
 	}
 
 	public int getDersId() {
@@ -555,23 +971,6 @@ public class BireyselEgitimPlaniBean {
 	public void setDersService(DersService dersService) {
 		this.dersService = dersService;
 	}
-
-	public OzelAmac getOzelAmac() {
-		return ozelAmac;
-	}
-
-	public void setOzelAmac(OzelAmac ozelAmac) {
-		this.ozelAmac = ozelAmac;
-	}
-
-	public Map<Integer, OzelAmac> getOzelAmacIdMap() {
-		return ozelAmacIdMap;
-	}
-
-	public void setOzelAmacIdMap(Map<Integer, OzelAmac> ozelAmacIdMap) {
-		this.ozelAmacIdMap = ozelAmacIdMap;
-	}
-
 
 	public List<OzelAmac> getOzelAmacHayirVerilen() {
 		return ozelAmacHayirVerilen;
@@ -751,6 +1150,17 @@ public class BireyselEgitimPlaniBean {
 	public void setOzelAmacHayirVerilen17(List<OzelAmac> ozelAmacHayirVerilen17) {
 		this.ozelAmacHayirVerilen17 = ozelAmacHayirVerilen17;
 	}
+
+
+	public Map<Integer, OzelAmac> getOzelAmacIdMap() {
+		return ozelAmacIdMap;
+	}
+
+
+	public void setOzelAmacIdMap(Map<Integer, OzelAmac> ozelAmacIdMap) {
+		this.ozelAmacIdMap = ozelAmacIdMap;
+	}
+	
 	
 	
 	

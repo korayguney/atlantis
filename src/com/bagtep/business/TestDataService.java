@@ -475,8 +475,8 @@ public class TestDataService {
 		Query q = entityManager.createNativeQuery("SELECT g.id FROM genelamac g, ders d WHERE g.ders_id = ?");
 		q.setParameter(1, dersId);
 		List<GenelAmac> genelAmaclar = q.getResultList();
-		System.out.println("-----------------------");
-		System.out.println("GENEL AMAÇLAR MİKTAR : " + genelAmaclar.size());
+//		System.out.println("-----------------------");
+//		System.out.println("GENEL AMAÇLAR MİKTAR : " + genelAmaclar.size());
 
 
 		 GenelAmac genelAmac = entityManager.find(GenelAmac.class, genelAmaclar.get(genelAmacId));

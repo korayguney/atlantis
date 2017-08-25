@@ -1136,9 +1136,6 @@ public class KabaDegerlendirmeBean {
 	}
 
 	public void degerlendirmeKaydet() {
-		int kazanimId = new Kazanim().getId();
-		System.out.println("Seçilen Ogrenci id : " + ogrenciId);
-		
 		// testMethod();
 		
 		String degerlendirici = mySessionScopedBean.getFirstname() +" "+ mySessionScopedBean.getLastname();
