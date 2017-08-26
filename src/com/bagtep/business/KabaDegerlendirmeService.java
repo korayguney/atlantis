@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import com.bagtep.domain.Ders;
 import com.bagtep.domain.KabaDegerlendirme;
@@ -54,6 +55,9 @@ public class KabaDegerlendirmeService {
 		
 	}
 	
+	
+	
+	
 	public void getDegerlendirme() {
 		System.out.println("SERVICE : getDegerlendirme GİRDİ !!!");
 		// db den değerlendirme çekerek bean e return edecek.
@@ -71,8 +75,39 @@ public class KabaDegerlendirmeService {
 		
 		return 0;
 	}
-	
-	
 
+
+
+
+	public KabaDegerlendirme kabaDegerlendirmeGetir(int ogrenciId, int dersId) {
+		System.out.println("SERVICE : kabaDegerlendirmeGetir service e GİRDİ !" );
+//		Query query = entityManager.createNativeQuery("select * from KabaDegerlendirme where ogrenci_id=? and ders_id=?");
+//		query.setParameter(1, ogrenciId);
+//		query.setParameter(2, dersId);
+//		KabaDegerlendirme kd = (KabaDegerlendirme) query.getSingleResult();
+		
+		KabaDegerlendirme kd2 = (KabaDegerlendirme) entityManager.createQuery("select k from KabaDegerlendirme k where k.ogrenci.id=:ogrenciId and k.ders.id=:dersId").setParameter("ogrenciId", ogrenciId).setParameter("dersId", dersId).getSingleResult();
+		System.out.println("Değerlendirici ::::::::::::::::: " + kd2.getDegerlendirici());
+		
+		return kd2;
+	}
+
+
+
+	/*
+	 * Şuan kullanılmıyor
+	 */
+	public List<Boolean> cevaplariGetir(String dersAd, int id) {
+		List<Boolean> cevaplar =   entityManager.createQuery("select k.kabaDegerlendirmeCevap from KabaDegerlendirmeKazanimCevap k where k.ozelAmac.genelAmac.id=:genelAmacId and k.kabaDegerlendirme.ders.dersAd=:dersAd").setParameter("genelAmacId", id).setParameter("dersAd", dersAd).getResultList();
+		return cevaplar;
+	}
+	
+	/*
+	 * Şuan kullanılmıyor
+	 */
+	public List<String> yorumlariGetir(String dersAd, int id) {
+		List<String> yorumlar =   entityManager.createQuery("select k.yorum from KabaDegerlendirmeKazanimCevap k where k.ozelAmac.genelAmac.id=:genelAmacId and k.kabaDegerlendirme.ders.dersAd=:dersAd").setParameter("genelAmacId", id).setParameter("dersAd", dersAd).getResultList();
+		return yorumlar;	
+	}
 
 }
