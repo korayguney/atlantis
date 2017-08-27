@@ -13,6 +13,7 @@ import javax.persistence.Query;
 import com.bagtep.domain.Ders;
 import com.bagtep.domain.DonemDegerlendirme;
 import com.bagtep.domain.DonemDegerlendirmeKazanimCevap;
+import com.bagtep.domain.KabaDegerlendirme;
 import com.bagtep.domain.Ogrenci;
 import com.bagtep.domain.OzelAmac;
 
@@ -98,6 +99,12 @@ public class DonemDegerlendirmeService {
 //		return ogrenciId;
 		
 		return 0;
+	}
+
+	public DonemDegerlendirme donemDegerlendirmeGetir(int ogrenciId, int dersId) {
+		System.out.println("SERVICE : donemDegerlendirmeGetir service e GİRDİ !" );
+		DonemDegerlendirme dd = (DonemDegerlendirme) entityManager.createQuery("select d from DonemDegerlendirme d where d.ogrenci.id=:ogrenciId and d.ders.id=:dersId").setParameter("ogrenciId", ogrenciId).setParameter("dersId", dersId).getSingleResult();
+		return dd;
 	}
 	
 	

@@ -72,4 +72,5 @@ public class DonemDegerlendirmeKazanimCevap implements Serializable {
 	
 	
 	
+	
 }

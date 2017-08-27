@@ -2,6 +2,7 @@ package com.bagtep.domain;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -28,6 +29,9 @@ public class OzelAmac implements Serializable {
 	
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ozelAmac", cascade = CascadeType.ALL)
 	private List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap;
+	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ozelAmac", cascade = CascadeType.ALL)
+	private Set<DonemDegerlendirmeKazanimCevap> donemDegerlendirmeKazanimCevap;
 	
 	@ManyToOne
 	private GenelAmac genelAmac;
@@ -78,6 +82,14 @@ public class OzelAmac implements Serializable {
 	public void setDegerlendirmePuani(double degerlendirmePuani) {
 		this.degerlendirmePuani = degerlendirmePuani;
 	}
+	public Set<DonemDegerlendirmeKazanimCevap> getDonemDegerlendirmeKazanimCevap() {
+		return donemDegerlendirmeKazanimCevap;
+	}
+	public void setDonemDegerlendirmeKazanimCevap(Set<DonemDegerlendirmeKazanimCevap> donemDegerlendirmeKazanimCevap) {
+		this.donemDegerlendirmeKazanimCevap = donemDegerlendirmeKazanimCevap;
+	}
+	
+	
 	
 	
 	
