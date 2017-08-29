@@ -1161,6 +1161,14 @@ public class KabaDegerlendirmeGoruntuleBean {
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Kaba Değerlendirme Başarıyla Kaydedildi !!!"));
 	}
 	
+	public void degerlendirmeGoruntuleKaydet() {
+		
+		String degerlendirici = mySessionScopedBean.getFirstname() +" "+ mySessionScopedBean.getLastname();
+		
+		kabaDegerlendirmeService.degerlendirmeGoruntuleKaydet(ogrenciId, dersAd, degerlendirici, ozelAmaclarMap, ozelAmacYorum, ozelAmacIdMap);
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Kaba Değerlendirme Başarıyla Düzenlendi !!!"));
+	}
 	
 	public GenelAmac getGenelAmac() {
 		return genelAmac;

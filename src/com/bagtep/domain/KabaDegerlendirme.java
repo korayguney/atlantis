@@ -27,7 +27,7 @@ public class KabaDegerlendirme implements Serializable {
 	private Date degerlendirmeTarihi;
 	private String degerlendirici;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "kabaDegerlendirme")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "kabaDegerlendirme",cascade=CascadeType.ALL, orphanRemoval=true)
 	private List<KabaDegerlendirmeKazanimCevap> kabaDegerlendirmeKazanimCevap;
 	
 	@ManyToOne

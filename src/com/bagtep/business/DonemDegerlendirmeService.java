@@ -14,6 +14,7 @@ import com.bagtep.domain.Ders;
 import com.bagtep.domain.DonemDegerlendirme;
 import com.bagtep.domain.DonemDegerlendirmeKazanimCevap;
 import com.bagtep.domain.KabaDegerlendirme;
+import com.bagtep.domain.KabaDegerlendirmeKazanimCevap;
 import com.bagtep.domain.Ogrenci;
 import com.bagtep.domain.OzelAmac;
 
@@ -23,7 +24,8 @@ import com.bagtep.domain.OzelAmac;
 public class DonemDegerlendirmeService {
 	
 	DonemDegerlendirmeKazanimCevap ddcevap;
-	
+	static int i = 0;
+
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -66,6 +68,40 @@ public class DonemDegerlendirmeService {
 		return "";
 		
 	}
+	
+	public void degerlendirmeGoruntuleKaydet(int ogrenciId, String dersAd, String degerlendirici, Map<Integer, Double> ozelAmaclarMap , Map<Integer, String> yorum, Map<Integer, OzelAmac> ozelAmacIdMap) {
+		System.out.println("DONEMDEGERLENDIRME SERVICE : degerlendirmeGoruntuleKaydet GİRDİ !!!");
+	
+		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
+		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
+		
+		DonemDegerlendirme dd = donemDegerlendirmeGetir(ogrenciId, ders.getId());
+				
+		dd.setDegerlendirmeTarihi(new Date());
+		dd.setDegerlendirici(degerlendirici);
+		dd.setDers(ders);
+		dd.setOgrenci(ogrenci);
+		
+		entityManager.merge(dd);
+		
+		List<DonemDegerlendirmeKazanimCevap> ddcevap = (List<DonemDegerlendirmeKazanimCevap>) entityManager.createQuery("select d from DonemDegerlendirmeKazanimCevap d where d.donemDegerlendirme.id=:donemId").setParameter("donemId", dd.getId()).getResultList();
+		System.out.println("SIZE OF ozelAmaclarMap.size() ::::::::::::::::::: " + ozelAmaclarMap.size());
+	
+			for (Integer key : ozelAmaclarMap.keySet()) {
+				ddcevap.get(i).setDonemDegerlendirmeCevap(Double.parseDouble(""+ozelAmaclarMap.get(key)));
+				ddcevap.get(i).setYorum(""+yorum.get(key));
+				ddcevap.get(i).setDonemDegerlendirme(dd);
+				ddcevap.get(i).setOzelAmac(ozelAmacIdMap.get(key));
+				
+				entityManager.merge(ddcevap.get(i));
+				i++;
+				if(i ==  ozelAmaclarMap.size()){
+					break;
+				}
+			}
+		i=0;
+		}
+	
 	
 	public boolean dahaOnceDegerlendirilmismi(int ogrenciId, String dersAd){
 		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	

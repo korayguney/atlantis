@@ -1151,6 +1151,15 @@ public class DonemDegerlendirmeGoruntuleBean {
 				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Dönem Değerlendirme Başarıyla Kaydedildi !!!"));
 	}
 	
+	public void degerlendirmeGoruntuleKaydet() {
+		
+		String degerlendirici = mySessionScopedBean.getFirstname() +" "+ mySessionScopedBean.getLastname();
+		
+		donemDegerlendirmeService.degerlendirmeGoruntuleKaydet(ogrenciId, dersAd, degerlendirici, ozelAmaclarMap, ozelAmacYorum, ozelAmacIdMap);
+		FacesContext.getCurrentInstance().addMessage(null,
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Dönem Değerlendirme Başarıyla Düzenlendi !!!"));
+	}
+	
 	
 	public GenelAmac getGenelAmac() {
 		return genelAmac;

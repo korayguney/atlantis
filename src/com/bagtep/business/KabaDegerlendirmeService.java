@@ -24,6 +24,7 @@ import com.bagtep.mbeans.MySessionScopedBean;
 public class KabaDegerlendirmeService {
 	
 	KabaDegerlendirmeKazanimCevap kdcevap;
+	static int i = 0;
 	
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -55,6 +56,39 @@ public class KabaDegerlendirmeService {
 		
 	}
 	
+	public void degerlendirmeGoruntuleKaydet(int ogrenciId, String dersAd, String degerlendirici, Map<Integer, Boolean> ozelAmaclarMap , Map<Integer, String> yorum, Map<Integer, OzelAmac> ozelAmacIdMap) {
+		System.out.println("SERVICE : degerlendirmeGoruntuleKaydet GİRDİ !!!");
+	
+		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
+		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
+		
+		KabaDegerlendirme kd = kabaDegerlendirmeGetir(ogrenciId, ders.getId());
+				
+		kd.setDegerlendirmeTarihi(new Date());
+		kd.setDegerlendirici(degerlendirici);
+		kd.setDers(ders);
+		kd.setOgrenci(ogrenci);
+		
+		entityManager.merge(kd);
+		
+		List<KabaDegerlendirmeKazanimCevap> kdcevap = (List<KabaDegerlendirmeKazanimCevap>) entityManager.createQuery("select k from KabaDegerlendirmeKazanimCevap k where k.kabaDegerlendirme.id=:kabaId").setParameter("kabaId", kd.getId()).getResultList();
+		System.out.println("SIZE OF ozelAmaclarMap.size() ::::::::::::::::::: " + ozelAmaclarMap.size());
+	
+			for (Integer key : ozelAmaclarMap.keySet()) {
+				kdcevap.get(i).setKabaDegerlendirmeCevap(Boolean.parseBoolean(""+ozelAmaclarMap.get(key)));
+				kdcevap.get(i).setYorum(""+yorum.get(key));
+				kdcevap.get(i).setKabaDegerlendirme(kd);
+				kdcevap.get(i).setOzelAmac(ozelAmacIdMap.get(key));
+
+				entityManager.merge(kdcevap.get(i));
+				i++;
+				if(i ==  ozelAmaclarMap.size()){
+					break;
+				}
+			}
+		i=0;
+		}
+		
 	
 	
 	
