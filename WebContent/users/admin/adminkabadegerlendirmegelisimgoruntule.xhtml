@@ -18,16 +18,21 @@
 						value="#{gelisimGoruntuleBean.ogrenciAd} #{gelisimGoruntuleBean.ogrenciSoyad}" />
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<i class="fa fa-book fa-fw" /><b> Ders : </b>
-					<h:outputText value="#{gelisimGoruntuleBean.dersAd}" />&nbsp;&nbsp;&nbsp;&nbsp; 
-					<button class="alert alert-info" align="center" href="#{request.contextPath}/users/admin/adminkabadegerlendirmegelisimgoruntuleogrencisec.xhtml">Ders değiştir</button>
+					<h:outputText value="#{gelisimGoruntuleBean.dersAd}" />
 				</h5>
 			</div>
 		</div>
 
 		<div class="alert alert-warning" align="center">
-			<p:chart type="line" model="#{gelisimGoruntuleBean.lineModel1}" style="height:300px;"/>
-			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />			
+			<p:chart type="line" id="graphicGelisim" model="#{gelisimGoruntuleBean.lineModel1}" style="height:300px;"/>
+			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />		
 		</div>
+		<div class="alert alert-success" align="center">
+			<h:form>
+				<p:commandButton value="Çıktı Al" action="#{gelisimGoruntuleBean.pressPrintScreen()}"></p:commandButton>
+			</h:form>
+		</div>
+		
 	</ui:define>
 </ui:composition>
 

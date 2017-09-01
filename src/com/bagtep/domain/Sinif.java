@@ -94,6 +94,6 @@ public class Sinif implements Serializable{
 		return sinifAd;
 	}
 
-	
+
 
 }

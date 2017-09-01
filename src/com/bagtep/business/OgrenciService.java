@@ -16,6 +16,7 @@ import com.bagtep.domain.Ogrenci;
 import com.bagtep.domain.Ogretmen;
 import com.bagtep.domain.Sinif;
 import com.bagtep.domain.User;
+import com.bagtep.domain.YilSonuDegerlendirme;
 import com.bagtep.exceptions.UsernameExistsException;
 
 import com.bagtep.mbeans.MySessionScopedBean;
@@ -145,6 +146,22 @@ public class OgrenciService {
 			return false;
 		}else {
 			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Dönem Değerlendirmesi YAPILMIŞŞŞŞŞŞŞŞŞŞŞ...");
+			return true;
+		}
+	}
+	
+	public boolean dahaOnceYilSonuDegerlendirilmismi(int ogrenciId, String dersAd){
+		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
+		Ogrenci ogrenci = entityManager.createQuery("select o from Ogrenci o where o.id=:ogrenciId",Ogrenci.class).setParameter("ogrenciId", ogrenciId).getSingleResult();	
+		
+		Query q = entityManager.createNativeQuery("select * from YilSonuDegerlendirme where ders_id= "+ ders.getId() +" and ogrenci_id="+ ogrenci.getId());
+		List<YilSonuDegerlendirme> res = (List<YilSonuDegerlendirme>)q.getResultList();
+		
+		if(res.isEmpty()){
+			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Yıl Sonu Değerlendirmesi Yapılmamış...");
+			return false;
+		}else {
+			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Yıl Sonu Değerlendirmesi YAPILMIŞŞŞŞŞŞŞŞŞŞŞ...");
 			return true;
 		}
 	}

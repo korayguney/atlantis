@@ -1,5 +1,8 @@
 package com.bagtep.mbeans;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,9 +25,12 @@ import com.bagtep.business.DersService;
 import com.bagtep.business.DonemDegerlendirmeService;
 import com.bagtep.business.KabaDegerlendirmeService;
 import com.bagtep.business.OgrenciService;
+import com.bagtep.business.YilSonuDegerlendirmeService;
 import com.bagtep.domain.Ders;
 import com.bagtep.domain.DonemDegerlendirme;
 import com.bagtep.domain.KabaDegerlendirme;
+import com.bagtep.domain.YilSonuDegerlendirme;
+import com.bagtep.utils.PartialScreenCaptureExample;
 
 @ManagedBean
 public class GelisimGoruntuleBean implements Serializable {
@@ -42,6 +48,8 @@ public class GelisimGoruntuleBean implements Serializable {
 	private KabaDegerlendirmeService kabaDegerlendirmeService;
 	@EJB
 	private DonemDegerlendirmeService donemDegerlendirmeService;
+	@EJB
+	private YilSonuDegerlendirmeService yilSonuDegerlendirmeService;
 	@EJB
 	private OgrenciService ogrenciService;
 	@EJB
@@ -92,36 +100,51 @@ public class GelisimGoruntuleBean implements Serializable {
 		ChartSeries series1 = new ChartSeries();
 		series1.setLabel(dersAd);
 
-		int kabaDegerlendirmePuan = kabaDegerlendirmeService.degerlendirmePuanHesapla(ogrenciId, dersAd);
 		KabaDegerlendirme kd = kabaDegerlendirmeService.kabaDegerlendirmeGetir(ogrenciId, dersId);
-
-		int donemDegerlendirmePuan = donemDegerlendirmeService.degerlendirmePuanHesapla(ogrenciId, dersAd);
-		DonemDegerlendirme dd = donemDegerlendirmeService.donemDegerlendirmeGetir(ogrenciId, dersId);
-		
-		if(!kd.equals(null)){
-			System.out.println(dersAd + " KD YAPILMIŞŞŞŞŞŞŞŞŞŞş" );
-//			Date kdtarihi = kd.getDegerlendirmeTarihi();
-//			SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
-//			String date = DATE_FORMAT.format(kdtarihi);
-
-//			series1.set("Kaba Değerlendirme (" + date + ")", evetSayisi2);
-			series1.set(kd.toString(), kabaDegerlendirmePuan);
-//			model.addSeries(series1);
-		}else {
-			 FacesContext.getCurrentInstance().
-	      		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_FATAL, "",ogrenciAd + " " + ogrenciSoyad + " ın "+ dersAd + " için Kaba Değerlendirmesi yapılmamıştır."));
+		DonemDegerlendirme dd = null;
+		try{
+			dd = donemDegerlendirmeService.donemDegerlendirmeGetir(ogrenciId, dersId);
+		}catch (Exception e) {
+			System.err.println("DONEM DEGERLENDİRME YAPILMAMIŞ ::::: " + dersAd + " / " + ogrenciAd);
 		}
 		
-		if(!dd.equals(null)){
-			System.out.println(dersAd + " DD YAPILMIŞŞŞŞŞŞŞŞŞŞş" );
-
-			series1.set(dd.toString(), donemDegerlendirmePuan);
+		YilSonuDegerlendirme ysd = null;
+		try{
+			ysd =yilSonuDegerlendirmeService.yilSonuDegerlendirmeGetir(ogrenciId, dersId);
+		}catch (Exception e) {
+			System.err.println("YILSONU DEGERLENDİRME YAPILMAMIŞ ::::: " + dersAd + " / " + ogrenciAd);
+		}
 			
+		if(kd != null){
+			int kabaDegerlendirmePuan = kabaDegerlendirmeService.degerlendirmePuanHesapla(ogrenciId, dersAd);
+
+			series1.set(kd.toString(), kabaDegerlendirmePuan);
 			model.addSeries(series1);
 		}else {
 			 FacesContext.getCurrentInstance().
 	      		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_FATAL, "",ogrenciAd + " " + ogrenciSoyad + " ın "+ dersAd + " için Kaba Değerlendirmesi yapılmamıştır."));
 		}
+		
+		if(dd != null){
+			int donemDegerlendirmePuan = donemDegerlendirmeService.degerlendirmePuanHesapla(ogrenciId, dersAd);
+
+			series1.set(dd.toString(), donemDegerlendirmePuan);
+			model.addSeries(series1);
+		}else {
+			 FacesContext.getCurrentInstance().
+	      		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_FATAL, "",ogrenciAd + " " + ogrenciSoyad + " için "+ dersAd + " dersi Durum Değerlendirmesi yapılmamıştır."));
+		}
+		
+		if(ysd != null){
+			int yilSonuDegerlendirmePuan = yilSonuDegerlendirmeService.degerlendirmePuanHesapla(ogrenciId, dersAd);
+
+			series1.set(ysd.toString(), yilSonuDegerlendirmePuan);
+			model.addSeries(series1);
+		}else {
+			 FacesContext.getCurrentInstance().
+	      		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_FATAL, "",ogrenciAd + " " + ogrenciSoyad + " için "+ dersAd + " dersi Yıl Sonu Değerlendirmesi yapılmamıştır."));
+		}
+
 
 		return model;
 	}
@@ -186,9 +209,16 @@ public class GelisimGoruntuleBean implements Serializable {
 		this.tumdersler = tumdersler;
 	}
 
-	public void denemeMetodu() {
-		System.out.println("denemeMetodu na GİRDİİİİİİİİİİİ");
-		System.out.println("deneme metodu ::::::::: " + ders.getDersAd());
+	public void ekranResmiCek() {
+		System.out.println("ekranResmiCek() metoda girdiiiii");
+		PartialScreenCaptureExample psc = new PartialScreenCaptureExample();
+	}
+	
+	public void pressPrintScreen() throws AWTException{
+		System.out.println("BEAN  pressPrintScreen() metoduna GİRDİİİİİ");
+		Robot r = new Robot();
+		r.keyPress(KeyEvent.VK_PRINTSCREEN);
+		r.keyRelease(KeyEvent.VK_PRINTSCREEN);
 	}
 
 }

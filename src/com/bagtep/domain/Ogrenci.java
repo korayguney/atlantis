@@ -74,7 +74,7 @@ public class Ogrenci implements Cloneable, Serializable{
 		this.evadres = evadres;
 		this.sinif = sinif;
 	}
-	
+		
 	public int getId() {
 		return id;
 	}
@@ -178,7 +178,8 @@ public class Ogrenci implements Cloneable, Serializable{
 	public void setDonemDegerlendirmeDurumu(boolean donemDegerlendirmeDurumu) {
 		this.donemDegerlendirmeDurumu = donemDegerlendirmeDurumu;
 	}
-
+	
+	
 	@Override
 	public String toString() {
 		return ad + " " + soyad ;

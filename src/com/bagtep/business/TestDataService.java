@@ -68,7 +68,7 @@ public class TestDataService {
 			Sinif sinif9 = new Sinif("5-A");
 
 			Ogrenci ogrenci1 = new Ogrenci("Leyla", "Şeker", 111, "Kız", "Veli", "Kurtuluş", "05305554433",
-					"Tuzla/İstanbul", sinif1);
+					"Tuzla/İstanbul",sinif1);
 			Ogrenci ogrenci2 = new Ogrenci("Ayşe", "Lale", 222, "Kız", "Ali", "Kurtuluş", "05305554444",
 					"Kartal/İstanbul", sinif1);
 			Ogrenci ogrenci3 = new Ogrenci("Fatma", "Çakmak", 333, "Kız", "Remzi", "Kurtuluş", "05305554455",
@@ -78,7 +78,7 @@ public class TestDataService {
 			Ogrenci ogrenci5 = new Ogrenci("Şakir", "Parmak", 555, "Erkek", "Kemal", "Kurtuluş", "05305554477",
 					"Kadıköy/İstanbul", sinif3);
 			Ogrenci ogrenci6 = new Ogrenci("Bülent", "Gerçek", 666, "Erkek", "Serdar", "Kurtuluş", "05305554488",
-					"Üsküdar/İstanbul", sinif2);
+					"Üsküdar/İstanbul",sinif2);
 
 			Ogretmen ogretmen1 = new Ogretmen("Bülent", "Dertli");
 			Ogretmen ogretmen2 = new Ogretmen("Ulaş", "Yirmi");

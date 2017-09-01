@@ -33,6 +33,9 @@ public class OzelAmac implements Serializable {
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ozelAmac", cascade = CascadeType.ALL)
 	private Set<DonemDegerlendirmeKazanimCevap> donemDegerlendirmeKazanimCevap;
 	
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "ozelAmac", cascade = CascadeType.ALL)
+	private Set<YilSonuDegerlendirmeKazanimCevap> yilSonuDegerlendirmeKazanimCevap;
+	
 	@ManyToOne
 	private GenelAmac genelAmac;
 	private String icerik;
@@ -88,11 +91,12 @@ public class OzelAmac implements Serializable {
 	public void setDonemDegerlendirmeKazanimCevap(Set<DonemDegerlendirmeKazanimCevap> donemDegerlendirmeKazanimCevap) {
 		this.donemDegerlendirmeKazanimCevap = donemDegerlendirmeKazanimCevap;
 	}
+	public Set<YilSonuDegerlendirmeKazanimCevap> getYilSonuDegerlendirmeKazanimCevap() {
+		return yilSonuDegerlendirmeKazanimCevap;
+	}
+	public void setYilSonuDegerlendirmeKazanimCevap(
+			Set<YilSonuDegerlendirmeKazanimCevap> yilSonuDegerlendirmeKazanimCevap) {
+		this.yilSonuDegerlendirmeKazanimCevap = yilSonuDegerlendirmeKazanimCevap;
+	}
 	
-	
-	
-	
-	
-	
-
 }

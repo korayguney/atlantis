@@ -17,6 +17,7 @@ import com.bagtep.domain.KabaDegerlendirme;
 import com.bagtep.domain.KabaDegerlendirmeKazanimCevap;
 import com.bagtep.domain.Ogrenci;
 import com.bagtep.domain.OzelAmac;
+import com.bagtep.domain.Sinif;
 
 
 
@@ -45,8 +46,6 @@ public class DonemDegerlendirmeService {
 			System.out.println(ogrenci.getAd() + " için " + ders.getDersAd() + " Dönem Değerlendirmesi YAPILMIŞŞŞŞŞŞŞŞŞŞŞ...");
 		}
 			
-		
-//		ogrenci.setDonemDegerlendirmeDurumu(true);	
 		
 		DonemDegerlendirme dd = new DonemDegerlendirme();
 		dd.setDegerlendirmeTarihi(new Date());

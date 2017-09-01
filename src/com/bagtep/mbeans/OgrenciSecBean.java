@@ -234,6 +234,64 @@ public class OgrenciSecBean implements Serializable {
         
         if(ogrenciler.isEmpty()){
           	 FacesContext.getCurrentInstance().
+       		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_WARN, "",sinif + " sınıfında "+ ders +" için Yıl Sonu Değerlendirmesi yapılmamış öğrenci yoktur."));
+          }else {
+          	 FacesContext.getCurrentInstance().
+        		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "",sinif + " sınıfında "+ ders +" için Yıl Sonu Değerlendirmesi yapılmamış öğrenci sayısı : " + ogrenciler.size()));
+   		}     
+        
+        x = 0;
+	}
+	
+	public void ogrencilisteleYilSonuDegerlendirmeGoruntule() {
+		System.out.println("ogrencilisteleYilSonuDegerlendirmeGoruntule METODUNA GİRDİ");
+		mySessionScopedBean.setSinif(sinif);
+		ogrenciler = ogrenciService.getSelectedOgrenciForClass(sinif);
+		final int ogrencilerSayisi = ogrenciler.size();
+
+        for (int i = 0; i < ogrencilerSayisi; i++) {
+			Ogrenci ogrenci = ogrenciler.get(i-x);
+			
+			boolean degerlendirmeSonuc = ogrenciService.dahaOnceYilSonuDegerlendirilmismi(ogrenci.getId(), ders);
+			
+			if(!degerlendirmeSonuc){
+				ogrenciler.remove(ogrenci);
+				System.out.println("SİLİNEN ÖĞRENCİ :" + ogrenci.getAd());
+				x++;
+			}
+		}
+        
+        if(ogrenciler.isEmpty()){
+          	 FacesContext.getCurrentInstance().
+       		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_WARN, "",sinif + " sınıfında "+ ders +" için Yıl Sonu Değerlendirmesi yapılmış öğrenci yoktur."));
+          }else {
+          	 FacesContext.getCurrentInstance().
+        		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "",sinif + " sınıfında "+ ders +" için Yıl Sonu Değerlendirmesi yapılmış öğrenci sayısı : " + ogrenciler.size()));
+   		}     
+        
+        x = 0;
+	}
+	
+	public void ogrencilisteleYilSonuDegerlendirme() {
+		System.out.println("ogrencilisteleYilSonuDegerlendirme METODUNA GİRDİ");
+		mySessionScopedBean.setSinif(sinif);
+		ogrenciler = ogrenciService.getSelectedOgrenciForClass(sinif);
+		final int ogrencilerSayisi = ogrenciler.size();
+
+        for (int i = 0; i < ogrencilerSayisi; i++) {
+			Ogrenci ogrenci = ogrenciler.get(i-x);
+			
+			boolean degerlendirmeSonuc = ogrenciService.dahaOnceYilSonuDegerlendirilmismi(ogrenci.getId(), ders);
+			
+			if(degerlendirmeSonuc){
+				ogrenciler.remove(ogrenci);
+				System.out.println("SİLİNEN ÖĞRENCİ :" + ogrenci.getAd());
+				x++;
+			}
+		}
+        
+        if(ogrenciler.isEmpty()){
+          	 FacesContext.getCurrentInstance().
        		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_WARN, "",sinif + " sınıfında "+ ders +" için Dönem Değerlendirmesi yapılmamış öğrenci yoktur."));
           }else {
           	 FacesContext.getCurrentInstance().
@@ -348,10 +406,10 @@ public class OgrenciSecBean implements Serializable {
         
         if(ogrenciler.isEmpty()){
        	 FacesContext.getCurrentInstance().
-    		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_WARN, "",sinif + " sınıfında "+ ders +" için Kaba Değerlendirmesi yapılmamış öğrenci yoktur."));
+    		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_WARN, "",sinif + " sınıfında "+ ders +" için Kaba Değerlendirmesi yapılmış öğrenci yoktur."));
        }else {
        	 FacesContext.getCurrentInstance().
-     		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "",sinif + " sınıfında "+ ders +" için Kaba Değerlendirmesi yapılmamış öğrenci sayısı : " + ogrenciler.size()));
+     		addMessage(null,new FacesMessage(FacesMessage.SEVERITY_INFO, "",sinif + " sınıfında "+ ders +" için Kaba Değerlendirmesi yapılmış öğrenci sayısı : " + ogrenciler.size()));
 		}     
         x = 0;
 	}

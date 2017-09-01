@@ -1,5 +1,8 @@
 package com.bagtep.mbeans;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -1424,6 +1427,13 @@ public class KabaDegerlendirmeBean {
 
 	public void setOzelAmacIdMap(Map<Integer, OzelAmac> ozelAmacIdMap) {
 		this.ozelAmacIdMap = ozelAmacIdMap;
+	}
+	
+	public void pressPrintScreen() throws AWTException{
+		System.out.println("BEAN  pressPrintScreen() metoduna GİRDİİİİİ");
+		Robot r = new Robot();
+		r.keyPress(KeyEvent.VK_PRINTSCREEN);
+		r.keyRelease(KeyEvent.VK_PRINTSCREEN);
 	}
 	
 }

@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/WEB-INF/templates/admin.xhtml">
+	<ui:define name="pageContent">
+
+		<div class="alert alert-info" align="center">
+			<h4>Yıl Sonu Değerlendirme Görüntüleme Sayfası</h4>
+			<div class="alert alert-success" align="center">
+				<h5>
+					<i class="fa fa-book fa-fw" /><b> Ders : </b>
+					<h:outputText value="#{yilSonuDegerlendirmeGoruntuleBean.dersAd}" />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-child fa-fw" /><b>
+						Öğrenci : </b>
+					<h:outputText
+						value="#{yilSonuDegerlendirmeGoruntuleBean.ogrenciAd} #{yilSonuDegerlendirmeGoruntuleBean.ogrenciSoyad}" />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<i class="fa fa-eye fa-fw" /><b> Değerlendirici : </b>
+					<h:outputText
+						value="#{mySessionScopedBean.firstname} #{mySessionScopedBean.lastname}" />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<i class="fa fa-calendar fa-fw" /><b> Değerlendirme Tarihi : </b>
+					<h:outputText
+						value="#{yilSonuDegerlendirmeGoruntuleBean.degerlendirmeTarihi}" />
+						
+				</h5>
+			</div>
+		</div>
+
+	<h:form>
+		<p:accordionPanel activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+						
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+				
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+		
+		<p:accordionPanel activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac2.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac2.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+						
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+		
+		<p:accordionPanel activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac3.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac3.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+		
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac4 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac4.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac4.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac5 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac5.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac5.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac6 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac6.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac6.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac7 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac7.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac7.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac8 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac8.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac8.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac9 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac9.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac9.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac10 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac10.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac10.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac11 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac11.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac11.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac12 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac12.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac12.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac13 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac13.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac13.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac14 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac14.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac14.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac15 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac15.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac15.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac16 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac16.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac16.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+	
+		<p:accordionPanel rendered="#{not empty yilSonuDegerlendirmeGoruntuleBean.genelAmac17 }" activeIndex="null">
+			<p:tab title="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac17.icerik}">
+				<h:panelGrid columns="2" cellpadding="10">
+
+					<p:dataTable value="#{yilSonuDegerlendirmeGoruntuleBean.genelAmac17.ozelAmaclar}"
+						var="ozelAmac" >
+
+						<p:column headerText="Özel Amaçlar" width="600" >
+							<h:outputText value="Özel #{ozelAmac.icerik}" />
+						</p:column>
+						
+						<p:column headerText="Puanı" width="100" >
+							<h:outputText value="#{ozelAmac.degerlendirmePuani}" />
+						</p:column>
+
+						<p:column headerText="Değerlendirme" width="200">
+							<p:inputText value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmaclarMap[ozelAmac.id]}"  />
+						</p:column>
+
+						<p:column headerText="Yorum" width="">
+							<p:inplace id="yorum" label="Yorum için buraya tıklayınız" effect="slide" >
+								<p:inputTextarea rows="3" cols="90" counter="display" maxlength="200" counterTemplate="{0} karakter kaldı." value="#{yilSonuDegerlendirmeGoruntuleBean.ozelAmacYorum[ozelAmac.id]}" />
+								<br /><h:outputText id="display" />
+							</p:inplace>
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			
+		</p:accordionPanel>
+
+		<div class="alert alert-info" align="center">
+			<p:commandButton actionListener="#{yilSonuDegerlendirmeGoruntuleBean.degerlendirmeGoruntuleKaydet()}" value="Değerlendirme Kaydet" />
+		</div>
+		
+		
+	</h:form>
+	
+	</ui:define>
+</ui:composition>
+
+</html>
+
+
+
+
+
+
+

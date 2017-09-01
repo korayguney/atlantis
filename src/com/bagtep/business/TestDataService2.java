@@ -64,8 +64,6 @@ public class TestDataService2 {
 			entityManager.persist(bedenegitimi);
 			entityManager.persist(toplumsaluyum);
 
-			
-
 			try {
 				// DİL VE KONUŞMA GELİŞİMİ DERSİ VERİLERİ GİRİLİYOR !!!
 				InputStream in1 = getClass()

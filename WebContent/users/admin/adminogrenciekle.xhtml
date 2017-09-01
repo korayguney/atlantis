@@ -46,12 +46,21 @@
 					<tr>
 						<td>Sınıfı :</td>
 						<td><p:selectOneMenu id="sinif"
-								value="#{ogrenciEkleBean.sinifId}" style="width:204px">
+								value="#{ogrenciEkleBean.sinifId}" style="width:204px" required="true" requiredMessage="Sınıf seçimi boş geçilemez!">
 								<f:selectItem itemLabel="Sınıf Seçiniz" itemValue=""
 									noSelectionOption="true" />
 								<f:selectItems value="#{ogrenciSecBean.tumsiniflar}" var="sinif" itemLabel="#{sinif.sinifAd}" itemValue="#{sinif.id}"/>
 							</p:selectOneMenu></td>
 						<td><p:message for="sinif" /></td>
+					</tr>
+					<tr>
+						<td>Dönemi :</td>
+						<td><h:selectOneRadio id="donem"
+								value="#{ogrenciEkleBean.newOgrenci.sinifDonem}" required="true" requiredMessage="Dönem seçimi boş geçilemez!">
+								<f:selectItem itemLabel="Birinci Dönem" itemValue="1" />
+								<f:selectItem itemLabel="İkinci Dönem" itemValue="2" />
+							</h:selectOneRadio></td>
+						<td><p:message for="donem" /></td>
 					</tr>
 					<tr>
 						<td>Cinsiyet :</td>

@@ -18,24 +18,26 @@ import com.bagtep.business.DersService;
 import com.bagtep.business.DonemDegerlendirmeService;
 import com.bagtep.business.OgrenciService;
 import com.bagtep.business.TestDataService2;
+import com.bagtep.business.YilSonuDegerlendirmeService;
 import com.bagtep.domain.Ders;
 import com.bagtep.domain.DonemDegerlendirme;
 import com.bagtep.domain.GenelAmac;
 import com.bagtep.domain.Kazanim;
 import com.bagtep.domain.Ogrenci;
 import com.bagtep.domain.OzelAmac;
+import com.bagtep.domain.YilSonuDegerlendirme;
 
 @ManagedBean
 @ViewScoped
-public class DonemDegerlendirmeBean {
+public class YilSonuDegerlendirmeBean {
 
-	DonemDegerlendirme donemDegerlendirme;
+	YilSonuDegerlendirme yilSonuDegerlendirme;
 	private int ogrenciId;
 	private int dersId;
 	private String dersAd;
 	private String ogrenciAd;
 	private String ogrenciSoyad;
-	private double donemDegerlendirmeCevap =0 ;
+	private double yilSonuDegerlendirmeCevap =0 ;
 	private GenelAmac genelAmac;
 	private GenelAmac genelAmac2;
 	private GenelAmac genelAmac3;
@@ -61,7 +63,7 @@ public class DonemDegerlendirmeBean {
 	@EJB
 	private TestDataService2 testDataService2;
 	@EJB
-	private DonemDegerlendirmeService donemDegerlendirmeService;
+	private YilSonuDegerlendirmeService yilSonuDegerlendirmeService;
 	@EJB
 	private OgrenciService ogrenciService;
 	@EJB
@@ -1140,21 +1142,21 @@ public class DonemDegerlendirmeBean {
 		
 		String degerlendirici = mySessionScopedBean.getFirstname() +" "+ mySessionScopedBean.getLastname();
 		
-		donemDegerlendirmeService.degerlendirmeKaydet(ogrenciId, dersAd, degerlendirici, ozelAmaclarMap, ozelAmacYorum, ozelAmacIdMap);
+		yilSonuDegerlendirmeService.degerlendirmeKaydet(ogrenciId, dersAd, degerlendirici, ozelAmaclarMap, ozelAmacYorum, ozelAmacIdMap);
 		
 		FacesContext.getCurrentInstance().addMessage(null,
-				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Dönem Değerlendirme Başarıyla Kaydedildi !!!"));
+				new FacesMessage(FacesMessage.SEVERITY_INFO, "", "Yıl Sonu Değerlendirme Başarıyla Kaydedildi !!!"));
 		System.out.println("DEĞERLENDİRME KAYDEDİLDİ !!! Oğrenci : " + ogrenciAd);
-		return "adminDonemDegerlendirmeYapOgrenciSec";
+		return "adminYilSonuDegerlendirmeYapOgrenciSec";
 	}
 	
 	public boolean dahaOnceDegerlendirilmismi(){
 		
-		boolean result = donemDegerlendirmeService.dahaOnceDegerlendirilmismi(ogrenciId, dersAd);
+		boolean result = yilSonuDegerlendirmeService.dahaOnceDegerlendirilmismi(ogrenciId, dersAd);
 		return result;
 	}
 	
-	// Konsoldan kabadeğerlendirme cevaplarını kontrol etmek için..
+	// Konsoldan yılsonu değerlendirme cevaplarını kontrol etmek için..
 	public void testMethod() {
 		for (Integer key : this.ozelAmaclarMap.keySet()) {
 			System.out.println(key + " : " + this.ozelAmaclarMap.get(key));
@@ -1194,14 +1196,6 @@ public class DonemDegerlendirmeBean {
 		this.ozelAmaclarMap = ozelAmaclarMap;
 	}
 	
-	public DonemDegerlendirme getDonemDegerlendirme() {
-		return donemDegerlendirme;
-	}
-
-	public void setDonemDegerlendirme(DonemDegerlendirme donemDegerlendirme) {
-		this.donemDegerlendirme = donemDegerlendirme;
-	}
-
 	public int getOgrenciId() {
 		return ogrenciId;
 	}
@@ -1371,16 +1365,6 @@ public class DonemDegerlendirmeBean {
 		this.genelAmac17 = genelAmac17;
 	}
 
-
-
-	public DonemDegerlendirmeService getDonemDegerlendirmeService() {
-		return donemDegerlendirmeService;
-	}
-
-	public void setDonemDegerlendirmeService(DonemDegerlendirmeService donemDegerlendirmeService) {
-		this.donemDegerlendirmeService = donemDegerlendirmeService;
-	}
-
 	public OgrenciService getOgrenciService() {
 		return ogrenciService;
 	}
@@ -1413,12 +1397,21 @@ public class DonemDegerlendirmeBean {
 		this.ozelAmacIdMap = ozelAmacIdMap;
 	}
 
-	public double getDonemDegerlendirmeCevap() {
-		return donemDegerlendirmeCevap;
+	public YilSonuDegerlendirme getYilSonuDegerlendirme() {
+		return yilSonuDegerlendirme;
 	}
 
-	public void setDonemDegerlendirmeCevap(double donemDegerlendirmeCevap) {
-		this.donemDegerlendirmeCevap = donemDegerlendirmeCevap;
+	public void setYilSonuDegerlendirme(YilSonuDegerlendirme yilSonuDegerlendirme) {
+		this.yilSonuDegerlendirme = yilSonuDegerlendirme;
 	}
 
+	public double getYilSonuDegerlendirmeCevap() {
+		return yilSonuDegerlendirmeCevap;
+	}
+
+	public void setYilSonuDegerlendirmeCevap(double yilSonuDegerlendirmeCevap) {
+		this.yilSonuDegerlendirmeCevap = yilSonuDegerlendirmeCevap;
+	}
+
+	
 }
