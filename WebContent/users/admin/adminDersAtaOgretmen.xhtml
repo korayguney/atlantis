@@ -52,15 +52,15 @@
 
 		<div class="alert alert-info" align="center">
 			<h:form id="tableForm">
-				<p:dataTable id="dtable" value="#{dersAtaBean.ogretmeneAtananDersleriGetir()}"
+				<p:dataTable id="dtable" value="#{dersAtaBean.ogretmen}"
 					var="ogretmenDers">
 
 					<p:column headerText="Öğretmen adı">
-						<h:outputText value="#{dersAtaBean.ogretmenler.get(dersAtaBean.ogretmenId)}" />
+						<h:outputText value="#{ogretmenDers.ad}  #{ogretmenDers.soyad}" />
 					</p:column>
 
 					<p:column headerText="Ders adı">
-						<h:outputText value="#{dersAtaBean.dersler.get(dersAtaBean.dersId)}" />
+						<h:outputText value="#{ogretmenDers.dersler}" />
 					</p:column>
 				</p:dataTable>
 

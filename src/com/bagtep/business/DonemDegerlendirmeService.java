@@ -25,6 +25,7 @@ public class DonemDegerlendirmeService {
 	
 	DonemDegerlendirmeKazanimCevap ddcevap;
 	static int i = 0;
+	static double cevap = 0;
 
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -130,11 +131,25 @@ public class DonemDegerlendirmeService {
 	}
 
 	public int degerlendirmePuanHesapla(int ogrenciId, String dersAd) {
-//		
-//		kdcevap.isKabaDegerlendirmeCevap();
-//		return ogrenciId;
+		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
+		System.out.println("degerlendirmePuanHesapla SERVICE METOD DERS AD ::::::::::. " + ders.getDersAd());
+		DonemDegerlendirme dd = null;
+		try {
+			dd = (DonemDegerlendirme) entityManager.createQuery("select d from DonemDegerlendirme d where d.ogrenci.id=:ogrenciId and d.ders.id=:dersId").setParameter("ogrenciId", ogrenciId).setParameter("dersId", ders.getId()).getSingleResult();
+		} catch (Exception e) {
+			System.out.println("DEĞERLENDİRME YAPILMAMIŞ");
+		}
 		
-		return 0;
+		for (int i = 0; i <dd.getDonemDegerlendirmeKazanimCevap().size(); i++) {
+			cevap = cevap + dd.getDonemDegerlendirmeKazanimCevap().get(i).getDonemDegerlendirmeCevap();
+		}
+		
+		double sonuc = 60 + ((cevap/ders.getGenelAmaclar().size())*0.4); 
+		System.out.println("ders.getGenelAmaclar().size() " + ders.getGenelAmaclar().size());
+		System.out.println("EVET CEVAp :::::::::::::::." + cevap);
+		System.out.println("TOPLAM BAŞARI ::::::::::::::::::  " + sonuc);
+		cevap = 0;
+		return (int) sonuc;
 	}
 
 	public DonemDegerlendirme donemDegerlendirmeGetir(int ogrenciId, int dersId) {
@@ -142,6 +157,32 @@ public class DonemDegerlendirmeService {
 		DonemDegerlendirme dd = (DonemDegerlendirme) entityManager.createQuery("select d from DonemDegerlendirme d where d.ogrenci.id=:ogrenciId and d.ders.id=:dersId").setParameter("ogrenciId", ogrenciId).setParameter("dersId", dersId).getSingleResult();
 		return dd;
 	}
+
+	public DonemDegerlendirmeKazanimCevap getDdcevap() {
+		return ddcevap;
+	}
+
+	public void setDdcevap(DonemDegerlendirmeKazanimCevap ddcevap) {
+		this.ddcevap = ddcevap;
+	}
+
+	public static int getI() {
+		return i;
+	}
+
+	public static void setI(int i) {
+		DonemDegerlendirmeService.i = i;
+	}
+
+	public static double getCevap() {
+		return cevap;
+	}
+
+	public static void setCevap(double cevap) {
+		DonemDegerlendirmeService.cevap = cevap;
+	}
+	
+	
 	
 	
 

@@ -26,7 +26,8 @@ public class DersAtaBean {
 	private List<Ogrenci> ogrenciler;
 	private List<Ders> dersler;
 	private List<Sinif> siniflar;
-	private Map<Ogretmen, Ders> ogretmenDers = new LinkedHashMap<>();
+//	private Map<Ogretmen, Ders> ogretmenDers = new LinkedHashMap<>();
+	private Ogretmen ogretmen;
 	
 	private int ogretmenId;
 	private int ogrenciId;
@@ -48,27 +49,30 @@ public class DersAtaBean {
 
 	@PostConstruct
 	public void init() {
+		System.out.println("DERS ID ::::::XxX::::::" + dersId);
+		System.out.println("OGRETMEN ID ::::::XxX::::::" + ogretmenId);
 		this.ogretmenler = ogretmenService.tumOgretmenleriGetir();
 		this.dersler = dersService.getAllDers();
 		this.ogrenciler = ogrenciService.getAllOgrenci();
 		this.siniflar = sinifService.getAllSinif();
+//		this.ogretmen = ogretmenService.ogretmeneAtananDersleriGetir(ogretmenId,dersId);
 
 	}
 
 	public void ekle() {
-		ogretmenService.ogretmeneDersAta(ogretmenId, dersId);
+		this.ogretmen = ogretmenService.ogretmeneDersAta(ogretmenId, dersId);
+		System.out.println("EKLE METODUNDAKİ ÖĞRETMEN : " + ogretmen.getAd());
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bilgilendirme"));
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Ders Başarıyla Atandı!"));
-
+		
 	}
 	
 	public void ogretmeneAtananDersleriGetir() {
-		this.ogretmenDers = ogretmenService.ogretmeneAtananDersleriGetir(ogretmenId,dersId);
-
+		this.ogretmen = ogretmenService.ogretmeneAtananDersleriGetir(ogretmenId,dersId);
+		
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bilgilendirme"));
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ogretmeneAtananDersleriGetir! "+ogretmenDers.isEmpty()));
-		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ogretmeneAtananDersleriGetir! "+ogretmenDers.size()));
-
+		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("ogretmeneAtananDersleriGetir! "+ogretmen.getAd()));
+		
 	}
 	
 	public void dersAtaSinif() {
@@ -157,12 +161,13 @@ public class DersAtaBean {
 		this.sinifId = sinifId;
 	}
 
-	public Map<Ogretmen, Ders> getOgretmenDers() {
-		return ogretmenDers;
+	
+	public Ogretmen getOgretmen() {
+		return ogretmen;
 	}
 
-	public void setOgretmenDers(Map<Ogretmen, Ders> ogretmenDers) {
-		this.ogretmenDers = ogretmenDers;
+	public void setOgretmen(Ogretmen ogretmen) {
+		this.ogretmen = ogretmen;
 	}
 
 	public String getOgretmenAd() {

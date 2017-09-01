@@ -1,6 +1,7 @@
 package com.bagtep.domain;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -90,7 +91,11 @@ public class DonemDegerlendirme implements Serializable{
 
 	@Override
 	public String toString() {
-		return "KabaDegerlendirme [id=" + id + "]";
+		Date ddtarihi = getDegerlendirmeTarihi();
+		SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+		String date = DATE_FORMAT.format(ddtarihi);
+
+		return "Dönem Değerlendirme "+ date;
 	}
 	
 	

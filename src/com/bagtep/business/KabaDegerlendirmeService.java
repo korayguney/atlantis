@@ -4,6 +4,8 @@ package com.bagtep.business;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -25,6 +27,7 @@ public class KabaDegerlendirmeService {
 	
 	KabaDegerlendirmeKazanimCevap kdcevap;
 	static int i = 0;
+	static int evetCevap = 0;
 	
 	@PersistenceContext
 	private EntityManager entityManager;
@@ -103,11 +106,30 @@ public class KabaDegerlendirmeService {
 	}
 
 	public int degerlendirmePuanHesapla(int ogrenciId, String dersAd) {
-//		
-//		kdcevap.isKabaDegerlendirmeCevap();
-//		return ogrenciId;
+		Ders ders =  entityManager.createQuery("select d from Ders d where d.dersAd=:dersAd",Ders.class).setParameter("dersAd", dersAd).getSingleResult();	
+		System.out.println("degerlendirmePuanHesapla SERVICE METOD DERS AD ::::::::::. " + ders.getDersAd());
+		KabaDegerlendirme kd = null;
+		try {
+			kd = (KabaDegerlendirme) entityManager.createQuery("select k from KabaDegerlendirme k where k.ogrenci.id=:ogrenciId and k.ders.id=:dersId").setParameter("ogrenciId", ogrenciId).setParameter("dersId", ders.getId()).getSingleResult();
+		} catch (Exception e) {
+			System.out.println("DEĞERLENDİRME YAPILMAMIŞ");
+		}
 		
-		return 0;
+		double toplamCevap = kd.getKabaDegerlendirmeKazanimCevap().size();
+
+		for (int i = 0; i <kd.getKabaDegerlendirmeKazanimCevap().size(); i++) {
+			if(kd.getKabaDegerlendirmeKazanimCevap().get(i).isKabaDegerlendirmeCevap()){
+				evetCevap++;
+			}
+		}
+		
+		
+		double sonuc = (evetCevap*100) / toplamCevap; 
+		System.out.println("EVET CEVAp :::::::::::::::." + evetCevap);
+		System.out.println("TOPLAM CEVAp ::::::::::::::: " + toplamCevap);
+		System.out.println("TOPLAM BAŞARI ::::::::::::::::::  " + sonuc);
+		evetCevap = 0;
+		return (int) sonuc;
 	}
 
 
@@ -115,6 +137,9 @@ public class KabaDegerlendirmeService {
 
 	public KabaDegerlendirme kabaDegerlendirmeGetir(int ogrenciId, int dersId) {
 		System.out.println("SERVICE : kabaDegerlendirmeGetir service e GİRDİ !" );
+		System.out.println("SERVICE : kabaDegerlendirmeGetir service ogrenciID :" + ogrenciId);
+		System.out.println("SERVICE : kabaDegerlendirmeGetir service dersId :" + dersId);
+
 //		Query query = entityManager.createNativeQuery("select * from KabaDegerlendirme where ogrenci_id=? and ders_id=?");
 //		query.setParameter(1, ogrenciId);
 //		query.setParameter(2, dersId);
@@ -144,4 +169,30 @@ public class KabaDegerlendirmeService {
 		return yorumlar;	
 	}
 
+	public KabaDegerlendirmeKazanimCevap getKdcevap() {
+		return kdcevap;
+	}
+
+	public void setKdcevap(KabaDegerlendirmeKazanimCevap kdcevap) {
+		this.kdcevap = kdcevap;
+	}
+
+	public static int getI() {
+		return i;
+	}
+
+	public static void setI(int i) {
+		KabaDegerlendirmeService.i = i;
+	}
+
+	public static int getEvetCevap() {
+		return evetCevap;
+	}
+
+	public static void setEvetCevap(int evetCevap) {
+		KabaDegerlendirmeService.evetCevap = evetCevap;
+	}
+
+	
+	
 }

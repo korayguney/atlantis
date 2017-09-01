@@ -10,22 +10,23 @@
 
 		<div class="alert alert-info" align="center">
 			<h4>Öğrenci Gelişim Görüntüleme Sayfası</h4>
+			
 			<div class="alert alert-success" align="center">
-				<table align="center" ><tr>
-						<td><i class="fa fa-child fa-fw" /><b>&nbsp;&nbsp;	Öğrenci : &nbsp;&nbsp;&nbsp;</b></td><td>
-					<h:outputText value="#{kabaDegerlendirmeBean.ogrenciAd} #{kabaDegerlendirmeBean.ogrenciSoyad}" /></td><td> &nbsp;&nbsp;&nbsp;</td>
-					</tr><tr><td> `&nbsp;&nbsp;&nbsp;</td><td> &nbsp;&nbsp;&nbsp;</td><td> &nbsp;&nbsp;&nbsp;</td></tr><tr><td><i class="fa fa-book fa-fw" /><b>&nbsp;&nbsp; Ders : &nbsp;&nbsp;&nbsp;</b></td><td>
-					<p:selectOneMenu id="ders" value="#{ogrenciSecBean.ders}" style="width:200px">
-		            	<f:selectItem itemLabel="Ders seçiniz" itemValue="" noSelectionOption="true" />
-		                <f:selectItems value="#{ogrenciSecBean.tumdersler}" />
-		            </p:selectOneMenu>	&nbsp;&nbsp;&nbsp; </td><td> <p:commandButton  value="Görüntüle" /></td></tr>
-			</table></div>
+				<h5>
+					<i class="fa fa-child fa-fw" /><b>Öğrenci : </b>
+					<h:outputText
+						value="#{gelisimGoruntuleBean.ogrenciAd} #{gelisimGoruntuleBean.ogrenciSoyad}" />
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<i class="fa fa-book fa-fw" /><b> Ders : </b>
+					<h:outputText value="#{gelisimGoruntuleBean.dersAd}" />&nbsp;&nbsp;&nbsp;&nbsp; 
+					<button class="alert alert-info" align="center" href="#{request.contextPath}/users/admin/adminkabadegerlendirmegelisimgoruntuleogrencisec.xhtml">Ders değiştir</button>
+				</h5>
+			</div>
 		</div>
 
 		<div class="alert alert-warning" align="center">
-			<h4><b>TO-DO</b> Burada seçilen öğrencinin bu ekranda seçilecek derse göre değerlendirmesi görüntülenecek.</h4>
-			<p:chart type="line" model="#{chartView.lineModel1}" style="height:300px;"/>
-			
+			<p:chart type="line" model="#{gelisimGoruntuleBean.lineModel1}" style="height:300px;"/>
+			<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />			
 		</div>
 	</ui:define>
 </ui:composition>

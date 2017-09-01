@@ -14,6 +14,9 @@ import com.bagtep.domain.Ogretmen;
 @Stateless
 public class OgretmenService {
 	
+	Ogretmen ogretmen;
+	Ders ders;
+	
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -21,14 +24,16 @@ public class OgretmenService {
 		return entityManager.createQuery("select o from Ogretmen o", Ogretmen.class).getResultList();
 	}
 
-	public void ogretmeneDersAta(int ogretmenId, int dersId) {
-		Ogretmen ogretmen = entityManager.find(Ogretmen.class, ogretmenId);
-		Ders ders = entityManager.find(Ders.class, dersId);
+	public Ogretmen ogretmeneDersAta(int ogretmenId, int dersId) {
+		ogretmen = entityManager.find(Ogretmen.class, ogretmenId);
+		ders = entityManager.find(Ders.class, dersId);
 		
 		ogretmen.getDersler().add(ders);
 		
 		entityManager.merge(ogretmen);
-		entityManager.merge(ders);		
+		entityManager.merge(ders);	
+		
+		return ogretmen;
 	}
 
 
@@ -44,27 +49,17 @@ public class OgretmenService {
 		entityManager.persist(ogretmen);
 	}
 
-	public Map<Ogretmen, Ders> ogretmeneAtananDersleriGetir(int ogretmenId, int dersId) {
+	public Ogretmen ogretmeneAtananDersleriGetir(int ogretmenId, int dersId) {
 		// FIXME Burada öğretmene atanan dersleri almam gerek
-		Map<Ogretmen, Ders> ogretmenDers = new LinkedHashMap<>();
-		
+
 		Ogretmen ogretmen = entityManager.find(Ogretmen.class, ogretmenId);
+		System.out.println("Atama yapılan öğretmen adı ::::::::: " + ogretmen.getAd());
+		System.out.println("Atama yapılan ders ::::::::: " +ogretmen.getDersler().iterator().next().getDersAd());
 		Ders ders = entityManager.find(Ders.class, dersId); 
 		
 		System.out.println("SUPER METODDAYIZZZZZZZZZZ");
-//		String query = "select dersler_id from ogretmen_ders where ogretmenler_id=?";
-		ogretmenDers.put(ogretmen, ders);
-		System.out.println("Boş mu dolumu" + ogretmenDers.isEmpty());
-//			
-//		List<Integer> derslerID =  entityManager.createQuery("SELECT od.dersler_id FROM ogretmen_ders od WHERE od.ogretmenler_id =:ogretmenId").setParameter("ogretmenId", ogretmenId).getResultList();
-//		List<Ders> dersler = entityManager.createQuery("SELECT d FROM Ders d WHERE d.id =:derslerID").setParameter("derslerID", derslerID).getResultList();
-//		
-//		
-//		for (Ders ders : dersler) {
-//			ogretmenDers.put(ogretmen, ders);
-//		}
-//		
-		return ogretmenDers;
+
+		return ogretmen;
 	}
 
 

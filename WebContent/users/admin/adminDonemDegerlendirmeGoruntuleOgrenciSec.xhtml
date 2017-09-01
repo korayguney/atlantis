@@ -24,7 +24,6 @@
 		 
 				    <p:outputLabel for="sinif" value="Sınıf:  &nbsp;" />
 		            <p:selectOneMenu id="sinif" value="#{ogrenciSecBean.sinif}" style="width:200px">
-		                <p:ajax listener="#{ogrenciSecBean.sinifDegistiginde()}" update="sinif" />
 		                <f:selectItem itemLabel="Sınıf seçiniz" itemValue="" noSelectionOption="true" />
 		                <f:selectItems value="#{ogrenciSecBean.tumsiniflar}" />
 		            </p:selectOneMenu>
