@@ -90,7 +90,7 @@ public class YilSonuDegerlendirmeBean {
 		if(dersAd.equals("Matematik")){
 		this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -103,7 +103,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -115,7 +115,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -127,7 +127,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -140,7 +140,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -152,7 +152,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -165,7 +165,7 @@ public class YilSonuDegerlendirmeBean {
 		}else if(dersAd.equals("Dil ve Konuşma Gelişimi")){
 		this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -178,7 +178,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -190,7 +190,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -202,7 +202,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -214,7 +214,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -227,7 +227,7 @@ public class YilSonuDegerlendirmeBean {
 		
 		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -239,7 +239,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac7 = testDataService2.getGenelAmac(dersId, 7);
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
@@ -253,7 +253,7 @@ public class YilSonuDegerlendirmeBean {
 		}else if(dersAd.equals("Din Kültürü ve Ahlak Bilgisi")){
 			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -266,7 +266,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -279,7 +279,7 @@ public class YilSonuDegerlendirmeBean {
 		
 		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -291,7 +291,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -304,7 +304,7 @@ public class YilSonuDegerlendirmeBean {
 		}else if(dersAd.equals("Hayat Bilgisi")){
 			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -316,7 +316,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -328,7 +328,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -340,7 +340,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -353,7 +353,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -366,7 +366,7 @@ public class YilSonuDegerlendirmeBean {
 		
 		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -378,7 +378,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac7 = testDataService2.getGenelAmac(dersId, 7);
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
@@ -390,7 +390,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac8 = testDataService2.getGenelAmac(dersId, 8);
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
@@ -403,7 +403,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac9 = testDataService2.getGenelAmac(dersId, 9);
 			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
@@ -416,7 +416,7 @@ public class YilSonuDegerlendirmeBean {
 		
 		this.genelAmac10 = testDataService2.getGenelAmac(dersId, 10);
 			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
@@ -428,7 +428,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac11 = testDataService2.getGenelAmac(dersId, 11);
 			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
@@ -441,7 +441,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac12 = testDataService2.getGenelAmac(dersId, 12);
 			for (OzelAmac o : this.genelAmac12.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac12.getOzelAmaclar()) {
@@ -453,7 +453,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac13 = testDataService2.getGenelAmac(dersId, 13);
 			for (OzelAmac o : this.genelAmac13.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac13.getOzelAmaclar()) {
@@ -465,7 +465,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac14 = testDataService2.getGenelAmac(dersId, 14);
 			for (OzelAmac o : this.genelAmac14.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac14.getOzelAmaclar()) {
@@ -477,7 +477,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac15 = testDataService2.getGenelAmac(dersId, 15);
 			for (OzelAmac o : this.genelAmac15.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac15.getOzelAmaclar()) {
@@ -489,7 +489,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac16 = testDataService2.getGenelAmac(dersId, 16);
 			for (OzelAmac o : this.genelAmac16.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac16.getOzelAmaclar()) {
@@ -501,7 +501,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac17 = testDataService2.getGenelAmac(dersId, 17);
 			for (OzelAmac o : this.genelAmac17.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac17.getOzelAmaclar()) {
@@ -515,7 +515,7 @@ public class YilSonuDegerlendirmeBean {
 		}else if(dersAd.equals("Müzik")){
 			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -528,7 +528,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -541,7 +541,7 @@ public class YilSonuDegerlendirmeBean {
 		
 		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -553,7 +553,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -566,7 +566,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -578,7 +578,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -590,7 +590,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac7 = testDataService2.getGenelAmac(dersId, 7);
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
@@ -602,7 +602,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac8 = testDataService2.getGenelAmac(dersId, 8);
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
@@ -614,7 +614,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac9 = testDataService2.getGenelAmac(dersId, 9);
 			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac9.getOzelAmaclar()) {
@@ -626,7 +626,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac10 = testDataService2.getGenelAmac(dersId, 10);
 			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac10.getOzelAmaclar()) {
@@ -638,7 +638,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac11 = testDataService2.getGenelAmac(dersId, 11);
 			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac11.getOzelAmaclar()) {
@@ -651,7 +651,7 @@ public class YilSonuDegerlendirmeBean {
 		}else if(dersAd.equals("Beslenme Bilgisi")){
 		this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -663,7 +663,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -675,7 +675,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -687,7 +687,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -699,7 +699,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -712,7 +712,7 @@ public class YilSonuDegerlendirmeBean {
 		}else if(dersAd.equals("Görsel Sanatlar")){
 			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -725,7 +725,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -737,7 +737,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -749,7 +749,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -762,7 +762,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -775,7 +775,7 @@ public class YilSonuDegerlendirmeBean {
 		
 		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -787,7 +787,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac7 = testDataService2.getGenelAmac(dersId, 7);
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
@@ -799,7 +799,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac8 = testDataService2.getGenelAmac(dersId, 8);
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
@@ -813,7 +813,7 @@ public class YilSonuDegerlendirmeBean {
 		}else if(dersAd.equals("Okuma Yazma")){
 			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -825,7 +825,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -837,7 +837,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -849,7 +849,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -862,7 +862,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -874,7 +874,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -887,7 +887,7 @@ public class YilSonuDegerlendirmeBean {
 		}else if(dersAd.equals("Trafik ve İlk Yardım Eğitimi")){
 			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -900,7 +900,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -912,7 +912,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -924,7 +924,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -936,7 +936,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -949,7 +949,7 @@ public class YilSonuDegerlendirmeBean {
 		
 		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -962,7 +962,7 @@ public class YilSonuDegerlendirmeBean {
 		}else if(dersAd.equals("Beden Eğitimi")){
 			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -975,7 +975,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -988,7 +988,7 @@ public class YilSonuDegerlendirmeBean {
 		
 		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -1000,7 +1000,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -1013,7 +1013,7 @@ public class YilSonuDegerlendirmeBean {
 
 		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -1025,7 +1025,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
@@ -1037,7 +1037,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac7 = testDataService2.getGenelAmac(dersId, 7);
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac7.getOzelAmaclar()) {
@@ -1049,7 +1049,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac8 = testDataService2.getGenelAmac(dersId, 8);
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac8.getOzelAmaclar()) {
@@ -1062,7 +1062,7 @@ public class YilSonuDegerlendirmeBean {
 		}else if(dersAd.equals("Toplumsal Uyum Becerileri")){
 			this.genelAmac = testDataService2.getGenelAmac(dersId, 1);
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac.getOzelAmaclar()) {
@@ -1074,7 +1074,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac2 = testDataService2.getGenelAmac(dersId, 2);
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac2.getOzelAmaclar()) {
@@ -1086,7 +1086,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac3 = testDataService2.getGenelAmac(dersId, 3);
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac3.getOzelAmaclar()) {
@@ -1098,7 +1098,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac4 = testDataService2.getGenelAmac(dersId, 4);
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac4.getOzelAmaclar()) {
@@ -1110,7 +1110,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac5 = testDataService2.getGenelAmac(dersId, 5);
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac5.getOzelAmaclar()) {
@@ -1122,7 +1122,7 @@ public class YilSonuDegerlendirmeBean {
 			}
 		this.genelAmac6 = testDataService2.getGenelAmac(dersId, 6);
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {
-				this.ozelAmaclarMap.put(o.getId(), 0.0);
+				this.ozelAmaclarMap.put(o.getId(), 0.6);
 			}
 			
 			for (OzelAmac o : this.genelAmac6.getOzelAmaclar()) {

@@ -57,7 +57,9 @@ public class DonemDegerlendirmeService {
 		
 		for (Integer key : ozelAmaclarMap.keySet()) {
 			ddcevap = new DonemDegerlendirmeKazanimCevap();
-			ddcevap.setDonemDegerlendirmeCevap(Double.parseDouble(""+ozelAmaclarMap.get(key)));
+			double puan = Double.parseDouble(""+ozelAmaclarMap.get(key))* Double.parseDouble(""+ozelAmacIdMap.get(key).getDegerlendirmePuani());
+	
+			ddcevap.setDonemDegerlendirmeCevap(puan);
 			ddcevap.setYorum(""+yorum.get(key));
 			ddcevap.setDonemDegerlendirme(dd);
 			ddcevap.setOzelAmac(ozelAmacIdMap.get(key));

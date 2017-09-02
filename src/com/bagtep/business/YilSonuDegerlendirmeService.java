@@ -59,7 +59,9 @@ public class YilSonuDegerlendirmeService {
 		
 		for (Integer key : ozelAmaclarMap.keySet()) {
 			ysdcevap = new YilSonuDegerlendirmeKazanimCevap();
-			ysdcevap.setYilSonuDegerlendirmeCevap(Double.parseDouble(""+ozelAmaclarMap.get(key)));
+			double puan = Double.parseDouble(""+ozelAmaclarMap.get(key))* Double.parseDouble(""+ozelAmacIdMap.get(key).getDegerlendirmePuani());
+			
+			ysdcevap.setYilSonuDegerlendirmeCevap(puan);
 			ysdcevap.setYorum(""+yorum.get(key));
 			ysdcevap.setYilSonuDegerlendirme(ysd);
 			ysdcevap.setOzelAmac(ozelAmacIdMap.get(key));
@@ -67,6 +69,9 @@ public class YilSonuDegerlendirmeService {
 			entityManager.persist(ysdcevap);
 		}		
 	
+			/*
+			 * Yılsonu değerlendirmesi yapılan öğrencinin sınıfı otomatik olarak 1 sınıf atlar...
+			 */
 			String sinifAd = ogrenci.getSinif().getSinifAd();
 			int sinifAd1 = Integer.valueOf(sinifAd.substring(0, 1));
 			String sinifAd2 = sinifAd.substring(1);
